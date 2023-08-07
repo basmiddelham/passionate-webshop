@@ -2,9 +2,9 @@
 $headerheight: 56px;
 $headerheight-mobile: 56px;
 
-// // Options
-// $enable-rounded: true;
-// $enable-shadows: true;
+// Options
+$enable-rounded: false;
+$enable-shadows: true;
 // $enable-gradients: false;
 // $enable-validation-icons: false;
 // $enable-dark-mode: false;
@@ -21,7 +21,7 @@ $headerheight-mobile: 56px;
 // $focus-ring-box-shadow: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color;
 
 // Spacing
-$spacer: 1rem;
+$spacer: 1.5rem;
 $spacers: (
   0: 0,
   1: $spacer * .25,

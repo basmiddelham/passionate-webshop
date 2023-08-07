@@ -203,7 +203,7 @@ if ( class_exists( 'GFCommon' ) ) {
 
 // Load WooCommerce.
 if ( class_exists( 'woocommerce' ) ) {
-	require get_template_directory() . '/inc/woocommerce.php';
+	require get_template_directory() . '/inc/woocommerce/woocommerce.php';
 }
 
 /**

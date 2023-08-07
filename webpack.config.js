@@ -50,7 +50,7 @@ module.exports = (env) => {
       new BrowserSyncPlugin({
         host: "localhost",
         port: 3000,
-        proxy: "http://http://webshop-passionate.local/",
+        proxy: "http://webshop-passionate.local/",
         files: "**/**/**.php",
       })
     );
