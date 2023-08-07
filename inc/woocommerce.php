@@ -188,24 +188,6 @@ if ( ! function_exists( 'strt_woocommerce_header_cart' ) ) {
 }
 
 /**
- * Add message to WooCommerce email if shipping method is local pickup.
- */
-// function add_order_email_instructions( $order, $sent_to_admin ) {
-// 	$shipping_method = @array_shift( $order->get_shipping_methods() );
-// 	$shipping_method_id = $shipping_method['method_id'];
-// 	if ( ! $sent_to_admin ) {
-// 		if ( 'local_pickup' == $shipping_method_id ) {
-// 			// local pickup option
-// 			echo '<p><strong>Afhalen:</strong> Neem contact op per <a href="mailto:info@iksieraden.nl">e-mail</a> voor een afspraak.</p>';
-// 		} else {
-// 			// other methods
-// 			echo '';
-// 		}
-// 	}
-// }
-// add_action( 'woocommerce_email_before_order_table', 'add_order_email_instructions', 10, 2 );
-
-/**
  * Custom Woocommerce product search.
  *
  * @param string $form The search form markup.
@@ -249,11 +231,9 @@ add_filter(
 );
 
 function strt_wc_sidebar_conditional( $array ) {
-
 	// Hide sidebar on product pages by returning false
 	if ( is_product() || is_cart() || is_checkout() || is_account_page() )
 		return false;
-
 	// Otherwise, return the original array parameter to keep the sidebar
 	return $array;
 }
@@ -302,25 +282,32 @@ function strt_default_address_fields( $fields ) {
 
 	return $fields;
 }
-add_filter('woocommerce_default_address_fields', 'strt_default_address_fields', 20);
+add_filter( 'woocommerce_default_address_fields', 'strt_default_address_fields', 20 );
 
 /**
  * Disable Select2 style and script.
  */
-function passionate_dequeue_stylesandscripts() {
+function strt_dequeue_stylesandscripts() {
 	if ( class_exists( 'woocommerce' ) ) {
 		wp_dequeue_style( 'select2' );
 		wp_deregister_style( 'select2' );
-		wp_dequeue_script( 'selectWoo');
-		wp_deregister_script('selectWoo');
+		wp_dequeue_script( 'selectWoo' );
+		wp_deregister_script( 'selectWoo' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'passionate_dequeue_stylesandscripts', 100 );
+add_action( 'wp_enqueue_scripts', 'strt_dequeue_stylesandscripts', 100 );
 
 /**
- * Change add to cart text on product archives page.
+ * Custom text for 'Add to cart' button
+ *
+ * @param string $text Buton text.
+ *
+ * @return string String for add to cart text.
  */
-function strt_add_to_cart_button_text_archives() {
-	return __( 'In winkelwagen', 'strt' );
+function strt_add_to_cart_text( $text ) {
+	if ( 'Toevoegen aan winkelwagen' === $text ) {
+		return 'In winkelwagen';
+	}
+	return $text;
 }
-add_filter( 'woocommerce_product_add_to_cart_text', 'strt_add_to_cart_button_text_archives' );
+add_filter( 'woocommerce_product_add_to_cart_text', 'strt_add_to_cart_text', 10, 2 );

@@ -7,6 +7,9 @@
  * @package Starter
  */
 
+
+// define('ALLOW_UNFILTERED_UPLOADS', true);
+
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  */
@@ -194,7 +197,14 @@ require get_template_directory() . '/flexbuilder/flexbuilder-functions.php';
 require get_template_directory() . '/flexbuilder/fields/flexbuilder.php';
 
 // Load Gravity Forms hooks.
-require get_template_directory() . '/inc/gravityforms.php';
+if ( class_exists( 'GFCommon' ) ) {
+	require get_template_directory() . '/inc/gravityforms.php';
+}
+
+// Load WooCommerce.
+if ( class_exists( 'woocommerce' ) ) {
+	require get_template_directory() . '/inc/woocommerce.php';
+}
 
 /**
  * Custom login logo.
@@ -309,3 +319,9 @@ function strt_submit_button_form( $button ) {
 }
 add_filter( 'gform_submit_button_3', 'strt_submit_button_form', 10, 2 );
 add_filter( 'gform_submit_button_4', 'strt_submit_button_form', 10, 2 );
+
+// Move Yoast to bottom.
+function strt_move_yoast() {
+	return 'low';
+}
+add_filter( 'wpseo_metabox_prio', 'strt_move_yoast' );
