@@ -1,0 +1,42 @@
+/* --------------------------------------------------------------
+# ACF Layout handles
+-------------------------------------------------------------- */
+[data-name="section"] {
+  .layout {
+    .acf-fc-layout-handle {
+      padding: 3px !important;
+      background-color: $color0;
+      border: none !important;
+
+      .acfe-flexible-control-title,
+      .acfe-layout-title {
+        color: white !important;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+    }
+
+    .layout {
+      .acf-fc-layout-handle {
+        background-color: $color1;
+      }
+
+      .layout {
+        .acf-fc-layout-handle {
+          background-color: $highlight;
+        }
+
+        .layout {
+          .acf-fc-layout-handle {
+            background-color: $color0;
+          }
+        }
+      }
+    }
+
+    .acf-fc-layout-controls {
+      top: 4px !important;
+      right: 4px !important;
+    }
+  }
+}

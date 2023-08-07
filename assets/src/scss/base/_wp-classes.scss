@@ -1,0 +1,79 @@
+/**
+ * WordPress Generated Classes
+ * @see http://codex.wordpress.org/CSS#WordPress_Generated_Classes
+ */
+// Media alignment
+.aligncenter {
+  display: block;
+  margin: ($spacer * 0.5) auto;
+}
+
+.alignleft,
+.alignright {
+  display: block;
+  margin-bottom: ($spacer * 0.5);
+}
+
+@include media-breakpoint-up(sm) {
+  .alignleft {
+    float: left;
+    margin-right: ($spacer * 0.5);
+  }
+
+  .alignright {
+    float: right;
+    margin-left: ($spacer * 0.5);
+  }
+}
+
+// Captions
+.wp-caption {
+  @extend .figure;
+}
+
+.wp-caption img {
+  @extend .figure-img;
+  @extend .img-fluid;
+}
+
+.wp-caption-text {
+  @extend .figure-caption;
+}
+
+// Text meant only for screen readers
+.screen-reader-text {
+  @extend .visually-hidden;
+  @extend .visually-hidden-focusable;
+}
+
+// Page links
+.page-links {
+  clear: both;
+}
+
+// Pagination
+.pagination {
+  justify-content: center;
+
+  ul.page-numbers {
+    @extend .pagination;
+
+    li {
+      @extend .page-item;
+
+      .page-numbers {
+        @extend .page-link;
+
+        &.current {
+          @extend .active;
+        }
+      }
+    }
+  }
+}
+
+.post-edit-link {
+  @extend .badge;
+  @extend .bg-secondary;
+  @extend .text-decoration-none;
+}

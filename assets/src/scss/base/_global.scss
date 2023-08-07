@@ -1,0 +1,73 @@
+@use "sass:color";
+
+html {
+  scroll-padding-top: $headerheight;
+}
+
+// Text Selection Color
+::selection {
+  background: color.mix($secondary, white, 40%);
+}
+
+/*
+Responsive embeds.
+*/
+embed,
+iframe,
+object,
+video {
+  max-width: 100%;
+}
+
+/*
+Skip to content link for screen readers.
+*/
+.skip-link {
+  @extend .visually-hidden-focusable;
+
+  position: absolute;
+
+  &:focus {
+    background-color: $white;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px #0009;
+    color: $black;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+  }
+}
+
+ul.menu.social {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+
+  li {
+    margin: 0 0.25rem;
+  }
+}
+
+// Style user-switching text
+/* stylelint-disable-next-line selector-id-pattern */
+#user_switching_switch_on {
+  bottom: 10px !important;
+  left: auto !important;
+  right: 10px;
+
+  a {
+    @extend .btn;
+    @extend .btn-secondary;
+    @extend .btn-sm;
+  }
+}

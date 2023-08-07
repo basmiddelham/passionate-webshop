@@ -1,0 +1,60 @@
+/* --------------------------------------------------------------
+# ACF Tabs Left
+-------------------------------------------------------------- */
+/* stylelint-disable selector-class-pattern */
+
+[data-name="section"] {
+  .acf-fields {
+    &.-sidebar {
+      padding-left: 44px !important;
+
+      &::before {
+        background-color: $color2;
+        border: none;
+        width: 44px;
+      }
+    }
+
+    .acf-tab-wrap.-left {
+      ul.acf-tab-group {
+        width: 44px;
+
+        li {
+          .acf-tab-button {
+            font-size: 0 !important;
+            line-height: 0 !important;
+            background-color: $color2;
+            border: none;
+
+            &:hover {
+              background: $color4;
+            }
+
+            &::before {
+              color: $color0;
+              font-family: dashicons, sans-serif;
+              font-size: 24px;
+              line-height: 20px;
+            }
+          }
+
+          &.active .acf-tab-button {
+            background-color: $color3;
+          }
+
+          &:nth-child(1) .acf-tab-button::before {
+            content: "\f464";
+          }
+
+          &:nth-child(2) .acf-tab-button::before {
+            content: "\f111";
+          }
+
+          &:nth-child(3) .acf-tab-button::before {
+            content: "\f108";
+          }
+        }
+      }
+    }
+  }
+}

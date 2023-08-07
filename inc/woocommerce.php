@@ -1,0 +1,326 @@
+<?php
+/**
+ * WooCommerce Compatibility File
+ *
+ * @link https://woocommerce.com/
+ *
+ * @package strt
+ */
+
+/**
+ * WooCommerce setup function.
+ *
+ * @link https://docs.woocommerce.com/document/third-party-custom-theme-compatibility/
+ * @link https://github.com/woocommerce/woocommerce/wiki/Enabling-product-gallery-features-(zoom,-swipe,-lightbox)
+ * @link https://github.com/woocommerce/woocommerce/wiki/Declaring-WooCommerce-support-in-themes
+ *
+ * @return void
+ */
+function strt_woocommerce_setup() {
+	add_theme_support(
+		'woocommerce',
+		array(
+			'thumbnail_image_width' => 300,
+			'single_image_width'    => 450,
+
+			'product_grid'          => array(
+				'default_columns' => 4,
+				'min_columns'     => 4,
+				'max_columns'     => 4,
+			),
+		)
+	);
+	add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
+}
+add_action( 'after_setup_theme', 'strt_woocommerce_setup' );
+
+/**
+ * Disable the default WooCommerce stylesheet.
+ *
+ * Removing the default WooCommerce stylesheet and enqueing your own will
+ * protect you during WooCommerce core updates.
+ *
+ * @link https://docs.woocommerce.com/document/disable-the-default-stylesheet/
+ */
+add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+
+/**
+ * Related Products Args.
+ *
+ * @param array $args related products args.
+ * @return array $args related products args.
+ */
+function strt_woocommerce_related_products_args( $args ) {
+	$defaults = array(
+		'posts_per_page' => 4,
+		'columns'        => 4,
+	);
+
+	$args = wp_parse_args( $defaults, $args );
+
+	return $args;
+}
+add_filter( 'woocommerce_output_related_products_args', 'strt_woocommerce_related_products_args' );
+
+/**
+ * Remove default WooCommerce wrapper.
+ */
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
+
+if ( ! function_exists( 'strt_woocommerce_wrapper_before' ) ) {
+	/**
+	 * Before Content.
+	 *
+	 * Wraps all WooCommerce content in wrappers which match the theme markup.
+	 *
+	 * @return void
+	 */
+	function strt_woocommerce_wrapper_before() {
+		?>
+			<div class="container">
+				<div class="row justify-content-center">
+					<main id="primary" class="col-xxl-9">
+		<?php
+	}
+}
+add_action( 'woocommerce_before_main_content', 'strt_woocommerce_wrapper_before' );
+
+if ( ! function_exists( 'strt_woocommerce_wrapper_after' ) ) {
+	/**
+	 * After Content.
+	 *
+	 * Closes the wrapping divs.
+	 *
+	 * @return void
+	 */
+	function strt_woocommerce_wrapper_after() {
+		?>
+					</main>
+					<?php get_sidebar(); ?>
+				</div>
+			</div>
+		<?php
+	}
+}
+add_action( 'woocommerce_after_main_content', 'strt_woocommerce_wrapper_after' );
+
+/**
+ * Sample implementation of the WooCommerce Mini Cart.
+ *
+ * You can add the WooCommerce Mini Cart to header.php like so ...
+ *
+	<?php
+		if ( function_exists( 'strt_woocommerce_header_cart' ) ) {
+			strt_woocommerce_header_cart();
+		}
+	?>
+ */
+
+ if ( ! function_exists( 'strt_woocommerce_cart_link_fragment' ) ) {
+	/**
+	 * Cart Fragments.
+	 *
+	 * Ensure cart contents update when products are added to the cart via AJAX.
+	 *
+	 * @param array $fragments Fragments to refresh via AJAX.
+	 * @return array Fragments to refresh via AJAX.
+	 */
+	function strt_woocommerce_cart_link_fragment( $fragments ) {
+		ob_start();
+		strt_woocommerce_cart_link();
+		$fragments['a.cart-contents'] = ob_get_clean();
+
+		return $fragments;
+	}
+}
+add_filter( 'woocommerce_add_to_cart_fragments', 'strt_woocommerce_cart_link_fragment' );
+
+if ( ! function_exists( 'strt_woocommerce_cart_link' ) ) {
+	/**
+	 * Cart Link.
+	 *
+	 * Displayed a link to the cart including the number of items present and the cart total.
+	 *
+	 * @return void
+	 */
+	function strt_woocommerce_cart_link() {
+		?>
+		<a class="cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'strt' ); ?>">
+			<?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'shop', 24 ) ); ?>
+			<span class="count"><?php echo esc_html( WC()->cart->get_cart_contents_count() ); ?></span>
+		</a>
+		<?php
+	}
+}
+
+if ( ! function_exists( 'strt_woocommerce_header_cart' ) ) {
+	/**
+	 * Display Header Cart.
+	 *
+	 * @return void
+	 */
+	function strt_woocommerce_header_cart() {
+		if ( is_cart() ) {
+			$class = 'current-menu-item';
+		} else {
+			$class = '';
+		}
+		?>
+		<ul id="site-header-cart" class="site-header-cart">
+			<li class="<?php echo esc_attr( $class ); ?>">
+				<?php strt_woocommerce_cart_link(); ?>
+			</li>
+			<li>
+				<?php
+				$instance = array(
+					'title' => '',
+				);
+
+				the_widget( 'WC_Widget_Cart', $instance );
+				?>
+			</li>
+		</ul>
+		<?php
+	}
+}
+
+/**
+ * Add message to WooCommerce email if shipping method is local pickup.
+ */
+// function add_order_email_instructions( $order, $sent_to_admin ) {
+// 	$shipping_method = @array_shift( $order->get_shipping_methods() );
+// 	$shipping_method_id = $shipping_method['method_id'];
+// 	if ( ! $sent_to_admin ) {
+// 		if ( 'local_pickup' == $shipping_method_id ) {
+// 			// local pickup option
+// 			echo '<p><strong>Afhalen:</strong> Neem contact op per <a href="mailto:info@iksieraden.nl">e-mail</a> voor een afspraak.</p>';
+// 		} else {
+// 			// other methods
+// 			echo '';
+// 		}
+// 	}
+// }
+// add_action( 'woocommerce_email_before_order_table', 'add_order_email_instructions', 10, 2 );
+
+/**
+ * Custom Woocommerce product search.
+ *
+ * @param string $form The search form markup.
+ */
+function strt_get_product_search_form( $form ) {
+	$form = '<form role="search" method="get" class="woocommerce-product-search" action="' . esc_url( home_url( '/' ) ) . '">
+		<label class="screen-reader-text" for="woocommerce-product-search-field">' . esc_html__( 'Search for:', 'strt' ) . '</label>
+		<div class="input-group">
+			<input type="search" 
+				id="woocommerce-product-search-field" 
+				class="search-field form-control" 
+				placeholder="' . esc_attr__( 'Search products&hellip;', 'strt' ) . '" 
+				value="' . get_search_query() . '" 
+				name="s" />
+			<button type="submit" 
+				class="btn btn-primary" 
+				value="' . esc_attr_x( 'Search', 'submit button', 'strt' ) . '">'
+				. esc_html_x( 'Search', 'submit button', 'strt' ) . '</button>
+				</div>
+		<input type="hidden" name="post_type" value="product" />
+	</form>';
+	return $form;
+}
+add_filter( 'get_product_search_form', 'strt_get_product_search_form', 10, 2 );
+
+/**
+ * Change breadcrumb to Bootstrap defaults
+ */
+add_filter(
+	'woocommerce_breadcrumb_defaults',
+	function () {
+		return array(
+			'delimiter'   => '',
+			'wrap_before' => '<nav class="woocommerce-breadcrumb" aria-label="breadcrumb"><ol class="breadcrumb">',
+			'wrap_after'  => '</ol></nav>',
+			'before'      => '<li class="breadcrumb-item">',
+			'after'       => '</li>',
+			'home'        => __( 'Home', 'strt' ),
+		);
+	}
+);
+
+function strt_wc_sidebar_conditional( $array ) {
+
+	// Hide sidebar on product pages by returning false
+	if ( is_product() || is_cart() || is_checkout() || is_account_page() )
+		return false;
+
+	// Otherwise, return the original array parameter to keep the sidebar
+	return $array;
+}
+add_filter( 'is_active_sidebar', 'strt_wc_sidebar_conditional', 10, 2 );
+
+/**
+ * Customize WooCommerce Checkout fields.
+ */
+function strt_checkout_fields( $fields ) {
+	// Add placeholders.
+	$fields['billing']['billing_email']['placeholder'] = 'E-mailadres';
+	$fields['billing']['billing_phone']['placeholder'] = 'Telefoon';
+
+	// Change layout of phone and email fields.
+	$fields['billing']['billing_phone']['priority'] = 110;
+	$fields['billing']['billing_email']['priority'] = 100;
+	$fields['billing']['billing_phone']['class'][0] = 'form-row-last';
+	$fields['billing']['billing_email']['class'][0] = 'form-row-first';
+
+	// Make fields optional.
+	$fields['billing']['billing_phone']['required'] = false;
+
+	return $fields;
+}
+add_filter( 'woocommerce_checkout_fields' , 'strt_checkout_fields' );
+
+/**
+ * Customize WooCommerce Address Checkout fields.
+ */
+function strt_default_address_fields( $fields ) {
+	// Remove fields.
+	unset( $fields['address_2'] );
+
+	// Placeholders.
+	$fields['postcode']['placeholder']   = 'Postcode';
+	$fields['city']['placeholder']       = 'Plaats';
+	$fields['first_name']['placeholder'] = 'Voornaam';
+	$fields['last_name']['placeholder']  = 'Achternaam';
+	$fields['company']['placeholder']    = 'Bedrijf (optioneel)';
+
+	// Change postcode and city layout.
+	if ( is_checkout() ) {
+		$fields['postcode']['class'][0] = 'form-row-first';
+		$fields['city']['class'][0]     = 'form-row-last';
+	}
+
+	return $fields;
+}
+add_filter('woocommerce_default_address_fields', 'strt_default_address_fields', 20);
+
+/**
+ * Disable Select2 style and script.
+ */
+function passionate_dequeue_stylesandscripts() {
+	if ( class_exists( 'woocommerce' ) ) {
+		wp_dequeue_style( 'select2' );
+		wp_deregister_style( 'select2' );
+		wp_dequeue_script( 'selectWoo');
+		wp_deregister_script('selectWoo');
+	}
+}
+add_action( 'wp_enqueue_scripts', 'passionate_dequeue_stylesandscripts', 100 );
+
+/**
+ * Change add to cart text on product archives page.
+ */
+function strt_add_to_cart_button_text_archives() {
+	return __( 'In winkelwagen', 'strt' );
+}
+add_filter( 'woocommerce_product_add_to_cart_text', 'strt_add_to_cart_button_text_archives' );

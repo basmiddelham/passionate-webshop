@@ -1,0 +1,17 @@
+.navbar {
+  // Enable scrollable mobile navigation
+  @include media-breakpoint-down(lg) {
+    max-height: 100vh;
+    overflow: auto;
+  }
+
+  // Set logo width
+  .navbar-brand svg {
+    display: block;
+    width: 120px;
+
+    @include media-breakpoint-up(lg) {
+      width: 160px;
+    }
+  }
+}

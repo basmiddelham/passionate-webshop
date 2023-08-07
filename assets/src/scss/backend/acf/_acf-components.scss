@@ -1,0 +1,92 @@
+/* stylelint-disable no-descending-specificity */
+
+/* --------------------------------------------------------------
+# ACF Components
+-------------------------------------------------------------- */
+[data-name="section"] {
+  /* TinyMCE */
+  [data-type="wysiwyg"] {
+    .wp-core-ui {
+      button.insert-media {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        font-size: 0;
+        line-height: 0;
+      }
+    }
+  }
+
+  /* Buttons */
+  [data-layout="buttons"] [data-name="buttons"] .acf-fields {
+    display: flex;
+    flex-flow: row wrap;
+
+    .acf-field {
+      padding-top: 8px;
+      padding-bottom: 8px;
+
+      .acf-label {
+        display: none;
+      }
+    }
+  }
+
+  /* Heading */
+  [data-layout="heading"] {
+    .acf-fields {
+      display: flex;
+      flex-flow: row wrap;
+
+      > .acf-field {
+        padding: 0;
+        margin: 10px;
+
+        &[data-name="heading_text"] {
+          flex: 1;
+        }
+      }
+    }
+  }
+
+  /* Spacer */
+  [data-layout="spacer"] {
+    .acf-fields {
+      .acf-field {
+        padding: 10px !important;
+      }
+    }
+  }
+
+  /* Columns  */
+  [data-name="columns"]
+    > .acf-input
+    > .acf-flexible-content
+    > .values
+    > .layout
+    > .acf-fields
+    > .acf-field {
+    .acf-fields {
+      border: none;
+
+      .acf-label {
+        margin: 0 !important;
+
+        label {
+          display: none;
+        }
+      }
+    }
+  }
+
+  /* Cards */
+  [data-layout="cards"] {
+    .acf-table tbody {
+      display: flex;
+      flex-wrap: wrap;
+
+      .acf-row {
+        width: 33%;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+// Load Bootstrap for ACF Extended preview
+@import "backend/bootstrap";
+
+// Load Bootstrap adjustments for ACF Extended preview
+@import "backend/bootstrap-overwrites";
+
+// Base styling
+@import "base/global";
+@import "base/typography";
+@import "base/fonts";
+@import "base/wp-classes";
+@import "base/bs-classes";
+
+// Component styling
+@import "components/galleries";
+@import "components/slideshow";
+
+// Flexbuilder styling
+@import "flexbuilder/flexbuilder";
+@import "flexbuilder/partials/classes";
+@import "flexbuilder/partials/posts";
+
+// ACF styling
+@import "backend/acf/acf";

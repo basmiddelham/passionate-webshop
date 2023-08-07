@@ -1,0 +1,21 @@
+/* Classes
+-------------------------------------------------- */
+.bg-img {
+  background-position: center;
+  background-size: cover;
+  min-height: 260px;
+
+  &.bg-repeat {
+    background-size: auto;
+    background-repeat: repeat;
+  }
+}
+
+.alert,
+.tab-content,
+.accordion,
+.btn-group,
+video,
+.embed-responsive {
+  margin-bottom: $paragraph-margin-bottom;
+}

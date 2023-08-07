@@ -1,0 +1,23 @@
+@use "sass:map";
+
+.container.container-small {
+  @include media-breakpoint-up(xl) {
+    max-width: map.get($container-max-widths, xl) !important;
+  }
+}
+
+main.flexbuilder > section {
+  // Add top-padding if a section without background follows a sections with background.
+  &[class*="bg"] + section {
+    @extend .pt-5;
+    @extend .pt-lg-5;
+    @extend .pt-xl-6;
+  }
+
+  // remove margin-bottom from last element
+  .row {
+    [class^="col"] > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

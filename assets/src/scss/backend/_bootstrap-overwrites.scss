@@ -1,0 +1,100 @@
+@use "sass:map";
+
+/* stylelint-disable-next-line selector-class-pattern */
+#poststuff .acfe-flexible-placeholder {
+  font-family: $font-family-base;
+  line-height: $line-height-base;
+  font-size: $font-size-base;
+  color: $body-color;
+  background: $body-bg;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  a {
+    color: $link-color;
+    text-decoration: $link-decoration;
+
+    &:hover {
+      text-decoration: $link-hover-decoration;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    padding: 0;
+    margin: 0 0 $headings-margin-bottom;
+    line-height: $headings-line-height;
+    font-weight: $headings-font-weight;
+    color: inherit;
+  }
+
+  h1 {
+    font-size: $h1-font-size;
+  }
+
+  h2 {
+    font-size: $h2-font-size;
+  }
+
+  h3 {
+    font-size: $h3-font-size;
+  }
+
+  h4 {
+    font-size: $h4-font-size;
+  }
+
+  h5 {
+    font-size: $h5-font-size;
+  }
+
+  h6 {
+    font-size: $h6-font-size;
+  }
+
+  p {
+    margin: 0 0 $paragraph-margin-bottom;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+
+    &.lead {
+      @extend .lead;
+    }
+
+    &.small {
+      @extend .small;
+    }
+  }
+
+  .display-1 {
+    font-size: map.get($display-font-sizes, 1) !important;
+  }
+
+  .display-2 {
+    font-size: map.get($display-font-sizes, 2) !important;
+  }
+
+  .display-3 {
+    font-size: map.get($display-font-sizes, 3) !important;
+  }
+
+  .display-4 {
+    font-size: map.get($display-font-sizes, 4) !important;
+  }
+
+  .display-5 {
+    font-size: map.get($display-font-sizes, 5) !important;
+  }
+
+  .display-6 {
+    font-size: map.get($display-font-sizes, 6) !important;
+  }
+}

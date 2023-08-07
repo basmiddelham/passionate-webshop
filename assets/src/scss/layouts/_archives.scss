@@ -1,0 +1,7 @@
+body.hfeed {
+  .hentry {
+    .updated:not(.published) {
+      display: none;
+    }
+  }
+}

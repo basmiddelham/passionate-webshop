@@ -1,0 +1,11 @@
+/node_modules
+/vendor
+npm-debug.log
+/assets/dist/css
+/assets/dist/js
+/assets/dist/images
+/assets/dist/fonts
+.DS_Store
+assets/src/scss/gravityforms/
+assets/src/scss/woocommerce/
+inc/gravityforms/

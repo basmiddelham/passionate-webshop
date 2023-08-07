@@ -1,0 +1,59 @@
+/**
+ * Bootstrap Adjustment Classes
+ */
+
+.tab-pane {
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.alert {
+  :last-child {
+    margin-bottom: 0;
+  }
+
+  a:not(.btn) {
+    @extend .alert-link;
+  }
+
+  h6,
+  h5,
+  h4,
+  h3,
+  h2,
+  h1 {
+    @extend .text-reset;
+  }
+}
+
+// Reset colors to background colors
+.flexbuilder > section {
+  &.bg-primary,
+  &.bg-secondary,
+  &.bg-light,
+  &.bg-dark,
+  &.bg-primary-subtle,
+  &.bg-secondary-subtle,
+  &.bg-light-subtle,
+  &.bg-dark-subtle {
+    a:not(.btn) {
+      @extend .text-reset;
+
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    h6,
+    h5,
+    h4,
+    h3,
+    h2,
+    h1 {
+      @extend .text-reset;
+    }
+  }
+}

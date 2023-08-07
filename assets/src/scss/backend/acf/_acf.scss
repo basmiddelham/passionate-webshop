@@ -1,0 +1,113 @@
+/* --------------------------------------------------------------
+# Flexbuilder ACF Styling
+-------------------------------------------------------------- */
+/* stylelint-disable selector-class-pattern */
+$color0: $gray-800;
+$color1: $gray-600;
+$color2: $gray-500;
+$color3: $gray-400;
+$color4: $gray-300;
+$color5: $gray-200;
+$color6: $gray-100;
+$highlight: #5b9ab3;
+
+@import "acf-layout-handles";
+@import "acf-components";
+@import "acf-tab";
+
+[data-name="features"] {
+  .acf-label {
+    display: none;
+  }
+
+  .acf-repeater.-block tbody {
+    display: flex;
+    flex-flow: row wrap;
+
+    tr.acf-row {
+      width: 33%;
+
+      td {
+        padding: 0;
+      }
+    }
+  }
+}
+
+[data-name="section"] {
+  /* Raise z-index to prevent sliders and maps going over the preview. */
+  .acfe-fc-placeholder {
+    &:hover .acfe-fc-overlay {
+      z-index: 3 !important;
+    }
+  }
+
+  /* Add padding to Component previews */
+  .layout .layout .acfe-flexible-placeholder {
+    margin: 10px;
+  }
+
+  /* Remove border from acf-field */
+  .acf-field[data-width] + .acf-field[data-width] {
+    border-left: none;
+  }
+
+  /* Section Options */
+  .acf-fields.-sidebar {
+    display: flex;
+    flex-flow: row wrap;
+
+    > .acf-field {
+      flex: 1 1 auto;
+      border-top-width: 0;
+    }
+  }
+
+  /* Close Layout button */
+  .acfe-flexible-opened-actions {
+    width: 100%;
+    padding: 0 !important;
+    background-color: transparent !important;
+    border-top: none !important;
+
+    a.button {
+      margin: 0 10px 10px 0;
+    }
+  }
+
+  /* Background colors */
+  > .acf-input > .acf-flexible-content > .values > .layout {
+    background-color: $color3;
+
+    .layout .acf-fields {
+      background-color: $color4;
+
+      .layout .acf-fields {
+        background-color: $color5;
+
+        .layout .acf-fields {
+          background-color: $color6;
+        }
+      }
+    }
+  }
+
+  /* Label styling */
+  .acf-label {
+    label {
+      color: $gray-800;
+      font-size: 11px;
+      font-weight: normal !important;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+  }
+
+  /* Hide Flexible content labels */
+  .acf-field-flexible-content,
+  .acf-field-group {
+    > .acf-label {
+      display: none;
+    }
+  }
+}

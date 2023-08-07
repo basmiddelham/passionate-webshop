@@ -1,0 +1,105 @@
+/*
+ * Comments
+ */
+.comments-area {
+  clear: both;
+
+  ol.comment-list {
+    margin: 0 0 40px;
+    list-style: none;
+    padding: 0;
+
+    li.comment {
+      padding: 1.5em;
+
+      div.comment-author {
+        img.avatar {
+          float: right;
+          margin: 0 0 20px 20px;
+        }
+      }
+
+      .comment-metadata {
+        font-size: 0.8125rem;
+        margin-bottom: 1rem;
+
+        a {
+          color: $text-muted;
+        }
+      }
+
+      .comment-content {
+        font-size: 0.9375rem;
+      }
+
+      ol.children {
+        list-style: none;
+        padding: 1.5rem 0 0;
+        text-indent: 0;
+
+        li {
+          padding: 1.5rem 0.5rem 1.5rem 1.5rem;
+        }
+      }
+    }
+
+    li.even {
+      background-color: shade-color($gray-100, 3%);
+    }
+
+    li.odd {
+      background-color: $gray-100;
+    }
+  }
+
+  .comment-respond {
+    .required {
+      color: $danger;
+    }
+
+    form.comment-form {
+      @include media-breakpoint-up(md) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        p {
+          width: 100%;
+
+          &.comment-form-author,
+          &.comment-form-email {
+            width: 49%;
+          }
+        }
+      }
+
+      label {
+        @extend .form-label;
+      }
+
+      textarea,
+      [type="email"],
+      [type="url"],
+      [type="text"] {
+        @extend .form-control;
+      }
+
+      .comment-form-cookies-consent {
+        @extend .form-check;
+
+        [type="checkbox"] {
+          @extend .form-check-input;
+        }
+
+        label {
+          @extend .form-check-label;
+        }
+      }
+
+      [type="submit"] {
+        @extend .btn;
+        @extend .btn-primary;
+      }
+    }
+  }
+}

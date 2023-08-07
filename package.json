@@ -1,0 +1,92 @@
+{
+  "name": "starter",
+  "version": "3.0.0",
+  "description": "Hi. I'm a starter theme called starter.",
+  "author": "Bas Middelham",
+  "license": "GPL-2.0-or-later",
+  "homepage": "https://github.com/basmiddelham/starter#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/basmiddelham/starter.git"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "> 0.2%"
+  ],
+  "prettier": {},
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "prettier"
+    ],
+    "globals": {
+      "wp": true
+    },
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "rules": {},
+    "ignorePatterns": [
+      "vendor/**/**/*.js",
+      "node_modules/**/**/*.js",
+      "assets/dist/**/*.js"
+    ]
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard-scss",
+    "rules": {
+      "scss/at-extend-no-missing-placeholder": null,
+      "selector-class-pattern": null
+    },
+    "ignoreFiles": [
+      "vendor/**/*.css",
+      "node_modules/**/*.css",
+      "assets/dist/**/*.css"
+    ]
+  },
+  "scripts": {
+    "start": "webpack --watch --env NODE_ENV=development",
+    "build": "webpack build --env NODE_ENV=production",
+    "prettier": "prettier --check assets/src/\"{js,scss}\"/\"**/*\"",
+    "prettier:fix": "prettier --write assets/src/\"{js,scss}\"/\"**/*\"",
+    "eslint": "eslint assets/src/js/**/*.js",
+    "eslint:fix": "eslint assets/src/js/**/*.js --fix",
+    "stylelint": "stylelint assets/src/**/**/*.{css,scss}",
+    "stylelint:fix": "stylelint assets/src/**/**/*.{css,scss} --fix"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "browser-sync": "^2.29.3",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-webpack-plugin": "^4.0.1",
+    "mini-css-extract-plugin": "^2.7.6",
+    "postcss-loader": "^7.3.3",
+    "prettier": "^3.0.0",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.3.1",
+    "stylelint": "^15.6.2",
+    "stylelint-config-standard-scss": "^9.0.0",
+    "stylelint-webpack-plugin": "^4.1.1",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpackbar": "^5.0.2"
+  },
+  "dependencies": {
+    "@fancyapps/ui": "^5.0.20",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.0",
+    "jquery": "^3.6.3",
+    "mapbox-gl": "^2.15.0",
+    "swiper": "^10.0.4"
+  }
+}

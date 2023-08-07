@@ -1,0 +1,119 @@
+/* stylelint-disable scss/double-slash-comment-empty-line-before */
+@use "sass:color";
+
+// Grays
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black: #000;
+
+// Colors
+$blue: #0d6efd;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #d63384;
+$red: #dc3545;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #198754;
+$teal: #20c997;
+$cyan: #0dcaf0;
+
+// The contrast ratio to reach against white, to determine if color changes from "light" to "dark".
+// Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
+$min-contrast-ratio: 4.5;
+
+// Theme Colors
+$primary: #197495;
+$secondary: #b2cb9d;
+$light: color.mix($primary, $white, 8%);
+$dark: color.mix($primary, $black, 33%);
+
+/**
+ * Theme Color variables
+ */
+// // Text Colors
+// $primary-text: shade-color($primary, 20%);
+// $secondary-text: shade-color($secondary, 30%);
+// $light-text: color.mix($light, $black, 40%);
+// $dark-text: color.mix($dark, $white, 90%);
+
+// // Backgrounds
+// $primary-bg-subtle: color.mix($primary, $white, 10%);
+// $secondary-bg-subtle: color.mix($secondary, $white, 20%);
+// $light-bg-subtle: color.mix($light, $white, 50%);
+// $dark-bg-subtle: color.mix($dark, $white, 20%);
+
+// // Borders
+// $primary-border-subtle: color.mix($primary, $white, 30%);
+// $secondary-border-subtle: color.mix($secondary, $white, 60%);
+// $light-border-subtle: color.mix($light, $black, 90%);
+// $dark-border-subtle: color.mix($dark, $white, 40%);
+
+// // Body
+// $body-color: $gray-900;
+// $body-bg: $white;
+// $body-emphasis-color: $black;
+// $body-secondary-color: rgba($body-color, 0.75);
+// $body-secondary-bg: $gray-200;
+// $body-tertiary-color: rgba($body-color, 0.5);
+// $body-tertiary-bg: $gray-100;
+// $emphasis-color: $black;
+
+// /**
+//  * Dark mode
+//  */
+// // Text color
+// $primary-text-dark: color.mix($primary, $white, 50%);
+// $secondary-text-dark: color.mix($secondary, $black, 90%);
+// // $success-text-dark: $green-300;
+// // $info-text-dark: $cyan-300;
+// // $warning-text-dark: $yellow-300;
+// // $danger-text-dark: $red-300;
+// $light-text-dark: color.mix($light, $black, 90%);
+// $dark-text-dark: color.mix($dark, $white, 20%);
+
+// // Backgrounds
+// $primary-bg-subtle-dark: color.mix($primary, $black, 30%);
+// $secondary-bg-subtle-dark: color.mix($secondary, $black, 30%);
+// // $success-bg-subtle-dark: $green-900;
+// // $info-bg-subtle-dark: $cyan-900;
+// // $warning-bg-subtle-dark: $yellow-900;
+// // $danger-bg-subtle-dark: $red-900;
+// // $light-bg-subtle-dark: $gray-800;
+// // $dark-bg-subtle-dark: color.mix($gray-800, $black);
+
+// // Borders
+// $primary-border-subtle-dark: color.mix($primary, $black, 60%);
+// $secondary-border-subtle-dark: color.mix($secondary, $black, 60%);
+// // $success-border-subtle-dark: $green-700;
+// // $info-border-subtle-dark: $cyan-800;
+// // $warning-border-subtle-dark: $yellow-800;
+// // $danger-border-subtle-dark: $red-700;
+// $light-border-subtle-dark: color.mix($light, $black, 40%);
+// $dark-border-subtle-dark: color.mix($dark, $white, 90%);
+
+// // Body
+// $body-color-dark: $gray-500;
+// $body-bg-dark: $gray-900;
+// $body-emphasis-color-dark: $gray-100;
+// $body-secondary-color-dark: rgba($body-color-dark, 0.75);
+// $body-secondary-bg-dark: $gray-800;
+// $body-tertiary-color-dark: rgba($body-color-dark, 0.5);
+// $body-tertiary-bg-dark: color.mix($gray-800, $gray-900, 50%);
+// $emphasis-color-dark: $white;
+
+// // Others
+// // $border-color-dark: $gray-700;
+// // $border-color-translucent-dark: rgba($white, 0.15);
+// // $headings-color-dark: #fff;
+// $link-color-dark: $primary;
+// $link-hover-color-dark: color.mix($link-color-dark, $white, 80%);
+// // $code-color-dark: $pink-300;
