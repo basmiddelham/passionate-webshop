@@ -194,7 +194,7 @@ require get_template_directory() . '/flexbuilder/flexbuilder-functions.php';
 require get_template_directory() . '/flexbuilder/fields/flexbuilder.php';
 
 // Load Gravity Forms hooks.
-require get_template_directory() . '/inc/gravityforms/gravityforms.php';
+require get_template_directory() . '/inc/gravityforms.php';
 
 /**
  * Custom login logo.
