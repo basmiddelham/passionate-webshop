@@ -21,7 +21,7 @@ $enable-shadows: false;
 // $focus-ring-box-shadow: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color;
 
 // Spacing
-$spacer: 1.5rem;
+$spacer: 1rem;
 $spacers: (
   0: 0,
   1: $spacer * .25,
@@ -30,7 +30,6 @@ $spacers: (
   4: $spacer * 1.5,
   5: $spacer * 3,
   6: $spacer * 5,
-  7: $spacer * 6,
 );
 
 // // Links

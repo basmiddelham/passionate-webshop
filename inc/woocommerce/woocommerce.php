@@ -110,6 +110,9 @@ if ( ! function_exists( 'strt_woocommerce_wrapper_after' ) ) {
 }
 add_action( 'woocommerce_after_main_content', 'strt_woocommerce_wrapper_after' );
 
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
+
 /**
  * Sample implementation of the WooCommerce Mini Cart.
  *
@@ -279,20 +282,27 @@ add_filter( 'woocommerce_product_add_to_cart_text', 'strt_add_to_cart_text', 10,
  * @param array $atts Shortcode attributes.
  */
 function strt_terms_shortcode( $atts ) {
-	// Attributes.
 	$atts = shortcode_atts(
 		array(
 			'custom_taxonomy' => '',
 		),
 		$atts
 	);
-
 	ob_start();
-	$args = array(
-		'taxonomy' => $atts['custom_taxonomy'],
-		'title_li' => '',
+	$taxonomies = get_terms(
+		array(
+			'taxonomy' => $atts['custom_taxonomy'],
+		)
 	);
-	echo '<ul>' . wp_list_categories( $args ) . '</ul>';
+	if ( ! empty( $taxonomies ) ) :
+		$output = '<div class="list-group">';
+		foreach ( $taxonomies as $category ) {
+			$output .= '<a class="list-group-item list-group-item-action" href="' . esc_url( get_term_link( $category->term_id ) ) . '" id="' . esc_attr( $category->term_id ) . '">
+				' . esc_html( $category->name ) . '</li>';
+		}
+		$output .= '</a>';
+		echo wp_kses_post( $output );
+	endif;
 	$output = ob_get_contents();
 	ob_end_clean();
 	return $output;
@@ -303,3 +313,75 @@ add_shortcode( 'strt_terms', 'strt_terms_shortcode' );
  * Allow Text widgets to execute shortcodes
  */
 add_filter( 'widget_text', 'do_shortcode' );
+
+
+/**
+ * Remove taxonomy from url
+ *
+ * @param array $query The query.
+ */
+function strt_change_term_request( $query ) {
+	$tax_name = 'project';
+
+	// Request for child terms differs, we should make an additional check.
+	if ( ! empty( $query['attachment'] ) ) :
+		$include_children = true;
+		$name             = $query['attachment'];
+	else :
+		$include_children = false;
+		$name             = $query['name'];
+	endif;
+
+	$term = get_term_by( 'slug', $name, $tax_name ); // get the current term to make sure it exists.
+
+	if ( isset( $name ) && $term && ! is_wp_error( $term ) ) : // check it here.
+		if ( $include_children ) {
+			unset( $query['attachment'] );
+			$parent = $term->parent;
+			while ( $parent ) {
+				$parent_term = get_term( $parent, $tax_name );
+				$name        = $parent_term->slug . '/' . $name;
+				$parent      = $parent_term->parent;
+			}
+		} else {
+			unset( $query['name'] );
+		}
+
+		switch ( $tax_name ) :
+			case 'category':
+				$query['category_name'] = $name; // for categories.
+				break;
+			case 'post_tag':
+				$query['tag'] = $name; // for post tags.
+				break;
+			default:
+				$query[ $tax_name ] = $name; // for another taxonomies.
+				break;
+		endswitch;
+
+	endif;
+
+	return $query;
+}
+add_filter( 'request', 'strt_change_term_request', 1, 1 );
+
+/**
+ * Generate rewrite rules for custom taxonomy archives
+ *
+ * @param string $url The rewrite rules.
+ * @param array  $term The term.
+ * @param array  $taxonomy The taxonomy.
+ */
+function strt_term_permalink( $url, $term, $taxonomy ) {
+	$taxonomy_name = 'project'; // your taxonomy name here.
+	$taxonomy_slug = 'project'; // the taxonomy slug can be different with the taxonomy name (like 'post_tag' and 'tag' ).
+
+	// exit the function if taxonomy slug is not in URL.
+	if ( strpos( $url, $taxonomy_slug ) === false || $taxonomy !== $taxonomy_name ) :
+		return $url;
+	endif;
+	$url = str_replace( '/' . $taxonomy_slug, '', $url );
+
+	return $url;
+}
+add_filter( 'term_link', 'strt_term_permalink', 10, 3 );
