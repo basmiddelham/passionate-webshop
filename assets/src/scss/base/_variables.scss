@@ -4,7 +4,7 @@ $headerheight-mobile: 56px;
 
 // Options
 $enable-rounded: false;
-$enable-shadows: true;
+$enable-shadows: false;
 // $enable-gradients: false;
 // $enable-validation-icons: false;
 // $enable-dark-mode: false;
@@ -44,7 +44,7 @@ $spacers: (
 // $paragraph-margin-bottom: 1rem;
 
 // Grid columns
-$grid-gutter-width: 2.5rem;
+// $grid-gutter-width: 2.5rem;
 
 // Typography
 $font-family-sans-serif: "Source Serif Pro", system-ui, -apple-system, "Segoe UI", roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;

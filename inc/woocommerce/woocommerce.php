@@ -202,7 +202,7 @@ function strt_get_product_search_form( $form ) {
 			<input type="search" 
 				id="woocommerce-product-search-field" 
 				class="search-field form-control" 
-				placeholder="' . esc_attr__( 'Search products&hellip;', 'strt' ) . '" 
+				placeholder="Zoek producten&hellip;" 
 				value="' . get_search_query() . '" 
 				name="s" />
 			<button type="submit" 
@@ -233,12 +233,15 @@ add_filter(
 	}
 );
 
-function strt_wc_sidebar_conditional( $array ) {
-	// Hide sidebar on product pages by returning false
+/**
+ * Hide sidebar on product pages by returning false
+ *
+ * @param bool $conditionals The sidebar conditionals.
+ */
+function strt_wc_sidebar_conditional( $conditionals ) {
 	if ( is_product() || is_cart() || is_checkout() || is_account_page() )
 		return false;
-	// Otherwise, return the original array parameter to keep the sidebar
-	return $array;
+	return $conditionals;
 }
 add_filter( 'is_active_sidebar', 'strt_wc_sidebar_conditional', 10, 2 );
 
@@ -247,8 +250,8 @@ add_filter( 'is_active_sidebar', 'strt_wc_sidebar_conditional', 10, 2 );
  */
 function strt_dequeue_stylesandscripts() {
 	if ( class_exists( 'woocommerce' ) ) {
-		wp_dequeue_style( 'select2' );
-		wp_deregister_style( 'select2' );
+		// wp_dequeue_style( 'select2' );
+		// wp_deregister_style( 'select2' );
 		// wp_dequeue_script( 'selectWoo' );
 		// wp_deregister_script( 'selectWoo' );
 	}
@@ -269,3 +272,34 @@ function strt_add_to_cart_text( $text ) {
 	return $text;
 }
 add_filter( 'woocommerce_product_add_to_cart_text', 'strt_add_to_cart_text', 10, 2 );
+
+/**
+ * Display Custom Taxonomy Terms in a Widget Using Shortcode
+ *
+ * @param array $atts Shortcode attributes.
+ */
+function strt_terms_shortcode( $atts ) {
+	// Attributes.
+	$atts = shortcode_atts(
+		array(
+			'custom_taxonomy' => '',
+		),
+		$atts
+	);
+
+	ob_start();
+	$args = array(
+		'taxonomy' => $atts['custom_taxonomy'],
+		'title_li' => '',
+	);
+	echo '<ul>' . wp_list_categories( $args ) . '</ul>';
+	$output = ob_get_contents();
+	ob_end_clean();
+	return $output;
+}
+add_shortcode( 'strt_terms', 'strt_terms_shortcode' );
+
+/**
+ * Allow Text widgets to execute shortcodes
+ */
+add_filter( 'widget_text', 'do_shortcode' );
