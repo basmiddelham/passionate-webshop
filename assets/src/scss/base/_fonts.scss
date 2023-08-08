@@ -1,62 +1,106 @@
 @font-face {
-  font-display: swap;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 200;
-  src: url("../fonts/poppins-200.woff2") format("woff2"),
-    url("../fonts/poppins-200.woff") format("woff");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 300;
-  src: url("../fonts/poppins-300.woff2") format("woff2"),
-    url("../fonts/poppins-300.woff") format("woff");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 400;
-  src: url("../fonts/poppins-regular.woff2") format("woff2"),
-    url("../fonts/poppins-regular.woff") format("woff");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: Poppins;
-  font-style: italic;
-  font-weight: 400;
-  src: url("../fonts/poppins-italic.woff2") format("woff2"),
-    url("../fonts/poppins-italic.woff") format("woff");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 500;
-  src: url("../fonts/poppins-500.woff2") format("woff2"),
-    url("../fonts/poppins-500.woff") format("woff");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: Poppins;
-  font-style: normal;
+  font-family: 'Source Serif Pro';
+  src: url('../fonts/SourceSerifPro-Semibold.woff2') format('woff2'),
+      url('../fonts/SourceSerifPro-Semibold.woff') format('woff');
   font-weight: 600;
-  src: url("../fonts/poppins-600.woff2") format("woff2"),
-    url("../fonts/poppins-600.woff") format("woff");
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-  font-display: swap;
-  font-family: Poppins;
+  font-family: 'Source Serif Pro';
+  src: url('../fonts/SourceSerifPro-Regular.woff2') format('woff2'),
+      url('../fonts/SourceSerifPro-Regular.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
-  font-weight: 700;
-  src: url("../fonts/poppins-700.woff2") format("woff2"),
-    url("../fonts/poppins-700.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Serif Pro';
+  src: url('../fonts/SourceSerifPro-SemiboldIt.woff2') format('woff2'),
+      url('../fonts/SourceSerifPro-SemiboldIt.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Serif Pro';
+  src: url('../fonts/SourceSerifPro-ExtraLight.woff2') format('woff2'),
+      url('../fonts/SourceSerifPro-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Serif Pro';
+  src: url('../fonts/SourceSerifPro-ExtraLightIt.woff2') format('woff2'),
+      url('../fonts/SourceSerifPro-ExtraLightIt.woff') format('woff');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Serif Pro';
+  src: url('../fonts/SourceSerifPro-It.woff2') format('woff2'),
+      url('../fonts/SourceSerifPro-It.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../fonts/RobotoCondensed-BoldItalic.woff2') format('woff2'),
+      url('../fonts/RobotoCondensed-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../fonts/RobotoCondensed-Bold.woff2') format('woff2'),
+      url('../fonts/RobotoCondensed-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../fonts/RobotoCondensed-Italic.woff2') format('woff2'),
+      url('../fonts/RobotoCondensed-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../fonts/RobotoCondensed-Light.woff2') format('woff2'),
+      url('../fonts/RobotoCondensed-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../fonts/RobotoCondensed-LightItalic.woff2') format('woff2'),
+      url('../fonts/RobotoCondensed-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../fonts/RobotoCondensed-Regular.woff2') format('woff2'),
+      url('../fonts/RobotoCondensed-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
