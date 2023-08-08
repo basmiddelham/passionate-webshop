@@ -324,15 +324,17 @@ function strt_change_term_request( $query ) {
 	$tax_name = 'project';
 
 	// Request for child terms differs, we should make an additional check.
-	if ( ! empty( $query['attachment'] ) ) :
+	if ( isset( $query['attachment'] ) ) :
 		$include_children = true;
 		$name             = $query['attachment'];
-	else :
+	elseif ( isset( $query['name'] ) ) :
 		$include_children = false;
 		$name             = $query['name'];
 	endif;
 
-	$term = get_term_by( 'slug', $name, $tax_name ); // get the current term to make sure it exists.
+	if ( isset( $name ) ) :
+		$term = get_term_by( 'slug', $name, $tax_name ); // get the current term to make sure it exists.
+	endif;
 
 	if ( isset( $name ) && $term && ! is_wp_error( $term ) ) : // check it here.
 		if ( $include_children ) {
