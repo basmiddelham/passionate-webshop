@@ -85,6 +85,12 @@ $strt_flexbuilder
 			array( 'acfe_flexible_render_template' => 'flexbuilder/templates/layout-cards.php' )
 		)
 
+		// Shopnav.
+		->addLayout(
+			strt_get_field_partial( 'layout-shopnav' ),
+			array( 'acfe_flexible_render_template' => 'flexbuilder/templates/layout-shopnav.php' )
+		)
+
 		// Mapbox.
 		->addLayout(
 			strt_get_field_partial( 'components.map' ),
