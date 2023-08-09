@@ -85,7 +85,7 @@ if ( ! function_exists( 'strt_woocommerce_wrapper_before' ) ) {
 		?>
 			<div class="container">
 				<div class="row justify-content-center">
-					<main id="primary" class="col-xxl-9">
+					<main id="primary" class="col-lg-9">
 		<?php
 	}
 }
@@ -249,7 +249,7 @@ add_filter(
  * @param bool $conditionals The sidebar conditionals.
  */
 function strt_wc_sidebar_conditional( $conditionals ) {
-	if ( is_product() || is_cart() || is_checkout() || is_account_page() )
+	if ( is_cart() || is_checkout() || is_account_page() )
 		return false;
 	return $conditionals;
 }

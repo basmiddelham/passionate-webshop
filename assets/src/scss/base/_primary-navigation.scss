@@ -20,6 +20,7 @@
   li.menu-item {
     position: relative;
     font-family: $headings-font-family;
+    font-size: 1.125rem;
 
     &.current-menu-item,
     &.current-menu-ancestor {
@@ -97,7 +98,7 @@
         padding: 1.5rem 0.75rem;
 
         &:hover {
-          background-color: color.mix($primary, $white, 80%);
+          background-color: $dark;
           color: $white;
         }
       }

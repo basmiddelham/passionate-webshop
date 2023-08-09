@@ -56,9 +56,9 @@ ul.products {
   }
 
   .price {
-    color: $body-color;
-    font-size: 0.85em;
-    margin-bottom: 0.75rem;
+    color: $primary;
+    font-size: 0.9325em;
+    margin-bottom: 0.5rem;
     display: block;
 
     del {
@@ -124,33 +124,27 @@ ul.products {
 
   /* Layout
   -------------------------------------------------- */
-  @include media-breakpoint-up(md) {
-    &.columns-2 li.product {
-      @include make-col(6);
+  &.columns-3 li.product {
+    @include media-breakpoint-up(md) {
+      @include make-col(4);
+    }
+  }
+
+  &.columns-4 li.product {
+    @include media-breakpoint-up(md) {
+      @include make-col(4);
     }
 
-    &.columns-3 li.product {
-      @include media-breakpoint-up(lg) {
-        @include make-col(4);
-      }
+    @include media-breakpoint-up(lg) {
+      @include make-col(3);
     }
+  }
 
-    &.columns-4 li.product {
-      @include media-breakpoint-up(md) {
-        @include make-col(4);
-      }
+  &.columns-5 li.product {
+    @include make-col(2, 10);
+  }
 
-      @include media-breakpoint-up(lg) {
-        @include make-col(3);
-      }
-    }
-
-    &.columns-5 li.product {
-      @include make-col(2, 10);
-    }
-
-    &.columns-6 li.product {
-      @include make-col(2);
-    }
+  &.columns-6 li.product {
+    @include make-col(2);
   }
 }
