@@ -1,0 +1,25 @@
+.site-footer {
+  @include side-color-left(left, $light);
+}
+
+.socket-logos {
+  text-align: center;
+
+  a {
+    display: inline-block;
+    margin: 0 6px 1rem;
+
+    svg {
+      color: $dark;
+      display: inline-block;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin: 0 1rem 1rem;
+
+      svg {
+        width: 120%;
+      }
+    }
+  }
+}

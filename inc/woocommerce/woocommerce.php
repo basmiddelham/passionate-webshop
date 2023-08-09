@@ -28,8 +28,8 @@ function strt_woocommerce_setup() {
 
 			'product_grid'          => array(
 				'default_columns' => 4,
-				'min_columns'     => 4,
-				'max_columns'     => 4,
+				'min_columns'     => 3,
+				'max_columns'     => 3,
 			),
 		)
 	);

@@ -11,9 +11,21 @@
 
 ?>
 
-<footer id="colophon" class="site-footer container">
-	<div class="d-flex flex-wrap justify-content-center justify-content-lg-between align-items-center py-3 py-lg-4 border-top">
-		<div class="site-info text-muted text-center">
+<footer id="colophon" class="site-footer">
+	<div class="socket container pt-3 bg-light">
+		<div class="socket-logos">
+			<a target="_blank" href="https://passionatebulkboek.nl" class="logo-pb"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-pb', 100 ) ); ?></a>
+			<a target="_blank" href="https://annablamanprijs.nl" class="logo-ab"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-ab', 40 ) ); ?></a>
+			<a target="_blank" href="https://dagvanhetliteratuuronderwijs.nl" class="logo-dlo"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-dlo', 40 ) ); ?></a>
+			<a target="_blank" href="https://writenow.nl" class="logo-wn"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-wn', 50 ) ); ?></a>
+			<a target="_blank" href="https://dagvandeliteratuur.nl" class="logo-dvdl"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-dvdl', 45 ) ); ?></a>
+			<a target="_blank" href="https://jongejury.nl" class="logo-jj"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-jj', 30 ) ); ?></a>
+			<a target="_blank" href="https://inktaap.nl" class="logo-ia"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-ia', 50 ) ); ?></a>
+			<a target="_blank" href="https://paboleest.nl" class="logo-pl"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-pl', 45 ) ); ?></a>
+			<a target="_blank" href="https://nationalemediatheektrofee.nl" class="logo-nmt"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-nmt', 55 ) ); ?></a>
+			<a target="_blank" href="https://erwaseens.nl" class="logo-ewe"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-ewe', 40 ) ); ?></a>
+		</div>
+		<div class="site-info text-muted text-center pb-2 small">
 			<?php echo esc_html( gmdate( 'Y' ) ); ?> &copy; 
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></a>
 			<?php
@@ -26,31 +38,9 @@
 				the_privacy_policy_link( '<span class="sep"> | </span>' );
 			endif;
 			?>
-		</div>
-		<?php
-		if ( has_nav_menu( 'social' ) ) :
-			wp_nav_menu(
-				array(
-					'theme_location'       => 'social',
-					'container'            => 'nav',
-					'container_aria_label' => esc_attr__( 'Social links', 'strt' ),
-					'container_class'      => 'ms-auto',
-					'menu_class'           => 'menu social',
-					'depth'                => 1,
-					'link_before'          => '<span class="screen-reader-text">',
-					'link_after'           => '</span>',
-					'fallback_cb'          => false,
-				)
-			);
-		endif;
-		?>
-		<div class="form-check form-switch ms-1">
-			<input class="form-check-input" type="checkbox" role="switch" id="darkSwitch">
-			<label class="form-check-label visually-hidden" for="darkSwitch">Dark Mode</label>
-		</div>
-	</div><!-- .site-info -->
-</footer><!-- #colophon -->
-
+		</div><!-- .site-info -->
+	</div><!-- .socket -->
+</footer><!-- .site-footer -->
 <?php wp_footer(); ?>
 
 </body>

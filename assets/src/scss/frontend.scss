@@ -12,9 +12,11 @@
 @import "base/fonts";
 @import "base/wp-classes";
 @import "base/bs-classes";
+@import "base/mixins";
 
 // Components
 @import "components/widgets";
+
 // @import "components/galleries";
 // @import "components/slideshow";
 // @import "components/comments";
@@ -23,6 +25,7 @@
 
 // Layouts
 @import "layouts/archives";
+@import "layouts/footer";
 
 // Flexbuilder
 @import "flexbuilder/flexbuilder";

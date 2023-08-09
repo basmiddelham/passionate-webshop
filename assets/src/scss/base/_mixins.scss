@@ -1,0 +1,16 @@
+/* Side Color
+-------------------------------------------------- */
+@mixin side-color-left($position, $color) {
+  position: relative;
+
+  &::before {
+    content: '';
+    background-color: #{$color};
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    #{$position}: 0;
+    z-index: -1;
+  }
+}

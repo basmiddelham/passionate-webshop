@@ -35,8 +35,8 @@ $min-contrast-ratio: 4.5;
 // Theme Colors
 $primary: $green;
 $secondary: $gray-900;
-$light: color.mix($primary, $white, 8%);
-$dark: color.mix($primary, $black, 33%);
+$light: $green-light;
+$dark: $green-dark;
 
 /**
  * Theme Color variables
