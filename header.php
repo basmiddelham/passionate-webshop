@@ -23,10 +23,11 @@
 <?php wp_body_open(); ?>
 <a class="skip-link" href="#primary"><?php esc_html_e( 'Skip to content', 'strt' ); ?></a>
 <header id="masthead" class="site-header">
-	<nav class="navbar fixed-top navbar-expand-lg bg-primary" data-bs-theme="dark">
+	<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
 		<div class="container">
 			<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-				<?php bloginfo( 'name' ); ?>
+				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/dist/images/logo-pb_shop.svg" alt="<?php bloginfo( 'name' ); ?>" width="240" height="54">
+				<div class="visually-hidden"><?php bloginfo( 'name' ); ?></div>
 			</a>
 			<?php
 			if ( function_exists( 'strt_woocommerce_header_cart' ) ) {

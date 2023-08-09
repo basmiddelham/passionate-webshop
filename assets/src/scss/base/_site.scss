@@ -14,21 +14,21 @@ body {
   }
 
   /* Add padding to body when using navbar.fixed-top */
-  padding-top: $headerheight-mobile;
+  // padding-top: $headerheight-mobile;
 
-  @include media-breakpoint-up(lg) {
-    padding-top: $headerheight;
-  }
+  // @include media-breakpoint-up(lg) {
+  //   padding-top: $headerheight;
+  // }
 }
 
 /* Admin-bar active */
 body.admin-bar {
   /* stylelint-disable-next-line custom-property-pattern */
-  padding-top: calc($headerheight + var(--wp-admin--admin-bar--height));
+  padding-top: var(--wp-admin--admin-bar--height);
 
   .navbar.fixed-top {
     /* stylelint-disable-next-line custom-property-pattern */
-    top: var(--wp-admin--admin-bar--height);
+    // top: var(--wp-admin--admin-bar--height);
   }
 }
 
