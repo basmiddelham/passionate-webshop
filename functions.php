@@ -20,8 +20,9 @@ function strt_setup() {
 	add_theme_support( 'post-thumbnails' );
 	register_nav_menus(
 		array(
-			'primary-navigation' => esc_html__( 'Primary', 'strt' ),
-			'social'             => esc_html__( 'Social', 'strt' ),
+			'primary-navigation'   => esc_html__( 'Primary', 'strt' ),
+			'secondary-navigation' => esc_html__( 'Secondary', 'strt' ),
+			'social'               => esc_html__( 'Social', 'strt' ),
 		)
 	);
 	add_theme_support(

@@ -7,7 +7,6 @@ import "../scss/frontend.scss";
  * Components
  */
 import "./components/primary-navigation.js";
-import "./components/dark-mode-switch.js";
 
 /**
  * Bootstrap

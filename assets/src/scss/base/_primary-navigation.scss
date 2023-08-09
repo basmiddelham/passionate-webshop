@@ -1,6 +1,25 @@
+@use "sass:color";
+
+.navbar-primary {
+  @include side-color-left(right, $primary);
+
+  padding: 0;
+}
+
+.menu.social {
+  a {
+    padding: 1.5rem 0.125rem;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
 #primary-navigation ul.navbar-nav {
   li.menu-item {
     position: relative;
+    font-family: $headings-font-family;
 
     &.current-menu-item,
     &.current-menu-ancestor {
@@ -72,6 +91,15 @@
     li.menu-item {
       button.submenu-toggle {
         display: none;
+      }
+
+      a {
+        padding: 1.5rem 0.75rem;
+
+        &:hover {
+          background-color: color.mix($primary, $white, 80%);
+          color: $white;
+        }
       }
 
       svg {

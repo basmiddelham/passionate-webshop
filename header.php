@@ -23,8 +23,8 @@
 <?php wp_body_open(); ?>
 <a class="skip-link" href="#primary"><?php esc_html_e( 'Skip to content', 'strt' ); ?></a>
 <header id="masthead" class="site-header">
-	<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-		<div class="container">
+	<nav class="navbar navbar-primary navbar-expand-lg" data-bs-theme="dark">
+		<div class="container bg-primary">
 			<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/dist/images/logo-pb_shop.svg" alt="<?php bloginfo( 'name' ); ?>" width="240" height="54">
 				<div class="visually-hidden"><?php bloginfo( 'name' ); ?></div>
@@ -51,8 +51,37 @@
 						'fallback_cb'    => false,
 					)
 				);
+				if ( has_nav_menu( 'social' ) ) :
+					wp_nav_menu(
+						array(
+							'theme_location'       => 'social',
+							'container'            => 'nav',
+							'container_aria_label' => esc_attr__( 'Social links', 'strt' ),
+							'container_class'      => '',
+							'menu_class'           => 'menu social',
+							'depth'                => 1,
+							'link_before'          => '<span class="screen-reader-text">',
+							'link_after'           => '</span>',
+							'fallback_cb'          => false,
+						)
+					);
+				endif;
 				?>
 			</div>
 		</div>
 	</nav>
+	<div class="navbar navbar-secondary navbar-expand" data-bs-theme="dark">
+		<div id="secondary-navigation" class="container bg-secondary">
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'secondary-navigation',
+					'menu_class'     => 'navbar-nav ms-lg-auto',
+					'container'      => false,
+					'fallback_cb'    => false,
+				)
+			);
+			?>
+		</div>
+	</div>
 </header><!-- #masthead -->

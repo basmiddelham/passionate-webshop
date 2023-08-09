@@ -1,0 +1,46 @@
+.navbar-secondary {
+  @include side-color-left(right, $secondary);
+
+  padding: 0;
+
+  #secondary-navigation ul.navbar-nav {
+    li.menu-item {
+      position: relative;
+      font-family: $headings-font-family;
+      text-transform: uppercase;
+      font-size: 0.875rem;
+
+      a {
+        padding: .25rem .5rem;
+        color: $gray-400;
+      }
+
+      &.current-menu-item,
+      &.current-menu-ancestor {
+        > a {
+          background-color: $white;
+          color: $dark;
+        }
+      }
+
+      &:hover {
+        > a {
+          background-color: $gray-400;
+          color: $dark;
+        }
+      }
+    }
+  }
+}
+
+/* hamburger
+  -------------------------------------------------- */
+.hamburger {
+  .hamburger-box {
+    display: block; // Fix hamburger padding
+  }
+
+  @include media-breakpoint-up(lg) {
+    display: none !important;
+  }
+}

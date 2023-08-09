@@ -4,22 +4,19 @@
 @import "base/bootstrap";
 
 // Base
+@import "base/mixins";
 @import "base/site";
 @import "base/primary-navigation";
+@import "base/secondary-navigation";
 @import "base/global";
 @import "base/typography";
 @import "base/header";
 @import "base/fonts";
 @import "base/wp-classes";
 @import "base/bs-classes";
-@import "base/mixins";
 
 // Components
 @import "components/widgets";
-
-// @import "components/galleries";
-// @import "components/slideshow";
-// @import "components/comments";
 @import "components/buttons";
 @import "components/hamburger";
 

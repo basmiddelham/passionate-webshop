@@ -1,3 +1,5 @@
+@use "sass:map";
+
 /* Sticky footer */
 html,
 body {
@@ -51,4 +53,9 @@ body:not(.page-template-flexbuilder) {
       margin-bottom: 2.5rem;
     }
   }
+}
+
+
+.container {
+  max-width: map.get( $container-max-widths, xxl );
 }

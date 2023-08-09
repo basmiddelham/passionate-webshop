@@ -54,7 +54,7 @@ add_filter( 'nav_menu_item_title', 'strt_nav_menu_item_title', 10, 4 );
  * @param object $args menu arguments.
  */
 function strt_nav_menu_css_class( $classes, $item, $args ) {
-	if ( 'primary-navigation' === $args->theme_location ) {
+	if ( 'primary-navigation' === $args->theme_location || 'secondary-navigation' === $args->theme_location ) {
 		$classes[] = 'nav-item';
 	}
 	return $classes;
@@ -69,7 +69,7 @@ add_filter( 'nav_menu_css_class', 'strt_nav_menu_css_class', 10, 4 );
  * @param object $args menu arguments.
  */
 function strt_nav_menu_link_attributes( $atts, $item, $args ) {
-	if ( 'primary-navigation' === $args->theme_location ) {
+	if ( 'primary-navigation' === $args->theme_location || 'secondary-navigation' === $args->theme_location ) {
 		$atts['class'] = 'nav-link';
 	}
 	return $atts;
