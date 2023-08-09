@@ -1,0 +1,120 @@
+/* Columns
+-------------------------------------------------- */
+.woocommerce {
+  .col2-set {
+    @include make-row;
+
+    .col-1,
+    .col-2 {
+      @include make-col-ready;
+      @include make-col(12);
+
+      @include media-breakpoint-up(md) {
+        @include make-col(6);
+      }
+    }
+  }
+
+  .form-row {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1rem;
+    width: 100%;
+
+    @include media-breakpoint-up(sm) {
+      &.form-row-first {
+        float: left;
+        clear: both;
+        width: calc(50% - 8px);
+      }
+
+      &.form-row-last {
+        float: right;
+        width: calc(50% - 8px);
+      }
+    }
+  }
+
+  .clear {
+    @extend .clearfix;
+  }
+
+  /* Butttons
+  -------------------------------------------------- */
+  .button {
+    @extend .btn;
+    @extend .btn-primary;
+
+    &.alt {
+      @extend .btn-secondary;
+    }
+  }
+
+  /* Pagination
+  -------------------------------------------------- */
+  .woocommerce-pagination {
+    margin: 0 auto;
+    display: table;
+
+    ul.page-numbers {
+      @extend .pagination;
+
+      li {
+        @extend .page-item;
+
+        > * {
+          @extend .page-link;
+        }
+      }
+    }
+  }
+
+  /* Tables
+  -------------------------------------------------- */
+  .shop_table {
+    @extend .table;
+
+    td {
+      vertical-align: middle;
+    }
+
+    ul {
+      padding-left: 0;
+      margin-bottom: 0;
+      list-style: none;
+    }
+
+    .button {
+      @extend .btn-sm;
+    }
+  }
+
+  /* On Sale badge
+  -------------------------------------------------- */
+  .onsale {
+    @extend .badge;
+    @extend .bg-secondary;
+    @extend .shadow-sm;
+  }
+
+  /* Remove icon
+  -------------------------------------------------- */
+  a.remove {
+    display: inline-block;
+    font-size: 0.9375em;
+    height: 0.9375em;
+    width: 0.9375em;
+    text-align: center;
+    line-height: 0.9375em;
+    border-radius: 100%;
+    color: $red;
+    text-decoration: none;
+    border: 0;
+
+    &:hover {
+      color: $white;
+      background: $red;
+    }
+  }
+}

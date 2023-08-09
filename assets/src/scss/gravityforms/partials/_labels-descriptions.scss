@@ -1,0 +1,48 @@
+/* 
+  Labels & Descriptions
+*/
+
+.gform_wrapper {
+  /* Description below. */
+  .field_description_below .gfield_description, // Description.
+  .field_sublabel_below label.gform-field-label--type-sub {
+    // Sub-label.
+    margin-top: $form-label-margin-bottom;
+  }
+
+  /* Description above. */
+  .field_description_above .gfield_description, // Description.
+  .field_sublabel_above label.gform-field-label--type-sub {
+    // Sub-label.
+    margin-bottom: $form-label-margin-bottom;
+  }
+
+  /* Labels left/right setting. */
+  .right_label {
+    .gfield_label {
+      text-align: right;
+    }
+  }
+
+  .gform_fields:not(.top_label) .gfield {
+    > .gfield_label {
+      float: left;
+      width: 25%;
+    }
+
+    > .ginput_container,
+    > .gfield_description {
+      width: 73%;
+      margin-left: 27%;
+      clear: none;
+    }
+  }
+
+  .gform_footer {
+    &.right_label,
+    &.left_label {
+      width: 73%;
+      margin-left: 27%;
+    }
+  }
+}

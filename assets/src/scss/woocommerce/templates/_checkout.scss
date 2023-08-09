@@ -1,0 +1,158 @@
+/* stylelint-disable selector-id-pattern */
+#customer_details {
+  select {
+    @extend .form-select;
+  }
+}
+
+/* Payment
+-------------------------------------------------- */
+.woocommerce-checkout-payment {
+  .methods {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding-top: 0.325rem;
+      padding-bottom: 0.325rem;
+    }
+
+    label {
+      display: block;
+      cursor: pointer;
+    }
+
+    img {
+      float: right;
+    }
+
+    p {
+      margin-bottom: 0;
+      color: $text-muted;
+      font-size: $font-size-sm;
+      line-height: $line-height-sm;
+    }
+  }
+
+  .woocommerce-privacy-policy-text {
+    @extend .alert;
+    @extend .alert-light;
+
+    font-size: $font-size-sm;
+    line-height: $line-height-sm;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    a {
+      @extend .alert-link;
+    }
+  }
+
+  .button {
+    @extend .btn-lg;
+
+    width: 100%;
+  }
+}
+
+.woocommerce-checkout {
+  /* Coupons
+  -------------------------------------------------- */
+  .checkout_coupon {
+    @extend .alert;
+    @extend .alert-secondary;
+    @extend .clearfix;
+
+    p {
+      margin-bottom: 1em;
+
+      &.form-row {
+        margin-bottom: 0;
+      }
+
+      &.form-row-first {
+        float: left;
+        margin-right: 0.25rem;
+      }
+    }
+
+    .input-text {
+      @extend .form-control-sm;
+    }
+
+    .button {
+      @extend .btn-sm;
+    }
+  }
+
+  /* Login
+  -------------------------------------------------- */
+  .woocommerce-form.login {
+    @extend .alert;
+    @extend .alert-secondary;
+
+    .woocommerce-form__label span {
+      display: inline-block;
+    }
+
+    .lost_password {
+      margin-bottom: 0;
+
+      > a {
+        @extend .alert-link;
+      }
+    }
+  }
+}
+
+/* Order received
+-------------------------------------------------- */
+.woocommerce-order {
+  max-width: 480px;
+  margin: 0 auto;
+
+  .woocommerce-thankyou-order-received {
+    @extend .alert;
+    @extend .alert-success;
+  }
+
+  .order_details,
+  .woocommerce-order-details,
+  .woocommerce-customer-details {
+    margin-bottom: 2rem;
+  }
+
+  ul.order_details {
+    list-style: none;
+    padding: 0;
+    border-radius: $border-radius;
+    background-color: $gray-100;
+
+    li {
+      font-size: $font-size-sm;
+      line-height: $line-height-sm;
+      border-bottom: 1px dashed $gray-300;
+      padding: 0.75rem;
+      list-style-type: none;
+
+      &:last-of-type {
+        border: none;
+      }
+
+      strong {
+        display: block;
+        text-transform: none;
+        font-size: $font-size-base;
+      }
+    }
+  }
+
+  .shop_table {
+    @extend .table-sm;
+
+    font-size: $font-size-sm;
+    line-height: $line-height-sm;
+  }
+}

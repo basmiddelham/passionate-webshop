@@ -1,0 +1,136 @@
+/* 
+  Advanced Fields.
+*/
+
+.gform_wrapper {
+  /* Name fields. */
+  .ginput_complex {
+    &.ginput_container_name {
+      .name_prefix,
+      .name_suffix {
+        flex-grow: 0.5;
+      }
+    }
+  }
+
+  /* Date- & Timefields. */
+  .ginput_container_date {
+    img.ui-datepicker-trigger {
+      display: none;
+    }
+
+    input.datepicker {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' version='1'%3E%3Cpath fill='%23999' d='M15 6V3h-2v1a1 1 0 1 1-2 0V3H5v1a1 1 0 1 1-2 0V3H1v3h14zm0 1H1v8h14V7zm-2-5h2l1 1v12l-1 1H1l-1-1V3l1-1h2V1a1 1 0 1 1 2 0v1h6V1a1 1 0 1 1 2 0v1z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: calc(100% - 0.75em) center;
+
+      &.datepicker_no_icon {
+        background-image: none;
+      }
+    }
+  }
+
+  /* Lists. */
+  .ginput_list {
+    .gfield_header_item--icons,
+    .gfield_list_icons {
+      width: 48px;
+    }
+
+    // Mobile.
+    @include media-breakpoint-down(sm) {
+      .gfield_list_header {
+        display: none;
+      }
+
+      .gfield_list_group {
+        border: 1px solid $border-color;
+        padding: 8px;
+
+        .gfield_list_group_item {
+          &::before {
+            content: attr(data-label);
+            font-size: $font-size-sm;
+          }
+        }
+
+        .gfield_list_icons {
+          background-color: $gray-200;
+          margin: 0 -8px -8px;
+          padding: 12px 8px 8px;
+          box-sizing: content-box;
+          width: 100%;
+
+          button {
+            width: 20px;
+            height: 20px;
+
+            &.delete_list_item {
+              margin-left: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    // Icons.
+    .gfield_list_icons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      button {
+        font-size: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-444 448 256 256'%3E%3Cpath d='M-316 448a128 128 0 1 0 0 256 128 128 0 0 0 0-256zm0 224a96 96 0 1 1 0-192 96 96 0 0 1 0 192z'/%3E%3Cpath d='M-332 512v48h-48v32h48v48h32v-48h48v-32h-48v-48z'/%3E%3C/svg%3E");
+        border: none;
+        width: 16px;
+        height: 16px;
+        opacity: 0.5;
+        padding: 0;
+        transition: opacity 0.5s ease-out;
+
+        &.delete_list_item {
+          margin-left: 5px;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-139 51 512 512'%3E%3Cpath d='M117 51a256 256 0 1 0 0 512 256 256 0 0 0 0-512zm0 448a192 192 0 1 1 0-384 192 192 0 0 1 0 384zM-11 339h256v-64H-11v64z'/%3E%3C/svg%3E");
+        }
+      }
+    }
+  }
+
+  /* File Upload. */
+  .gfield--type-fileupload {
+    .validation_message--hidden-on-empty:empty {
+      display: none !important;
+    }
+
+    .gfield_validation_message,
+    .ginput_preview {
+      @extend .alert;
+      @extend .p-1;
+      @extend .mt-2;
+      @extend .mb-0;
+
+      font-size: $font-size-sm;
+    }
+
+    .gfield_validation_message {
+      @extend .alert-warning;
+    }
+
+    .ginput_preview {
+      @extend .alert-light;
+
+      > *:not(:last-child) {
+        margin-right: 0.5em;
+      }
+
+      .gform_delete_file {
+        background-color: transparent;
+        color: $primary;
+        padding: 0;
+        border: none;
+        float: right;
+      }
+    }
+  }
+}

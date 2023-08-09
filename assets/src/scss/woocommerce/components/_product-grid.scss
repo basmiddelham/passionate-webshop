@@ -1,0 +1,156 @@
+/* Product grid
+-------------------------------------------------- */
+ul.products {
+  @include make-row;
+
+  position: relative;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  clear: both;
+
+  li {
+    @include make-col-ready;
+    @include make-col(6);
+
+    position: relative;
+    margin-bottom: 40px;
+    display: flex;
+    text-align: center;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  a.woocommerce-LoopProduct-link {
+    position: relative;
+    text-decoration: none;
+    flex: 1 1 auto;
+    height: 100%;
+    width: 100%;
+    color: $secondary;
+
+    .onsale {
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+    }
+  }
+
+  img {
+    @extend .shadow-sm;
+
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  h2 {
+    font-size: 1.125rem;
+    margin-bottom: 0.125rem;
+  }
+
+  .star-rating {
+    margin: 0 auto 0.125rem;
+  }
+
+  .price {
+    color: $body-color;
+    font-size: 0.85em;
+    margin-bottom: 0.75rem;
+    display: block;
+
+    del {
+      opacity: 0.5;
+    }
+  }
+
+  /* Button
+  -------------------------------------------------- */
+  .button {
+    // @extend .btn-sm;
+
+    transition: opacity 0.2s;
+
+    &.loading {
+      opacity: 0.3;
+
+      &::after {
+        font-family: WooCommerce, sans-serif;
+        content: "\e01c";
+        vertical-align: bottom;
+        margin-left: 0.53em;
+        animation: spin 2s linear infinite;
+      }
+    }
+
+    &.added::after {
+      font-family: WooCommerce, sans-serif;
+      content: "\e017";
+      margin-left: 0.53em;
+      vertical-align: bottom;
+    }
+
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  /* Added to cart badge
+  -------------------------------------------------- */
+  .added_to_cart {
+    @extend .btn;
+    @extend .btn-info;
+    @extend .btn-sm;
+    @extend .shadow-sm;
+
+    margin-top: -0.25rem;
+    font-size: 0.75rem;
+    display: block;
+    
+    @keyframes moveup {
+      from {
+        bottom: -20px;
+      }
+
+      to {
+        bottom: -15px;
+      }
+    }
+  }
+
+  /* Layout
+  -------------------------------------------------- */
+  @include media-breakpoint-up(md) {
+    &.columns-2 li.product {
+      @include make-col(6);
+    }
+
+    &.columns-3 li.product {
+      @include media-breakpoint-up(lg) {
+        @include make-col(4);
+      }
+    }
+
+    &.columns-4 li.product {
+      @include media-breakpoint-up(md) {
+        @include make-col(4);
+      }
+
+      @include media-breakpoint-up(lg) {
+        @include make-col(3);
+      }
+    }
+
+    &.columns-5 li.product {
+      @include make-col(2, 10);
+    }
+
+    &.columns-6 li.product {
+      @include make-col(2);
+    }
+  }
+}

@@ -1,0 +1,80 @@
+/*
+  Gravity Forms Bootstrap 5 styling
+  https://github.com/basmiddelham/gravityforms-bootstrap-styling
+ 
+  Gravity Forms SASS styles for use in your Bootstrap 5 enabled WordPress theme.
+  Please use these styles together with gravityforms-bootstrap-hooks for full functionality:
+  https://github.com/basmiddelham/gravityforms-bootstrap-hooks
+*/
+
+@import "partials/labels-descriptions";
+@import "partials/fields-advanced";
+
+// @import "partials/chosen";
+@import "partials/datepicker";
+
+.gform_wrapper {
+  margin-bottom: $spacer;
+
+  p.gform_description {
+    margin-bottom: 0 !important;
+  }
+
+  /* Hidden.
+  -------------------------------------------------------------- */
+  .gform_validation_container, // anti-spam honeypot
+  .gform_hidden {
+    @extend .visually-hidden;
+  }
+
+  /* Pages.
+  -------------------------------------------------------------- */
+  .gf_page_steps {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px dotted $border-color;
+    font-size: $font-size-sm;
+
+    .gf_step {
+      width: auto;
+      display: inline-block;
+      margin: 0.5rem 2rem 0.5rem 0;
+      opacity: 0.6;
+
+      span {
+        margin: 0 0.125rem;
+      }
+
+      &.gf_step_active {
+        opacity: 1;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+
+  /* Validation.
+  -------------------------------------------------------------- */
+  .gfield_required {
+    color: $danger;
+  }
+
+  .gform_validation_errors {
+    @extend .alert;
+    @extend .alert-warning;
+
+    font-size: $font-size-sm;
+
+    &:focus {
+      outline: none;
+      box-shadow: $box-shadow;
+    }
+  }
+}
+
+/* Confirmation.
+-------------------------------------------------------------- */
+.gform_confirmation_wrapper {
+  @extend .alert;
+  @extend .alert-success;
+}
