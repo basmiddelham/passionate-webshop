@@ -68,9 +68,8 @@ function strt_setup() {
 	add_image_size( 'col-12', 1280, 0, false );
 	add_image_size( 'col-12-4x3', 1280, 960, true );
 	add_image_size( 'col-12-16x9', 1280, 720, true );
-	add_image_size( 'ig6-1x1', 340, 340, true );
-	add_image_size( 'ig6-1x1-@2x', 510, 510, true );
-	add_image_size( 'ig6-16x9', 340, 191, true );
+	add_image_size( 'project_header', 920, 158, true );
+	add_image_size( 'project_header@2x', 1380, 237, true );
 }
 add_action( 'after_setup_theme', 'strt_setup' );
 

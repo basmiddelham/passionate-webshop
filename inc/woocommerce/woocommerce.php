@@ -121,6 +121,21 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 
 /**
+ * Add header image to seperate shops.
+ */
+function strt_before_main_content() {
+	if ( is_tax( 'project' ) ) {
+		add_filter( 'woocommerce_show_page_title', '__return_empty_array' );
+		$queried_object = get_queried_object();
+		$project_header = get_field( 'project_header', $queried_object );
+		if ( $project_header ) {
+			echo '<div class="project-header mb-4">' . wp_get_attachment_image( $project_header, 'project_header' ) . '</div>';
+		}
+	}
+}
+add_action( 'woocommerce_before_main_content', 'strt_before_main_content', 20, 0 );
+
+/**
  * Sample implementation of the WooCommerce Mini Cart.
  *
  * You can add the WooCommerce Mini Cart to header.php like so ...

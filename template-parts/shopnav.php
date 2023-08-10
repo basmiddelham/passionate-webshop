@@ -1,4 +1,4 @@
-<nav class="shopnav widget d-flex justify-content-center flex-wrap mt-3 mb-4">
+<nav class="shopnav widget d-flex justify-content-center flex-wrap mb-4">
 	<a class="shopnav-item nav-pb" href="<?php echo get_home_url(); ?>/passionate-bulkboek">
 		<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/nav-pb.png" srcset="<?php echo get_template_directory_uri(); ?>/assets/dist/images/nav-pb@2x.png 2x" width="94" height="70" alt="Passionate Bulkboek Shop">
 	</a>
