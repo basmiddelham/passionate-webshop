@@ -14,3 +14,44 @@
     z-index: -1;
   }
 }
+
+/* Blends & Gradients
+-------------------------------------------------- */
+@mixin blend-1 {
+  background-color: $green-light;
+
+  .inner {
+    mix-blend-mode: multiply;
+    filter: grayscale(100%);
+  }
+}
+
+@mixin blend-2 {
+  background-color: $primary;
+  position: relative;
+
+  &::after {
+    background-color: $secondary;
+    mix-blend-mode: screen;
+    content: '';
+    position: absolute;
+    height: 100%;
+    inset: 0;
+  }
+
+  .inner {
+    mix-blend-mode: screen;
+    filter: grayscale(100%) brightness(1);
+  }
+}
+
+@mixin blend-3 {
+  background: linear-gradient(135deg, rgba($secondary,1) 0%,rgba($secondary,0) 100%);
+  background-color: white;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff832', endColorstr='#00fff832',GradientType=1 );
+
+  .inner {
+    mix-blend-mode: multiply;
+    filter: grayscale(100%) contrast(1);
+  }
+}

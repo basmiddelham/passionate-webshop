@@ -17,7 +17,7 @@ get_header();
 
 	<div class="container">
 		<div class="row justify-content-center">
-			<main id="primary" class="col-lg-7">
+			<main id="primary" class="col-lg-8">
 
 				<?php
 				while ( have_posts() ) :

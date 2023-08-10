@@ -1,0 +1,32 @@
+.pageheader {
+  .pageheader__img {
+    position: relative;
+    min-height: 200px;
+    background-color: $light;
+  }
+
+  .pageheader__content {
+    @include media-breakpoint-down(sm) {
+      word-break: break-word;
+      hyphens: auto;
+    }
+
+    @include media-breakpoint-up(lg) {
+      min-height: 420px;
+    }
+  }
+
+  .pageheader__blend {
+    @include blend-2;
+
+    padding: 0;
+    position: relative;
+
+    .inner {
+      background-size: auto 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+    }
+  }
+}

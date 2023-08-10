@@ -19,8 +19,8 @@ const projectPaths = {
 
 const projectJsFiles = {
   frontend: projectPaths.jsPath + "/frontend.js",
-  backend: projectPaths.jsPath + "/backend.js",
-  tinymce: projectPaths.jsPath + "/tinymce.js",
+  // backend: projectPaths.jsPath + "/backend.js",
+  // tinymce: projectPaths.jsPath + "/tinymce.js",
   // mapbox: projectPaths.jsPath + "/components/mapbox.js",
   // swiper: projectPaths.jsPath + "/components/swiper.js",
   // fancybox: projectPaths.jsPath + "/components/fancybox.js",
