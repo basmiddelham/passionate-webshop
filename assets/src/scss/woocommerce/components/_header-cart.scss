@@ -21,7 +21,7 @@
     padding: $navbar-padding-y $navbar-padding-x;
 
     .svg-icon {
-      color: var(--bs-nav-link-color);
+      color: $primary;
     }
   
     .count {
@@ -51,20 +51,6 @@
       width: 18em;
       background-color: white;
       padding: 0.75em;
-    }
-
-    li.mini_cart_item {
-      a {
-        padding: 0 !important;
-      }
-    }
-
-    p {
-      margin: 0;
-
-      &.total {
-        margin-bottom: 0.25em;
-      }
     }
   }
 

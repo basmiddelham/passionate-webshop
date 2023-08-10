@@ -30,12 +30,20 @@
     margin-bottom: 1rem;
 
     .mini_cart_item {
-      padding-left: 1.25rem;
       position: relative;
       clear: both;
+      padding: 0 0 0 1.25rem !important;
+      text-decoration: none;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+
+      a {
+        text-decoration: none;
+        color: $dark;
+      }
 
       .quantity {
-        font-size: 0.75rem;
+        font-size: 0.9375rem;
       }
 
       .remove {
@@ -46,14 +54,23 @@
     }
   }
 
-  p.total {
-    margin-bottom: 0.5rem;
+  p {
+    margin: 0;
+    font-size: 1rem;
+
+    &.total {
+      margin-bottom: 0.25em;
+    }
   }
 
   .button {
     @extend .btn-sm;
 
     margin-right: 0.25rem;
+
+    &.checkout {
+      @extend .btn-secondary;
+    }
   }
 }
 
@@ -73,7 +90,7 @@
 
     .amount,
     .star-rating {
-      font-size: 0.85em;
+      // font-size: 0.85em;
     }
 
     del {

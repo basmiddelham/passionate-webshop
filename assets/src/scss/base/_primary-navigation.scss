@@ -1,8 +1,6 @@
 @use "sass:color";
 
 .navbar {
-  // @include side-color-left(right, $primary);
-
   padding: 0;
 }
 
@@ -84,7 +82,7 @@
     flex: 1;
 
     li.menu-item {
-      flex: 1;
+      flex: 1 0 auto;
       text-align: center;
 
       button.submenu-toggle {

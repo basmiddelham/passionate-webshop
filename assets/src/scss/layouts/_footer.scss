@@ -1,6 +1,4 @@
 .footer-widgets {
-  @include side-color-left(left, $light);
-
   position: relative;
 
   .colorswatch {
@@ -31,6 +29,10 @@
     text-transform: uppercase;
     font-size: 1.425rem;
   }
+}
+
+.socket {
+  @include side-color-left(left, $light);
 }
 
 .socket-logos {
