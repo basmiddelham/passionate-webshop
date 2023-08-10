@@ -45,6 +45,7 @@
       margin: 0 1.125rem 1.5rem;
       display: block;
 
+      /* stylelint-disable-next-line no-descending-specificity */
       svg {
         color: $secondary;
       }

@@ -1,46 +1,38 @@
-.navbar-secondary {
-  @include side-color-left(right, $secondary);
-
+.secondary-navigation {
+  list-style: none;
+  margin: 0;
   padding: 0;
 
-  #secondary-navigation ul.navbar-nav {
-    li.menu-item {
-      position: relative;
-      font-family: $headings-font-family;
-      text-transform: uppercase;
-      font-size: 0.875rem;
+  li.menu-item {
+    // position: relative;
+    font-family: $headings-font-family;
+    text-transform: uppercase;
+    font-size: 1rem;
 
-      a {
-        padding: .325rem .5rem;
-        color: $gray-400;
+    a {
+      padding: .325rem .5rem;
+      font-weight: 700;
+    }
+
+    &.current-menu-item,
+    &.current-menu-ancestor {
+      > a {
+        background-color: $primary;
+        color: white;
       }
+    }
 
-      &.current-menu-item,
-      &.current-menu-ancestor {
-        > a {
-          background-color: $white;
-          color: $dark;
-        }
-      }
-
-      &:hover {
-        > a {
-          background-color: $gray-200;
-          color: $dark;
-        }
+    &:hover {
+      > a {
+        background-color: $gray-200;
+        color: $dark;
       }
     }
   }
-}
 
-/* hamburger
+  /* Desktop only
   -------------------------------------------------- */
-.hamburger {
-  .hamburger-box {
-    display: block; // Fix hamburger padding
-  }
-
   @include media-breakpoint-up(lg) {
-    display: none !important;
+    min-width: 180px;
   }
 }

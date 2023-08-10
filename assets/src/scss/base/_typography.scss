@@ -7,12 +7,15 @@ table,
   font-size: 1.125rem;
 }
 
-.page-template-default h1 {
-  text-align: center;
-  margin-bottom: 1rem;
+h1 {
   text-transform: uppercase;
   line-height: 1;
   letter-spacing: -0.05rem;
+}
+
+.page-template-default h1 {
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 p + h2,

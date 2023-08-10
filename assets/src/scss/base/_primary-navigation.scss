@@ -1,19 +1,9 @@
 @use "sass:color";
 
-.navbar-primary {
-  @include side-color-left(right, $primary);
+.navbar {
+  // @include side-color-left(right, $primary);
 
   padding: 0;
-}
-
-.menu.social {
-  a {
-    padding: 1.5rem 0.125rem;
-
-    &:hover {
-      color: $white;
-    }
-  }
 }
 
 #primary-navigation ul.navbar-nav {
@@ -21,6 +11,7 @@
     position: relative;
     font-family: $headings-font-family;
     font-size: 1.125rem;
+    background-color: $primary;
 
     &.current-menu-item,
     &.current-menu-ancestor {
@@ -89,13 +80,20 @@
   /* Desktop only
     -------------------------------------------------- */
   @include media-breakpoint-up(lg) {
+    width: 100%;
+    flex: 1;
+
     li.menu-item {
+      flex: 1;
+      text-align: center;
+
       button.submenu-toggle {
         display: none;
       }
 
       a {
-        padding: 1.5rem 0.75rem;
+        padding: 3rem 1.25rem;
+        text-transform: uppercase;
 
         &:hover {
           background-color: $dark;
