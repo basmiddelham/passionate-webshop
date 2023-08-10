@@ -96,6 +96,11 @@ add_filter(
 );
 
 /**
+ * Allow Text widgets to execute shortcodes
+ */
+add_filter( 'widget_text', 'do_shortcode' );
+
+/**
  * Remove default image sizes.
  *
  * @param array $sizes WordPress default image sizes.
@@ -132,6 +137,28 @@ function strt_widgets_init() {
 		array(
 			'name'          => esc_html__( 'Sidebar', 'strt' ),
 			'id'            => 'sidebar-1',
+			'description'   => esc_html__( 'Add widgets here.', 'strt' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer 1', 'strt' ),
+			'id'            => 'footer-1',
+			'description'   => esc_html__( 'Add widgets here.', 'strt' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer 2', 'strt' ),
+			'id'            => 'footer-2',
 			'description'   => esc_html__( 'Add widgets here.', 'strt' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
@@ -212,7 +239,7 @@ if ( class_exists( 'woocommerce' ) ) {
 function strt_custom_login_logo() {
 	echo '<style type="text/css">
 		#login h1 a {
-			background-image: url("' . esc_url( get_stylesheet_directory_uri() ) . '/assets/dist/images/logo-login.svg");
+			background-image: url("' . esc_url( get_stylesheet_directory_uri() ) . '/assets/dist/images/logo-pb_shop.svg");
 			height: 72px;
 			width:320px;
 			background-size: 320px 72px;
@@ -307,20 +334,47 @@ function strt_icon_func( $atts ) {
 add_shortcode( 'icon', 'strt_icon_func' );
 
 /**
+ * Social menu shortcode.
+ */
+function strt_social_shortcode() {
+	ob_start();
+	if ( has_nav_menu( 'social' ) ) :
+		wp_nav_menu(
+			array(
+				'theme_location'       => 'social',
+				'container'            => 'nav',
+				'container_aria_label' => esc_attr__( 'Social links', 'strt' ),
+				'container_class'      => '',
+				'menu_class'           => 'menu social',
+				'depth'                => 1,
+				'link_before'          => '<span class="screen-reader-text">',
+				'link_after'           => '</span>',
+				'fallback_cb'          => false,
+			)
+		);
+	endif;
+	$output = ob_get_contents();
+	ob_end_clean();
+	return $output;
+}
+add_shortcode( 'social', 'strt_social_shortcode' );
+
+/**
  * Gravity Forms - Add privacy message below submit button
  *
- * @param string $button The submit button markup.
+ * @param string $form_string The form markup.
  */
-function strt_submit_button_form( $button ) {
+function strt_add_disclaimer( $form_string ) {
 	if ( ! is_admin() ) {
-		$button .= '<div class="mt-2 small"><a class="icon-link" href="' . get_privacy_policy_url() . '" target="_blank" rel="noopener noreferrer">' . wp_kses_post( strt_get_icon_svg( 'ui', 'lock' ) ) . 'Je gegevens zijn veilig bij ons.</a></div>';
+		$form_string .= '<div class="form-disclaimer mt-1 small"><a class="icon-link" href="' . get_privacy_policy_url() . '" target="_blank" rel="noopener noreferrer">' . wp_kses_post( strt_get_icon_svg( 'ui', 'lock' ) ) . 'Je gegevens zijn veilig bij ons.</a></div>';
 	}
-	return $button;
+	return $form_string;
 }
-add_filter( 'gform_submit_button_3', 'strt_submit_button_form', 10, 2 );
-add_filter( 'gform_submit_button_4', 'strt_submit_button_form', 10, 2 );
+add_filter( 'gform_get_form_filter_3', 'strt_add_disclaimer', 10, 2 );
 
-// Move Yoast to bottom.
+/**
+ * Move Yoast to bottom.
+ */
 function strt_move_yoast() {
 	return 'low';
 }

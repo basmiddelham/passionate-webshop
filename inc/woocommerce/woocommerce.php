@@ -332,12 +332,6 @@ function strt_terms_shortcode( $atts ) {
 add_shortcode( 'strt_terms', 'strt_terms_shortcode' );
 
 /**
- * Allow Text widgets to execute shortcodes
- */
-add_filter( 'widget_text', 'do_shortcode' );
-
-
-/**
  * Remove taxonomy from url
  *
  * @param array $query The query.

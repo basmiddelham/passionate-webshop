@@ -1,24 +1,52 @@
-.site-footer {
+.footer-widgets {
   @include side-color-left(left, $light);
+
+  position: relative;
+
+  .colorswatch {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  .widget {
+    text-align: center;
+  }
+
+  .menu-social-container {
+    svg {
+      color: $light;
+      width: 50px;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  h2,
+  h3,
+  h4 {
+    color: $light;
+    text-transform: uppercase;
+    font-size: 1.425rem;
+  }
 }
 
 .socket-logos {
-  text-align: center;
+  padding-top: 2.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 
-  a {
-    display: inline-block;
-    margin: 0 6px 1rem;
-
-    svg {
-      color: $dark;
-      display: inline-block;
-    }
-
-    @include media-breakpoint-up(lg) {
-      margin: 0 1rem 1rem;
+  .socket-logo {
+    a {
+      margin: 0 1.125rem 1.5rem;
+      display: block;
 
       svg {
-        width: 120%;
+        color: $secondary;
       }
     }
   }
