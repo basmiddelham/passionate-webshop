@@ -14,6 +14,11 @@
 // @import "partials/chosen";
 @import "partials/datepicker";
 
+h4.gform_submission_error {
+  text-transform: inherit;
+  font-size: 1rem;
+}
+
 .gform_wrapper {
   margin-bottom: $spacer;
 
