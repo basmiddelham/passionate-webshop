@@ -11,6 +11,10 @@
     font-size: 1.25rem;
     background-color: $primary;
 
+    a {
+      color: white;
+    }
+
     &.current-menu-item,
     &.current-menu-ancestor {
       > a {
@@ -94,6 +98,7 @@
       a {
         padding: 2rem 1.25rem;
         text-transform: uppercase;
+        font-size: 20px;
 
         &:hover {
           background-color: $dark;

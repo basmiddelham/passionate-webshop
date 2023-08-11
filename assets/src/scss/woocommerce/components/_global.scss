@@ -78,6 +78,10 @@
   .shop_table {
     @extend .table;
 
+    thead, tbody, tfoot, tr, td, th {
+      border-bottom-width: 1px;
+    }
+
     td {
       vertical-align: middle;
     }

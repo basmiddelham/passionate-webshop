@@ -8,7 +8,7 @@ body.single-product {
   }
 
   .woocommerce-product-gallery {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     position: relative;
 
     @include make-col-ready;
@@ -19,7 +19,7 @@ body.single-product {
   }
 
   .summary.entry-summary {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 
     @include make-col-ready;
 
@@ -34,6 +34,19 @@ body.single-product {
     margin-bottom: 2rem;
 
     @include make-col-ready;
+  }
+
+  ul.products {
+    justify-content: flex-start;
+  }
+
+  h1.product_title {
+    font-size: 2rem;
+    text-transform: inherit;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
   }
 
   .onsale {
