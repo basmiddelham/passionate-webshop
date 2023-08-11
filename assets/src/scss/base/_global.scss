@@ -62,6 +62,26 @@ ul.menu.social {
   }
 }
 
+ul.sponsors {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    max-width: 240px;
+    max-height: 60px;
+    height: auto;
+    width: auto;
+  }
+
+  li:not(:last-child) {
+    margin-right: 1.5rem;
+  }
+}
+
 // Style user-switching text
 /* stylelint-disable-next-line selector-id-pattern */
 #user_switching_switch_on {

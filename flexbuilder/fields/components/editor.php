@@ -23,7 +23,7 @@ $strt_editor
 			'acfe_wysiwyg_transparent'      => 1,
 			'acfe_wysiwyg_merge_toolbar'    => 0,
 			'tabs'                          => 'all',
-			'media_upload'                  => 0,
+			'media_upload'                  => 1,
 			'delay'                         => 1,
 			'acfe_wysiwyg_auto_init'        => 1,
 			'acfe_wysiwyg_height'           => 200,

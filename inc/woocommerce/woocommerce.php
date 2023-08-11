@@ -136,6 +136,19 @@ function strt_before_main_content() {
 add_action( 'woocommerce_before_main_content', 'strt_before_main_content', 20, 0 );
 
 /**
+ * Add Cultuurkaart badge.
+ */
+function strt_before_shop_loop_item_title() {
+	if ( get_field( 'cultuurkaart' ) ) {
+		// echo '<span class="cultuurkaart_badge">Cultuurkaart</span>';
+		echo '<div class="ck_badge-overlay">
+		<span class="top-right ck_badge red">Cultuurkaart</span>
+	</div>';
+	}
+}
+add_action( 'woocommerce_before_shop_loop_item_title', 'strt_before_shop_loop_item_title', 5 );
+
+/**
  * Sample implementation of the WooCommerce Mini Cart.
  *
  * You can add the WooCommerce Mini Cart to header.php like so ...
@@ -297,6 +310,7 @@ function strt_add_to_cart_text( $text ) {
 	return $text;
 }
 add_filter( 'woocommerce_product_add_to_cart_text', 'strt_add_to_cart_text', 10, 2 );
+
 
 /**
  * Display Custom Taxonomy Terms in a Widget Using Shortcode

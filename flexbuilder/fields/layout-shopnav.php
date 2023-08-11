@@ -14,6 +14,12 @@ $strt_shopnav = new FieldsBuilder(
 	)
 );
 $strt_shopnav
-		->addMessage( 'Shop navigatie', 'Dit block toont de Shop navigatie.' );
+	->addText(
+		'shopnav_title',
+		array(
+			'label' => 'Titel',
+		)
+	)
+	->addMessage( 'Shop navigatie', 'Dit block toont de Shop navigatie.' );
 
 return $strt_shopnav;
