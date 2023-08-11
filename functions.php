@@ -378,3 +378,16 @@ function strt_move_yoast() {
 	return 'low';
 }
 add_filter( 'wpseo_metabox_prio', 'strt_move_yoast' );
+
+/**
+ * Make nav menus active on other types of pages.
+ *
+ * @since 1.0
+ */
+function strt_current_menu_item( $classes, $item ) {
+	if ( 'Webshop' === $item->title && is_woocommerce() ) :
+		$classes[] = 'current-menu-item';
+	endif;
+	return $classes;
+}
+add_filter( 'nav_menu_css_class', 'strt_current_menu_item', 10, 2 );
