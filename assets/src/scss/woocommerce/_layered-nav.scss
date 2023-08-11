@@ -1,0 +1,77 @@
+@use "sass:color";
+
+.woocommerce-widget-layered-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding-left: 1.5rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    &.chosen {
+      &::before {
+        border-color: $primary;
+        background-color: $primary;
+        background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='9px' viewBox='0 0 12 9' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Theme-assets' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg id='Group' transform='translate(1.5, 1.5)' stroke='%23FFFFFF' stroke-width='3'%3E%3Cpolyline id='Path' points='0 3 3 6 9 0'%3E%3C/polyline%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-size: 7px;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      display: block;
+      width: 0.8125em;
+      height: 0.8125em;
+      margin-right: 0.5em;
+      margin-top: 0.35em;
+      border: 3px solid $gray-300;
+    }
+  }
+}
+
+.widget_layered_nav_filters {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      background-color: $light;
+      display: inline-block;
+      margin-right: 0.5rem;
+      padding: 0 0.5rem;
+      border-radius: 0.325rem;
+      border: 1px solid color.mix($primary, $white, 50%);
+
+      a {
+        text-decoration: none;
+
+        &::before {
+          font-family: WooCommerce, sans-serif;
+          speak: never;
+          font-weight: 400;
+          font-variant: normal;
+          font-size: 0.875rem;
+          text-transform: none;
+          line-height: 1;
+          margin-right: 0.618em;
+          content: "\e013";
+          text-decoration: none;
+          color: $dark;
+          vertical-align: inherit;
+        }
+      }
+    }
+  }
+}

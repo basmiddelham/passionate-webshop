@@ -231,7 +231,14 @@ if ( class_exists( 'GFCommon' ) ) {
 // Load WooCommerce.
 if ( class_exists( 'woocommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce/woocommerce.php';
+	// require get_template_directory() . '/inc/woocommerce/class-wc-widget-layered-nav.php';
 }
+
+// function my_widget_price_filter_register() {
+//     unregister_widget( 'WC_Widget_Layered_Nav' );
+//     register_widget( 'My_Widget_Layered_Nav' );
+// }
+// add_action( 'widgets_init', 'my_widget_price_filter_register' );
 
 /**
  * Custom login logo.
