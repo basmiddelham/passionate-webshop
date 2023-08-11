@@ -80,9 +80,15 @@ $strt_flexbuilder
 		)
 
 		// Cards.
+		// ->addLayout(
+		// 	strt_get_field_partial( 'layout-cards' ),
+		// 	array( 'acfe_flexible_render_template' => 'flexbuilder/templates/layout-cards.php' )
+		// )
+
+		// Featured products.
 		->addLayout(
-			strt_get_field_partial( 'layout-cards' ),
-			array( 'acfe_flexible_render_template' => 'flexbuilder/templates/layout-cards.php' )
+			strt_get_field_partial( 'layout-featured' ),
+			array( 'acfe_flexible_render_template' => 'flexbuilder/templates/layout-featured.php' )
 		)
 
 		// Shopnav.
