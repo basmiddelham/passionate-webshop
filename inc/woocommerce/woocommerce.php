@@ -332,6 +332,18 @@ function strt_terms_shortcode( $atts ) {
 add_shortcode( 'strt_terms', 'strt_terms_shortcode' );
 
 /**
+ * Display shopnav shortcode
+ */
+function strt_shopnav_shortcode() {
+	ob_start();
+	echo get_template_part( 'template-parts/shopnav' );
+	$output = ob_get_contents();
+	ob_end_clean();
+	return $output;
+}
+add_shortcode( 'shopnav', 'strt_shopnav_shortcode' );
+
+/**
  * Remove taxonomy from url
  *
  * @param array $query The query.

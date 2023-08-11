@@ -65,6 +65,9 @@
 
         > * {
           @extend .page-link;
+
+          font-family: Roboto, sans-serif;
+          margin-left: -3px;
         }
       }
     }
@@ -94,8 +97,14 @@
   -------------------------------------------------- */
   .onsale {
     @extend .badge;
-    @extend .bg-secondary;
+    @extend .bg-warning;
     @extend .shadow-sm;
+
+    background-color: $yellow;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    font-family: $headings-font-family;
+    color: $primary;
   }
 
   /* Remove icon

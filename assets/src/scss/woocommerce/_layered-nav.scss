@@ -11,6 +11,11 @@
     position: relative;
     padding-left: 1.5rem;
 
+    .count {
+      font-size: 0.875rem;
+      color: $gray-500;
+    }
+
     a {
       text-decoration: none;
     }

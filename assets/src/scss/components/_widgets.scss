@@ -13,6 +13,10 @@
 
   h2 {
     font-size: 1.25em;
+    color: $gray-700;
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid $gray-400;
   }
 
   // Set current navigation item.
