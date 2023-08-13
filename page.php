@@ -17,8 +17,13 @@ get_header();
 
 	<div class="container">
 		<div class="row justify-content-center">
-			<main id="primary" class="col-lg-8">
-
+			<?php
+			if ( is_cart() || is_checkout() || is_account_page() ) {
+				echo '<main id="primary" class="col-lg-9">';
+			} else {
+				echo '<main id="primary" class="col-lg-8">';
+			}
+			?>
 				<?php
 				while ( have_posts() ) :
 					the_post();

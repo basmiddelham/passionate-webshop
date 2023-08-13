@@ -288,10 +288,10 @@ add_filter( 'is_active_sidebar', 'strt_wc_sidebar_conditional', 10, 2 );
  */
 function strt_dequeue_stylesandscripts() {
 	if ( class_exists( 'woocommerce' ) ) {
-		// wp_dequeue_style( 'select2' );
-		// wp_deregister_style( 'select2' );
-		// wp_dequeue_script( 'selectWoo' );
-		// wp_deregister_script( 'selectWoo' );
+		wp_dequeue_style( 'select2' );
+		wp_deregister_style( 'select2' );
+		wp_dequeue_script( 'selectWoo' );
+		wp_deregister_script( 'selectWoo' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'strt_dequeue_stylesandscripts', 100 );

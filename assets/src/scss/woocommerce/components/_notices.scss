@@ -60,10 +60,6 @@
 .woocommerce-info {
   margin-bottom: $paragraph-margin-bottom;
 
-  .button {
-    @extend .btn-info;
-  }
-
   &::before {
     content: "\e016";
   }

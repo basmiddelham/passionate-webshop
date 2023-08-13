@@ -15,16 +15,12 @@
 	<div class="footer-widgets bg-dark py-4 py-lg-5">
 		<div class="container">
 			<div class="row justify-content-center">
-				<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
-					<div class="col-lg-4">
-						<?php dynamic_sidebar( 'footer-1' ); ?>
-					</div>
-				<?php endif; ?>
-				<?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
-					<div class="col-lg-4">
-						<?php dynamic_sidebar( 'footer-2' ); ?>
-					</div>
-				<?php endif; ?>
+				<div class="col-lg-4">
+					<?php dynamic_sidebar( 'footer-1' ); ?>
+				</div>
+				<div class="col-lg-4">
+					<?php dynamic_sidebar( 'footer-2' ); ?>
+				</div>
 			</div>
 		</div>
 		<svg xmlns="http://www.w3.org/2000/svg" class="colorswatch" width="90px" height="154px" viewBox="0 0 90 154"><g fill="none" fill-rule="nonzero"><path fill="#FFF" d="M54 154h36V0L54 154Z"/><path fill="#1E6C9A" d="m0 84 22 22L90 0z"/><path fill="#F08E00" d="m2 93 25 21L90 0z"/><path fill="#AF0917" d="m3 105 28 20L90 0z"/><path fill="#E2017B" d="m6 116 31 19L90 0z"/><path fill="#D9ABAB" d="m10 127 35 18L90 0z"/><path fill="#50813D" d="m17 137 37 17L90 0z"/></g></svg>
