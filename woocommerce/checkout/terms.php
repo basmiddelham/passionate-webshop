@@ -26,13 +26,13 @@ if ( apply_filters( 'woocommerce_checkout_show_terms', true ) && function_exists
 
 		<?php if ( wc_terms_and_conditions_checkbox_enabled() ) : ?>
 			<p class="form-row validate-required">
-				<label class="custom-control custom-checkbox checkbox">
-					<input type="checkbox" class="custom-control-input woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" name="terms" <?php checked( apply_filters( 'woocommerce_terms_is_checked_default', isset( $_POST['terms'] ) ), true ); // WPCS: input var ok, csrf ok. ?> id="terms" />
-					<label class="custom-control-label woocommerce-form__label woocommerce-form__label-for-checkbox checkbox" for="terms">
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" name="terms" <?php checked( apply_filters( 'woocommerce_terms_is_checked_default', isset( $_POST['terms'] ) ), true ); // WPCS: input var ok, csrf ok. ?> id="terms" />
+					<label class="form-check-label woocommerce-form__label woocommerce-form__label-for-checkbox checkbox" for="terms">
 						<span class="woocommerce-terms-and-conditions-checkbox-text"><?php wc_terms_and_conditions_checkbox_text(); ?></span>&nbsp;<abbr class="required" title="<?php esc_attr_e( 'required', 'woocommerce' ); ?>">*</abbr>
 					</label>
 					<input type="hidden" name="terms-field" value="1" />
-				</label>
+		</div>
 			</p>
 		<?php endif; ?>
 	</div>

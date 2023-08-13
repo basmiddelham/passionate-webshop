@@ -5,6 +5,12 @@
   }
 }
 
+body.woocommerce-checkout {
+  p {
+    font-size: 1rem;
+  }
+}
+
 /* Payment
 -------------------------------------------------- */
 .woocommerce-checkout-payment {
@@ -51,13 +57,17 @@
   }
 
   .button {
-    @extend .btn-lg;
-
     width: 100%;
   }
 }
 
 .woocommerce-checkout {
+  .shop_table {
+    @extend .table-sm;
+
+    font-size: $font-size-sm;
+  }
+
   /* Coupons
   -------------------------------------------------- */
   .checkout_coupon {
