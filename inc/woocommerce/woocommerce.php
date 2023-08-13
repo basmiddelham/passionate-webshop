@@ -139,11 +139,11 @@ add_action( 'woocommerce_before_main_content', 'strt_before_main_content', 20, 0
  * Add Cultuurkaart badge.
  */
 function strt_before_shop_loop_item_title() {
+	// Add Cultuurkaart badge.
 	if ( get_field( 'cultuurkaart' ) ) {
-		// echo '<span class="cultuurkaart_badge">Cultuurkaart</span>';
 		echo '<div class="ck_badge-overlay">
-		<span class="top-right ck_badge red">Cultuurkaart</span>
-	</div>';
+				<span class="top-right ck_badge">Cultuurkaart</span>
+			</div>';
 	}
 }
 add_action( 'woocommerce_before_shop_loop_item_title', 'strt_before_shop_loop_item_title', 5 );
