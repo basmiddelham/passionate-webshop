@@ -29,6 +29,7 @@
 					$strt_doelgroep = get_terms(
 						array(
 							'taxonomy'   => 'pa_doelgroep',
+							'hide_empty' => false,
 						)
 					);
 					if ( ! empty( $strt_doelgroep ) ) :

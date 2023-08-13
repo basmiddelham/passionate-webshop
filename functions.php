@@ -7,8 +7,6 @@
  * @package Starter
  */
 
-// define('ALLOW_UNFILTERED_UPLOADS', true);
-
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  */

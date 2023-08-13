@@ -3,7 +3,6 @@
 ul.products {
   @include make-row;
 
-  justify-content: center;
   position: relative;
   list-style: none;
   padding-left: 0;

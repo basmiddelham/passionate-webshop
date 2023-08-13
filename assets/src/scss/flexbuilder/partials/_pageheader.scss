@@ -3,7 +3,7 @@
 
   .pageheader__img {
     position: relative;
-    min-height: 200px;
+    min-height: 320px;
     background-color: $light;
   }
 
@@ -14,7 +14,7 @@
     }
 
     @include media-breakpoint-up(lg) {
-      min-height: 280px;
+      min-height: 420px;
     }
   }
 
