@@ -112,6 +112,11 @@
     width 0.4s ease,
     height 0.4s ease;
 
+    &.single-product {
+      right: 20px;
+      left: auto;
+    }
+
     .ck_badge {
       margin: 0;
       box-shadow: 0 2px 3px #0001;
@@ -153,6 +158,14 @@
       right: 0;
       transform: translateX(30%) translateY(0%) rotate(45deg);
       transform-origin: top left;
+    }
+  
+    .bottom-right {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transform: translateX(30%) translateY(0%) rotate(315deg);
+      transform-origin: bottom left;
     }
   }
 

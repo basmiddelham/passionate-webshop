@@ -5,6 +5,15 @@
   }
 }
 
+/* Hide labels
+-------------------------------------------------- */
+.woocommerce-billing-fields__field-wrapper,
+.woocommerce-shipping-fields__field-wrapper {
+  label {
+    display: none
+  }
+}
+
 /* Payment
 -------------------------------------------------- */
 .woocommerce-checkout-payment {
