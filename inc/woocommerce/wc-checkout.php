@@ -15,7 +15,7 @@ function strt_checkout_fields( $fields ) {
 	$billing_gender    = [
 		'billing_gender' => [
 			'type'        => 'select',
-			'label'       => 'Aanhef',
+			'label'       => 'Aanhef*',
 			'required'    => true,
 			'class'       => array( 'select form-row-wide' ),
 			'clear'       => true,
