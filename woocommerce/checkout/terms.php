@@ -12,7 +12,7 @@ if ( apply_filters( 'woocommerce_checkout_show_terms', true ) && function_exists
 	do_action( 'woocommerce_checkout_before_terms_and_conditions' );
 
 	?>
-	<div class="small woocommerce-terms-and-conditions-wrapper">
+	<div class="small lh-sm woocommerce-terms-and-conditions-wrapper">
 		<?php
 		/**
 		 * Terms and conditions hook used to inject content.
@@ -32,7 +32,7 @@ if ( apply_filters( 'woocommerce_checkout_show_terms', true ) && function_exists
 						<span class="woocommerce-terms-and-conditions-checkbox-text"><?php wc_terms_and_conditions_checkbox_text(); ?></span>&nbsp;<abbr class="required" title="<?php esc_attr_e( 'required', 'woocommerce' ); ?>">*</abbr>
 					</label>
 					<input type="hidden" name="terms-field" value="1" />
-		</div>
+				</div>
 			</p>
 		<?php endif; ?>
 	</div>

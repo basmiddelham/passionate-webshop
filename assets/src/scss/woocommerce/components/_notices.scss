@@ -9,7 +9,8 @@
   list-style: none;
   padding-left: 3.5rem;
   min-height: 4.5rem;
-  font-size: 1.125rem;
+
+  // font-size: 1.125rem;
 
   a:not(.button) {
     @extend .alert-link;

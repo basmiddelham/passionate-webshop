@@ -174,3 +174,13 @@ function strt_remove_admin_menu_items() {
 }
 add_action( 'admin_init', 'strt_remove_admin_menu_items' );
 
+/**
+ * Remove Themehigh notices
+ */
+function strt_admin_theme_style() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		echo '<style>.thwepo-review-wrapper { display: none; }</style>';
+	}
+}
+add_action( 'admin_enqueue_scripts', 'strt_admin_theme_style' );
+add_action( 'login_enqueue_scripts', 'strt_admin_theme_style' );
