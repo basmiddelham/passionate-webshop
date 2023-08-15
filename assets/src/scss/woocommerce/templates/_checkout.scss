@@ -1,6 +1,7 @@
 /* stylelint-disable selector-id-pattern */
+/* stylelint-disable no-descending-specificity */
 #customer_details {
-  select {
+  select#billing_gender {
     @extend .form-select;
   }
 }
@@ -22,25 +23,43 @@
     padding: 0;
 
     li {
+      @extend .form-check;
+
       padding-top: 0.325rem;
       padding-bottom: 0.325rem;
-    }
 
-    label {
-      display: block;
-      cursor: pointer;
+      input {
+        @extend .form-check-input;
+      }
+
+      label {
+        @extend .form-check-label;
+
+        width: 100%;
+      }
+      
+      .payment_method_mollie_wc_gateway_ideal {
+        p {
+          display: none;
+        }
+      }
+
+      select {
+        @extend .form-select;
+        @extend .form-select-sm;
+      }
     }
 
     img {
       float: right;
     }
 
-    p {
-      margin-bottom: 0;
-      color: $text-muted;
-      font-size: $font-size-sm;
-      line-height: $line-height-sm;
-    }
+    // p {
+    //   margin-bottom: 0;
+    //   color: $text-muted;
+    //   font-size: $font-size-sm;
+    //   line-height: $line-height-sm;
+    // }
   }
 
   .woocommerce-privacy-policy-text {
