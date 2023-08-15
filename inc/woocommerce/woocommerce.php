@@ -9,6 +9,7 @@
 
 require_once get_template_directory() . '/inc/woocommerce/wc-checkout.php';
 require_once get_template_directory() . '/inc/woocommerce/wc-emails.php';
+// require_once get_template_directory() . '/inc/woocommerce/wc-gateway.php';
 // require_once get_template_directory() . '/inc/woocommerce/wc-bacs-only.php';
 // require_once get_template_directory() . '/inc/woocommerce/wc-ideal-only.php';
 /**
@@ -137,7 +138,7 @@ function strt_before_main_content() {
 add_action( 'woocommerce_before_main_content', 'strt_before_main_content', 20, 0 );
 
 /**
- * Add Cultuurkaart badge.
+ * Add Cultuurkaart badge to archive.
  */
 function strt_before_shop_loop_item_title() {
 	// Add Cultuurkaart badge.
@@ -150,7 +151,20 @@ function strt_before_shop_loop_item_title() {
 add_action( 'woocommerce_before_shop_loop_item_title', 'strt_before_shop_loop_item_title', 5 );
 
 /**
- * Add Project badge.
+ * Add Cultuurkaart badge to Single product.
+ */
+function strt_single_product_image_thumbnail_html( $wc_get_gallery_image_html ) {
+	if ( get_field( 'cultuurkaart' ) ) {
+		$wc_get_gallery_image_html .= '<div class="ck_badge-overlay single-product">
+				<span class="bottom-right ck_badge">Cultuurkaart</span>
+			</div>';
+	}
+	return $wc_get_gallery_image_html;
+}
+add_filter( 'woocommerce_single_product_image_thumbnail_html', 'strt_single_product_image_thumbnail_html' );
+
+/**
+ * Add Project badge to archive.
  */
 function strt_template_loop_product_thumbnail() {
 	global $post;
@@ -165,6 +179,20 @@ function strt_template_loop_product_thumbnail() {
 }
 remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
 add_action( 'woocommerce_before_shop_loop_item_title', 'strt_template_loop_product_thumbnail', 10 );
+
+/**
+ * Add Project badge to Single product.
+ */
+function strt_add_project_badge( $wc_get_gallery_image_html ) {
+	global $post;
+	$terms = get_the_terms( $post->ID, 'project' );
+	if ( $terms && ! is_wp_error( $terms ) ) :
+		$project = $terms[0];
+	endif;
+	$wc_get_gallery_image_html .= '<span class="project-badge ' . $project->slug . '"></span>';
+	return $wc_get_gallery_image_html;
+}
+add_filter( 'woocommerce_single_product_image_thumbnail_html', 'strt_add_project_badge' );
 
 /**
  * Sample implementation of the WooCommerce Mini Cart.
@@ -257,12 +285,12 @@ function strt_get_product_search_form( $form ) {
 		<div class="input-group">
 			<input type="search" 
 				id="woocommerce-product-search-field" 
-				class="search-field form-control" 
+				class="search-field form-control form-control-sm" 
 				placeholder="Zoek producten&hellip;" 
 				value="' . get_search_query() . '" 
 				name="s" />
 			<button type="submit" 
-				class="btn btn-primary" 
+				class="btn btn-sm btn-primary" 
 				value="' . esc_attr_x( 'Search', 'submit button', 'strt' ) . '">'
 				. esc_html_x( 'Search', 'submit button', 'strt' ) . '</button>
 				</div>
@@ -447,3 +475,26 @@ function strt_term_permalink( $url, $term, $taxonomy ) {
 	return $url;
 }
 add_filter( 'term_link', 'strt_term_permalink', 10, 3 );
+
+/**
+ * Customize text
+ */
+add_filter( 'gettext', 'translate_text' );
+add_filter( 'ngettext', 'translate_text' );
+function translate_text( $translated ) {
+	$translated = str_ireplace( 'Je winkelwagen is momenteel leeg.', 'Uw winkelwagen is momenteel leeg.', $translated );
+	return $translated;
+}
+
+
+/**
+ * Auto Complete all WooCommerce orders.
+ */
+add_action( 'woocommerce_thankyou', 'passionate_woocommerce_auto_complete_order' );
+function passionate_woocommerce_auto_complete_order( $order_id ) {
+	if ( ! $order_id ) {
+		return;
+	}
+	$order = wc_get_order( $order_id );
+	$order->update_status( 'completed' );
+}
