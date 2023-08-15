@@ -154,7 +154,7 @@ if ( ! is_admin() ) {
 
 		// Sections.
 		$field_content = str_replace( 'gsection_title', 'gsection_title mt-3 pb-1 mb-1 border-bottom', $field_content );
-		$field_content = str_replace( 'class=\'gsection_description', 'class=\'gsection_description text-body-secondary', $field_content );
+		$field_content = str_replace( 'class=\'gsection_description', 'class=\'gsection_description text-body-secondary small lh-sm', $field_content );
 
 		// Checkbox & Radio fields.
 		if ( 'checkbox' === $field['type'] || 'radio' === $field['type'] || 'checkbox' === $field['inputType'] || 'radio' === $field['inputType'] ) {
