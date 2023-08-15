@@ -20,6 +20,54 @@ ul.products {
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center;
+
+    .product-thumb {
+      position: relative;
+      text-align: center;
+
+      .project-badge {
+        box-shadow: 1px 2px 4px #0002;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        &.jongejury {
+          background-color: #F7F578;
+          background-image: url("./../images/nav-jj.png");
+        }
+
+        &.de-inktaap {
+          background-color: #ffffff;
+          background-image: url("./../images/nav-ia.png");
+        }
+
+        &.er-was-eens {
+          background-color: #FF284E;
+          background-image: url("./../images/nav-ewe.png");
+        }
+
+        &.dlo {
+          background-color: #fff;
+          background-image: url("./../images/nav-dlo.png");
+        }
+
+        &.dvdl {
+          background-color: #fff;
+          background-image: url("./../images/nav-dvdl.png");
+        }
+
+        &.pabo-leest {
+          background-color: #ffffff;
+          background-image: url("./../images/nav-pl.png");
+        }
+      }
+    }
   }
 
   a.woocommerce-LoopProduct-link {

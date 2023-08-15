@@ -149,6 +149,23 @@ function strt_before_shop_loop_item_title() {
 add_action( 'woocommerce_before_shop_loop_item_title', 'strt_before_shop_loop_item_title', 5 );
 
 /**
+ * Add Project badge.
+ */
+function strt_template_loop_product_thumbnail() {
+	global $post;
+	$terms = get_the_terms( $post->ID, 'project' );
+	if ( $terms && ! is_wp_error( $terms ) ) :
+		$project = $terms[0];
+	endif;
+	echo '<div class="product-thumb">';
+	echo woocommerce_get_product_thumbnail();
+	echo '<span class="project-badge ' . $project->slug . '"></span>';
+	echo '</div>';
+}
+remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
+add_action( 'woocommerce_before_shop_loop_item_title', 'strt_template_loop_product_thumbnail', 10 );
+
+/**
  * Sample implementation of the WooCommerce Mini Cart.
  *
  * You can add the WooCommerce Mini Cart to header.php like so ...

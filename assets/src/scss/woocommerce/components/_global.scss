@@ -99,20 +99,6 @@
 
   /* Cultuurkaart ck_badge
   -------------------------------------------------- */
-  .cultuurkaart_ck_badge {
-    @extend .ck_badge;
-    @extend .bg-primary;
-    @extend .shadow-sm;
-
-    border-radius: 0.25rem;
-    font-size: 1rem;
-    font-family: $headings-font-family;
-    color: $light;
-    position: absolute;
-    right: 0.5rem;
-    top: 0.5rem;
-  }
-
   .ck_badge-overlay {
     position: absolute;
     left: 0%;
@@ -123,49 +109,51 @@
     pointer-events: none;
     z-index: 100;
     transition:
-      width 0.4s ease,
-      height 0.4s ease;
-  }
+    width 0.4s ease,
+    height 0.4s ease;
 
-  .ck_badge {
-    margin: 0;
-    color: $dark;
-    font-family: $headings-font-family;
-    font-weight: bold;
-    padding: 6px 0;
-    font-size: 15px;
-    text-align: center;
-    line-height: normal;
-    text-transform: uppercase;
-    background: $light;
-  }
-
-  .ck_badge::before,
-  .ck_badge::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    margin: 0 -1px;
-    width: 100%;
-    height: 100%;
-    background: inherit;
-    min-width: 55px;
-  }
-
-  .ck_badge::before {
-    right: 100%;
-  }
-
-  .ck_badge::after {
-    left: 100%;
-  }
-
-  .top-right {
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translateX(30%) translateY(0%) rotate(45deg);
-    transform-origin: top left;
+    .ck_badge {
+      margin: 0;
+      box-shadow: 0 2px 3px #0001;
+      color: $dark;
+      font-family: $headings-font-family;
+      font-weight: bold;
+      padding: 6px 0;
+      font-size: 15px;
+      text-align: center;
+      line-height: normal;
+      text-transform: uppercase;
+      background: $light;
+    }
+  
+    .ck_badge::before,
+    .ck_badge::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      margin: 0 -1px;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      min-width: 55px;
+      box-shadow: 0 2px 3px #0001;
+    }
+  
+    .ck_badge::before {
+      right: 100%;
+    }
+  
+    .ck_badge::after {
+      left: 100%;
+    }
+  
+    .top-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translateX(30%) translateY(0%) rotate(45deg);
+      transform-origin: top left;
+    }
   }
 
   /* On Sale badge
