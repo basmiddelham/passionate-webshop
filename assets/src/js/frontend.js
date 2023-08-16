@@ -25,3 +25,23 @@ import Tab from "bootstrap/js/dist/tab";
 // import Toast from 'bootstrap/js/dist/toast';
 // import Tooltip from 'bootstrap/js/dist/tooltip';
 /* eslint-enable no-unused-vars */
+
+/**
+ * Hide 'Add to cart button when CKT is selecten
+ */
+const paymentStandard = document.getElementById("choice_6_1_0");
+const paymentCkt = document.getElementById("choice_6_1_1");
+const addToCart = document.getElementsByClassName("cart");
+
+paymentStandard.addEventListener("change", myScript);
+paymentCkt.addEventListener("change", myScript);
+function myScript() {
+    if (document.getElementById("choice_6_1_1").checked) {
+        addToCart[0].style.display = "none";
+    } else {
+        addToCart[0].style.display = "block";
+    }
+//   const ckt = document.getElementById("input_6_2_3");
+//   if (ckt.checked) {
+//   }
+}

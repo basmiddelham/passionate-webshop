@@ -4,21 +4,21 @@
 			<h2 class="text-center mb-3">Kies je doelgroep:</h2>
 			<div class="mx-auto d-table">
 				<?php
-					$strt_doelgroep = get_terms(
-						array(
-							'taxonomy'   => 'pa_doelgroep',
-							'hide_empty' => false,
-						)
-					);
-					if ( ! empty( $strt_doelgroep ) ) :
-						$strt_output = '<div class="list-group list-group-horizontal">';
-						foreach ( $strt_doelgroep as $strt_cat ) {
-							$strt_output .= '<a class="list-group-item btn btn-primary" href="' . get_term_link( $strt_cat->term_id ) . '">' . $strt_cat->name . '</a>';
-						}
-						$strt_output .= '</div>';
-						echo $strt_output;
-					endif;
-					?>
+				$strt_doelgroep = get_terms(
+					array(
+						'taxonomy'   => 'pa_doelgroep',
+						'hide_empty' => false,
+					)
+				);
+				if ( ! empty( $strt_doelgroep ) ) :
+					$strt_output = '<div class="list-group list-group-horizontal">';
+					foreach ( $strt_doelgroep as $strt_cat ) {
+						$strt_output .= '<a class="list-group-item btn btn-primary" href="' . get_term_link( $strt_cat->term_id ) . '">' . $strt_cat->name . '</a>';
+					}
+					$strt_output .= '</div>';
+					echo $strt_output;
+				endif;
+				?>
 			</div>
 		</div>
 	</nav>

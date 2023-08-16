@@ -112,10 +112,10 @@
     width 0.4s ease,
     height 0.4s ease;
 
-    &.single-product {
-      right: 20px;
-      left: auto;
-    }
+    // &.single-product {
+    //   right: 20px;
+    //   left: auto;
+    // }
 
     .ck_badge {
       margin: 0;
@@ -197,7 +197,7 @@
     border: 0;
 
     &:hover {
-      color: $white;
+      color: $white !important;
       background: $red;
     }
   }
