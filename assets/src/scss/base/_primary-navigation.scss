@@ -87,6 +87,7 @@
   /* Desktop only
     -------------------------------------------------- */
   @include media-breakpoint-up(lg) {
+    border-right: 1px solid $primary;
     width: 100%;
     flex: 1;
 

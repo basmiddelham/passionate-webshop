@@ -8,6 +8,24 @@
   }
 
   .pageheader__content {
+    h1 {
+      text-wrap: balance;
+    }
+
+    .shopnav {
+      margin-top: 1rem;
+      margin-bottom: 0 !important;
+
+      .shopnav-item img {
+        width: 75px;
+        height: auto;
+      }
+    }
+
+    .inner {
+      width: 100%;
+    }
+
     @include media-breakpoint-down(sm) {
       word-break: break-word;
       hyphens: auto;

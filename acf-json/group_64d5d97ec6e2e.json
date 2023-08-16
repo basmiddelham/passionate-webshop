@@ -1,0 +1,89 @@
+{
+    "key": "group_64d5d97ec6e2e",
+    "title": "Product",
+    "fields": [
+        {
+            "key": "field_64d5d97fedca5",
+            "label": "Cultuurkaart",
+            "name": "cultuurkaart",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Kan dit product met de cultuurkaart betaald worden?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_save_meta": 0,
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1,
+            "style": ""
+        },
+        {
+            "key": "field_64db938325cd0",
+            "label": "Betaling",
+            "name": "gateway",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64d5d97fedca5",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_save_meta": 0,
+            "choices": {
+                "standard": "Standaard (Factuur of iDEAL)",
+                "direct_payment": "Direct afrekenen (Alleen iDEAL)",
+                "bank_payment": "Ontvang een factuur (Alleen factuur)"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "product"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_display_title": "",
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1692161927
+}

@@ -392,7 +392,7 @@ function strt_terms_shortcode( $atts ) {
 add_shortcode( 'strt_terms', 'strt_terms_shortcode' );
 
 /**
- * Display shopnav shortcode
+ * Shopnav shortcode
  */
 function strt_shopnav_shortcode() {
 	ob_start();
@@ -402,6 +402,61 @@ function strt_shopnav_shortcode() {
 	return $output;
 }
 add_shortcode( 'shopnav', 'strt_shopnav_shortcode' );
+
+/**
+ * Doelgroep shortcode
+ */
+function strt_doelgroep_shortcode() {
+	ob_start();
+
+	$strt_doelgroep = get_terms(
+		array(
+			'taxonomy'   => 'pa_doelgroep',
+			'hide_empty' => false,
+		)
+	);
+	if ( ! empty( $strt_doelgroep ) ) :
+		$strt_output = '<ul class="shop_doelgroep">';
+		foreach ( $strt_doelgroep as $strt_cat ) {
+			$strt_output .= '<li><a class="btn" href="' . get_term_link( $strt_cat->term_id ) . '">' . $strt_cat->name . '</a></li>';
+		}
+		$strt_output .= '</ul>';
+		echo $strt_output;
+	endif;
+
+	$output = ob_get_contents();
+	ob_end_clean();
+	return $output;
+}
+add_shortcode( 'shop_doelgroep', 'strt_doelgroep_shortcode' );
+
+/**
+ * Category shortcode
+ */
+function strt_cat_shortcode() {
+	ob_start();
+
+	$strt_taxonomies = get_terms(
+		array(
+			'taxonomy'   => 'product_cat',
+			'hide_empty' => true,
+			'exclude'    => array( 15 ),
+		)
+	);
+	if ( ! empty( $strt_taxonomies ) ) :
+		$strt_output = '<ul class="shop_category">';
+		foreach ( $strt_taxonomies as $strt_cat ) {
+			$strt_output .= '<li><a class="btn" href="' . get_term_link( $strt_cat->term_id ) . '">' . $strt_cat->name . '</a></li>';
+		}
+		$strt_output .= '</ul>';
+		echo $strt_output;
+	endif;
+
+	$output = ob_get_contents();
+	ob_end_clean();
+	return $output;
+}
+add_shortcode( 'shop_category', 'strt_cat_shortcode' );
 
 /**
  * Remove taxonomy from url

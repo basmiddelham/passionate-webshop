@@ -24,3 +24,27 @@ body.post-type-archive-product {
         display: none;
     }
 }
+
+ul.shop_category,
+ul.shop_doelgroep {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+
+    li {
+        display: inline-block;
+        margin: 0 .25rem 0.5rem;
+
+        a {
+            background: $primary !important;
+            color: #fff !important;
+            text-decoration: none;
+
+            &:hover {
+                background: $secondary;
+                color: #fff;
+            }
+        }
+    }
+}

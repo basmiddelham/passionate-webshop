@@ -10,7 +10,7 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 $strt_featured = new FieldsBuilder(
 	'featured',
 	array(
-		'label' => 'Uirgelichte producten',
+		'label' => 'Uitgelichte producten',
 	)
 );
 $strt_featured

@@ -12,7 +12,7 @@ $strt_btn     = get_sub_field( 'button_link' );
 <div class="pageheader container-fluid">
 	<div class="row mb-5 mb-xxl-6">
 		<div class="pageheader__img bg-img col-12 col-lg-6" style="background-image: url(<?php echo esc_url( wp_get_attachment_image_url( $strt_image, 'col-8' ) ); ?>);"></div>
-		<div class="pageheader__content p-5 py-xxl-6 col-12 col-lg-6 col-xl-5 text-center bg-light d-flex align-items-center">
+		<div class="pageheader__content p-5 py-xxl-6 col-12 col-lg-6 col-xl-5 text-center d-flex align-items-center">
 			<div class="inner">
 				<?php echo wp_kses_post( $strt_content ); ?>
 				<?php if ( $strt_btn ) : ?>

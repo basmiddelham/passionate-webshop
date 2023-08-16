@@ -92,10 +92,10 @@ $strt_flexbuilder
 		)
 
 		// Shopnav.
-		->addLayout(
-			strt_get_field_partial( 'layout-shopnav' ),
-			array( 'acfe_flexible_render_template' => 'flexbuilder/templates/layout-shopnav.php' )
-		)
+		// ->addLayout(
+		// 	strt_get_field_partial( 'layout-shopnav' ),
+		// 	array( 'acfe_flexible_render_template' => 'flexbuilder/templates/layout-shopnav.php' )
+		// )
 
 		// Mapbox.
 		->addLayout(

@@ -23,6 +23,7 @@ $strt_section_bg
 		->addChoice( 'bg-secondary-subtle', 'secondary-subtle' )
 		->addChoice( 'bg-light', 'light' )
 		->addChoice( 'bg-dark', 'dark' )
+		->addChoice( 'bg-gray', 'light gray' )
 		->addChoice( 'bg-img text-light', 'Background image' )
 		->setDefaultValue( '' )
 	->addImage(
