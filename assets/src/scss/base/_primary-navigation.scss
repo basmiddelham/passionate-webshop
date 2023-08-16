@@ -6,10 +6,13 @@
 
 #primary-navigation ul.navbar-nav {
   li.menu-item {
+    background-color: $primary;
     position: relative;
     font-family: $headings-font-family;
     font-size: 1.25rem;
-    background-color: $primary;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     a {
       color: white;
@@ -100,14 +103,43 @@
         text-transform: uppercase;
         font-size: 20px;
 
+        // Hover effect
+        span.inner {
+          overflow: hidden;
+          display: block;
+          padding: 0 5px;
+
+          span {
+            transition: transform 0.2s;
+            display: inline-block;
+  
+            &::before {
+              position: absolute;
+              top: 100%;
+              content: attr(data-hover);
+              transform: translate3d(0,0,0);
+            }
+          }
+        }
+
         &:hover {
           background-color: $dark;
           color: $white;
+
+          span.inner {
+            span {
+              transform: translateY(-100%);
+            }
+          }
         }
       }
 
       svg {
-        margin-left: 4px;
+        width: 32px;
+      }
+
+      .inner {
+        display: block;
       }
 
       ul.sub-menu {

@@ -6,12 +6,12 @@
   }
 
   // Set logo width
-  .navbar-brand svg {
+  .navbar-brand img {
     display: block;
-    width: 120px;
+    width: 140px;
 
     @include media-breakpoint-up(lg) {
-      width: 160px;
+      width: 200px;
     }
   }
 }
