@@ -189,7 +189,7 @@ function strt_add_project_badge( $wc_get_gallery_image_html ) {
 	if ( $terms && ! is_wp_error( $terms ) ) :
 		$project = $terms[0];
 	endif;
-	$wc_get_gallery_image_html .= '<span class="project-badge ' . $project->slug . '"></span>';
+	$wc_get_gallery_image_html .= '<span class="project-badge single-product ' . $project->slug . '"></span>';
 	return $wc_get_gallery_image_html;
 }
 add_filter( 'woocommerce_single_product_image_thumbnail_html', 'strt_add_project_badge' );

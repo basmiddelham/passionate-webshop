@@ -18,3 +18,9 @@
 @import "templates/cart";
 @import "templates/checkout";
 @import "templates/account";
+
+body.post-type-archive-product {
+    .woocommerce-products-header {
+        display: none;
+    }
+}

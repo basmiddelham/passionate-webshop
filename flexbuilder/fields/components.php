@@ -85,10 +85,10 @@ $strt_content
 			strt_get_field_partial( 'components.buttons' ),
 			array( 'acfe_flexible_render_template' => 'flexbuilder/templates/components/buttons.php' )
 		)
-		->addLayout(
-			strt_get_field_partial( 'components.heading' ),
-			array( 'acfe_flexible_render_template' => 'flexbuilder/templates/components/heading.php' )
-		)
+		// ->addLayout(
+		// 	strt_get_field_partial( 'components.heading' ),
+		// 	array( 'acfe_flexible_render_template' => 'flexbuilder/templates/components/heading.php' )
+		// )
 		->addLayout(
 			strt_get_field_partial( 'components.editor' ),
 			array( 'acfe_flexible_render_template' => 'flexbuilder/templates/components/editor.php' )

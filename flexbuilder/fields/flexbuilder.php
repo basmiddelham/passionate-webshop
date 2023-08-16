@@ -74,10 +74,10 @@ $strt_flexbuilder
 		)
 
 		// Posts.
-		->addLayout(
-			strt_get_field_partial( 'layout-posts' ),
-			array( 'acfe_flexible_render_template' => 'flexbuilder/templates/layout-posts.php' )
-		)
+		// ->addLayout(
+		// 	strt_get_field_partial( 'layout-posts' ),
+		// 	array( 'acfe_flexible_render_template' => 'flexbuilder/templates/layout-posts.php' )
+		// )
 
 		// Cards.
 		// ->addLayout(
