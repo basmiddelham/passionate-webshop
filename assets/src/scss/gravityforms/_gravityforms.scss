@@ -1,3 +1,5 @@
+/* stylelint-disable selector-id-pattern */
+
 /*
   Gravity Forms Bootstrap 5 styling
   https://github.com/basmiddelham/gravityforms-bootstrap-styling
@@ -10,9 +12,16 @@
 @import "partials/labels-descriptions";
 @import "partials/fields-advanced";
 @import "mailinglist";
-
-// @import "partials/chosen";
 @import "partials/datepicker";
+// @import "partials/chosen";
+
+#gform_wrapper_6 {
+  margin-bottom: 1rem;
+
+  input[type="submit"] {
+    @extend .btn-secondary;
+  }
+}
 
 h4.gform_submission_error {
   text-transform: inherit;

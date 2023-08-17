@@ -122,6 +122,9 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 // Remove catelog ordering from archives.
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 
+// Remove cart button from archives.
+remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart');
+
 /**
  * Add header image to seperate shops.
  */
@@ -541,7 +544,6 @@ function translate_text( $translated ) {
 	return $translated;
 }
 
-
 /**
  * Auto Complete all WooCommerce orders.
  */
@@ -553,3 +555,15 @@ function passionate_woocommerce_auto_complete_order( $order_id ) {
 	$order = wc_get_order( $order_id );
 	$order->update_status( 'completed' );
 }
+
+/**
+ * Add CKT form to Sigle Product on Cultuurkaart Tegoed products
+ */
+function strt_template_single_excerpt() {
+	wc_get_template( 'single-product/short-description.php' );
+	if ( get_field( 'cultuurkaart' ) ) {
+		gravity_form( 'Cultuurkaart Betaling', false, false, false, null, true );
+	}
+}
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+add_action( 'woocommerce_single_product_summary', 'strt_template_single_excerpt', 20 );
