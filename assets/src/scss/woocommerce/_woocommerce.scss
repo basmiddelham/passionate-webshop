@@ -20,31 +20,72 @@
 @import "templates/account";
 
 body.post-type-archive-product {
-    .woocommerce-products-header {
-        display: none;
-    }
+  .woocommerce-products-header {
+    display: none;
+  }
+}
+
+.woocommerce .form-row {
+  &.first_name {
+    display: inline-block;
+    width: 35%;
+    padding-right: 0.5rem;
+  }
+
+  &.middle_name {
+    display: inline-block;
+    width: 29%;
+    padding-right: 0.5rem;
+  }
+
+  &.last_name {
+    display: inline-block;
+    width: 35%;
+  }
+}
+
+.woocommerce-ResetPassword {
+  max-width: 420px;
+}
+
+.woocommerce-password-strength {
+  padding: 0 0.5rem;
+  font-size: 0.875rem;
+
+  &.short {
+    background-color: $danger-bg-subtle;
+  }
+
+  &.bad {
+    background-color: $warning-bg-subtle;
+  }
+
+  &.strong,
+  &.good {
+    background-color: $success-bg-subtle;
+  }
 }
 
 ul.shop_category,
 ul.shop_doelgroep {
-    list-style: none;
-    text-align: center;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
 
-    li {
-        display: inline-block;
-        margin: 0 .25rem 0.5rem;
+  li {
+    display: inline-block;
+    margin: 0 0.25rem 0.5rem;
 
-        a {
-            background: $primary !important;
-            color: #fff !important;
-            text-decoration: none;
+    a {
+      background: $primary !important;
+      color: #fff !important;
+      text-decoration: none;
 
-            &:hover {
-                background: $secondary;
-                color: #fff;
-            }
-        }
+      &:hover {
+        background: $secondary;
+        color: #fff;
+      }
     }
+  }
 }

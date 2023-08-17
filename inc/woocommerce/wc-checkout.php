@@ -9,26 +9,11 @@
 
 /**
  * Customize WooCommerce Checkout fields.
+ *
+ * @param array $fields WooCommerce Checkout fields.
  */
 function strt_checkout_fields( $fields ) {
-	// Add gender field to checkout page to personalize emails.
-	$billing_gender    = [
-		'billing_gender' => [
-			'type'        => 'select',
-			'label'       => 'Aanhef*',
-			'required'    => true,
-			'class'       => array( 'select form-row-wide' ),
-			'clear'       => true,
-			'options'     => array(
-				'' => 'Aanhef',
-				'female' => 'Mevr.',
-				'male'   => 'Dhr.',
-			)
-		],
-	];
-	$fields['billing'] = array_merge( $billing_gender, $fields['billing'] );
-
-		// Add placeholders.
+	// Add placeholders.
 	$fields['billing']['billing_email']['placeholder'] = 'E-mailadres*';
 	$fields['billing']['billing_phone']['placeholder'] = 'Telefoon (optioneel)';
 
@@ -47,6 +32,8 @@ add_filter( 'woocommerce_checkout_fields', 'strt_checkout_fields' );
 
 /**
  * Customize WooCommerce Address Checkout fields.
+ *
+ * @param array $fields WooCommerce DefaultAddress Checkout fields.
  */
 function strt_default_address_fields( $fields ) {
 	// Remove fields.
@@ -65,6 +52,43 @@ function strt_default_address_fields( $fields ) {
 		$fields['postcode']['class'][0] = 'form-row-first';
 		$fields['city']['class'][0]     = 'form-row-last';
 	}
+
+	// Create salutation field.
+	$salutation = array(
+		'salutation' => array(
+			'type'        => 'select',
+			'label'       => 'Aanhef*',
+			'required'    => true,
+			'class'       => array( 'select form-row-wide' ),
+			'options'     => array(
+				''       => 'Aanhef',
+				'female' => 'Mevr.',
+				'male'   => 'Dhr.',
+			),
+		),
+	);
+
+	// Add salutation field to checkout page.
+	$fields = array_merge( $salutation, $fields );
+
+	// Create middle name field.
+	$middle_name = array(
+		'middle_name' => array(
+			'type'        => 'text',
+			'label'       => 'Middennaam',
+			'placeholder' => 'Middennaam',
+			'required'    => false,
+			'class'       => array( 'middle_name' ),
+		),
+	);
+
+	// Add $middle_name field to $fields array to position 2 in array.
+	$fields = array_merge( array_slice( $fields, 0, 2 ), $middle_name, array_slice( $fields, 2 ) );
+
+
+	// Add classes to first and last name fields for formatting.
+	$fields['first_name']['class'] = 'first_name';
+	$fields['last_name']['class']  = 'last_name';
 
 	return $fields;
 }
