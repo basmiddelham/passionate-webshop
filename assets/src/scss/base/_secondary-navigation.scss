@@ -12,6 +12,14 @@
     a {
       padding: .125rem .5rem;
       font-weight: 700;
+
+      .count {
+        background-color: $danger;
+        border-radius: 100%;
+        font-family: sans-serif;
+        color: $white;
+        padding: 0 3px;
+      }
     }
 
     &.current-menu-item,

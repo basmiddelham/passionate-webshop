@@ -9,9 +9,7 @@
 
 require_once get_template_directory() . '/inc/woocommerce/wc-checkout.php';
 require_once get_template_directory() . '/inc/woocommerce/wc-emails.php';
-// require_once get_template_directory() . '/inc/woocommerce/wc-gateway.php';
-// require_once get_template_directory() . '/inc/woocommerce/wc-bacs-only.php';
-// require_once get_template_directory() . '/inc/woocommerce/wc-ideal-only.php';
+
 /**
  * WooCommerce setup function.
  *

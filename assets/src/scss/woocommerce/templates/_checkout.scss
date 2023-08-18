@@ -45,7 +45,6 @@
       }
 
       select {
-        @extend .form-select;
         @extend .form-select-sm;
       }
     }
@@ -84,6 +83,10 @@
 }
 
 .woocommerce-checkout {
+  select {
+    @extend .form-select;
+  }
+
   .shop_table {
     @extend .table-sm;
 

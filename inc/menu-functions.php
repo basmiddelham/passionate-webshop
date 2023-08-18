@@ -77,19 +77,29 @@ function strt_nav_menu_link_attributes( $atts, $item, $args ) {
 add_filter( 'nav_menu_link_attributes', 'strt_nav_menu_link_attributes', 1, 3 );
 
 /**
- * Add ACF fields to menu-items
+ * Add fields to menu-items
  * https://www.advancedcustomfields.com/resources/adding-fields-menu-items/
-*/
-function ia_wp_nav_menu_objects( $items, $args ) {
+ *
+ * @param array  $items menu items.
+ * @param object $args menu arguments.
+ */
+function strt_wp_nav_menu_objects( $items, $args ) {
 	foreach ( $items as $item ) {
-		$icon     = get_field( 'menu_icon', $item );
-		$my_title = '<span class="inner"><span data-hover="' . $item->title . '">' . $item->title . '</span></span>';
-		$my_icon  = '';
-		if ( $icon ) {
-			$my_icon = strt_get_icon_svg( 'ui', $icon );
+		if ( 'primary' === $args->menu->slug ) {
+			$icon     = get_field( 'menu_icon', $item );
+			$my_title = '<span class="inner"><span data-hover="' . $item->title . '">' . $item->title . '</span></span>';
+			$my_icon  = '';
+			if ( $icon ) {
+				$my_icon = strt_get_icon_svg( 'ui', $icon );
+			}
+			$item->title = $my_icon . $my_title;
+		} elseif ( 'secondary' === $args->menu->slug ) {
+			if ( $item->title === 'Winkelwagen' ) {
+				$amount = '<sup class="count">' . esc_html( WC()->cart->get_cart_contents_count() ) . '</sup>';
+				$item->title = 'Winkelwagen' . $amount;
+			}
 		}
-		$item->title = $my_icon . $my_title;
 	}
 	return $items;
 }
-add_filter( 'wp_nav_menu_objects', 'ia_wp_nav_menu_objects', 10, 2 );
+add_filter( 'wp_nav_menu_objects', 'strt_wp_nav_menu_objects', 10, 2 );

@@ -32,13 +32,6 @@
 				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/dist/images/logo-pb_shop.svg" alt="<?php bloginfo( 'name' ); ?>" width="240" height="54">
 				<div class="visually-hidden"><?php bloginfo( 'name' ); ?></div>
 			</a>
-			<?php
-			// if ( function_exists( 'strt_woocommerce_header_cart' ) ) {
-			// 	echo '<div class="ms-auto me-2 order-lg-1">';
-			// 	strt_woocommerce_header_cart();
-			// 	echo '</div>';
-			// }
-			?>
 			<?php if ( has_nav_menu( 'primary-navigation' ) ) : ?>
 				<button id="hamburger-toggler" class="hamburger hamburger--collapse" type="button" data-bs-toggle="collapse" data-bs-target="#primary-navigation" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="hamburger-box"><span class="hamburger-inner"></span></span>
