@@ -83,10 +83,6 @@
 }
 
 .woocommerce-checkout {
-  select {
-    @extend .form-select;
-  }
-
   .shop_table {
     @extend .table-sm;
 

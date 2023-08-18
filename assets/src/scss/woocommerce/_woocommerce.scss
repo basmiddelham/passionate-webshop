@@ -42,6 +42,10 @@ body.post-type-archive-product {
     display: inline-block;
     width: 35%;
   }
+
+  select {
+    @extend .form-select;
+  }
 }
 
 .woocommerce-ResetPassword {

@@ -94,9 +94,10 @@ function strt_wp_nav_menu_objects( $items, $args ) {
 			}
 			$item->title = $my_icon . $my_title;
 		} elseif ( 'secondary' === $args->menu->slug ) {
-			if ( $item->title === 'Winkelwagen' ) {
-				$amount = '<sup class="count">' . esc_html( WC()->cart->get_cart_contents_count() ) . '</sup>';
-				$item->title = 'Winkelwagen' . $amount;
+			$amount = WC()->cart->get_cart_contents_count();
+			if ( $item->title === 'Winkelwagen' && $amount > 0 && ! is_cart() ) {
+				$amount_bubble = '<sup class="count">' . esc_html( WC()->cart->get_cart_contents_count() ) . '</sup>';
+				$item->title = 'Winkelwagen' . $amount_bubble;
 			}
 		}
 	}
