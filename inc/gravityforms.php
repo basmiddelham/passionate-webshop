@@ -40,8 +40,8 @@ add_filter( 'gform_address_display_format', 'strt_address_format', 10, 2 );
  * Add Gravity Forms capabilities To Editor role.
  */
 function strt_add_gf_capabilities() {
-	$role = get_role( 'editor' );
-	// $role->add_cap( 'gform_full_access' );
+	$role = get_role( 'shop_manager' );
+	$role->add_cap( 'gform_full_access' );
 	// $role->remove_cap('gform_full_access');
 }
 add_action( 'init', 'strt_add_gf_capabilities' );

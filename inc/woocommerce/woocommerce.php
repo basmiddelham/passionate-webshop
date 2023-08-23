@@ -535,12 +535,12 @@ add_filter( 'term_link', 'strt_term_permalink', 10, 3 );
 /**
  * Customize text
  */
-add_filter( 'gettext', 'translate_text' );
-add_filter( 'ngettext', 'translate_text' );
-function translate_text( $translated ) {
-	$translated = str_ireplace( 'Je winkelwagen is momenteel leeg.', 'Uw winkelwagen is momenteel leeg.', $translated );
-	return $translated;
-}
+// add_filter( 'gettext', 'translate_text' );
+// add_filter( 'ngettext', 'translate_text' );
+// function translate_text( $translated ) {
+// 	$translated = str_ireplace( 'Je winkelwagen is momenteel leeg.', 'Uw winkelwagen is momenteel leeg.', $translated );
+// 	return $translated;
+// }
 
 /**
  * Auto Complete all WooCommerce orders.
@@ -555,12 +555,12 @@ function passionate_woocommerce_auto_complete_order( $order_id ) {
 }
 
 /**
- * Add CKT form to Sigle Product on Cultuurkaart Tegoed products
+ * Add CKT form to Single Product on Cultuurkaart Tegoed products
  */
 function strt_template_single_excerpt() {
 	wc_get_template( 'single-product/short-description.php' );
 	if ( get_field( 'cultuurkaart' ) ) {
-		gravity_form( 'Cultuurkaart Betaling', false, false, false, null, true );
+		gravity_form( 6, false, false, false, null, true );
 	}
 }
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );

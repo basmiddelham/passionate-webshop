@@ -26,9 +26,41 @@ function strt_checkout_fields( $fields ) {
 	// Make fields optional.
 	$fields['billing']['billing_phone']['required'] = false;
 
+	// Create PO code field.
+	$fields['billing']['billing_po_code'] = array(
+		'type'        => 'text',
+		'label'       => 'Inkoopordernummer',
+		'placeholder' => 'Inkoopordernummer (Optioneel)',
+		'required'    => false,
+		'class'       => array( 'po_code' ),
+	);
+
 	return $fields;
 }
 add_filter( 'woocommerce_checkout_fields', 'strt_checkout_fields' );
+
+/**
+ * Display custom field value on the order edit page
+ */
+function strt_checkout_field_display_admin_order_meta( $order ) {
+	echo '<p><strong>Inkoopordernummer:</strong> ' . get_post_meta( $order->get_id(), '_billing_po_code', true ) . '</p>';
+}
+add_action( 'woocommerce_admin_order_data_after_shipping_address', 'strt_checkout_field_display_admin_order_meta', 10, 1 );
+
+/**
+ * Add a custom field (in an order) to the emails
+ */
+function strt_display_email_order_meta( $order, $sent_to_admin, $plain_text ) {
+	$po_code = get_post_meta( $order->get_id(), '_billing_po_code', true );
+	if ( $po_code ) {
+		if ( $plain_text ) {
+			echo 'Inkoopordernummer: ' . $po_code;
+		} else {
+			echo '<p><strong>Inkoopordernummer: </strong>' . $po_code . '</p>';
+		}
+	}
+}
+add_action( 'woocommerce_email_customer_details', 'strt_display_email_order_meta', 30, 3 );
 
 /**
  * Customize WooCommerce Address Checkout fields.
@@ -45,7 +77,8 @@ function strt_default_address_fields( $fields ) {
 	$fields['address_1']['placeholder']  = 'Straat en huisnummer*';
 	$fields['postcode']['placeholder']   = 'Postcode*';
 	$fields['city']['placeholder']       = 'Plaats*';
-	$fields['company']['placeholder']    = 'Bedrijf (optioneel)';
+	$fields['company']['placeholder']    = 'Schoolnaam (optioneel)';
+	$fields['company']['label']          = 'Schoolnaam';
 
 	// Change postcode and city layout.
 	if ( is_checkout() ) {
@@ -57,8 +90,8 @@ function strt_default_address_fields( $fields ) {
 	$salutation = array(
 		'salutation' => array(
 			'type'        => 'select',
-			'label'       => 'Aanhef*',
-			'required'    => true,
+			'label'       => 'Aanhef',
+			'required'    => false,
 			'class'       => array( 'select form-row-wide' ),
 			'options'     => array(
 				''       => 'Aanhef',
@@ -75,8 +108,8 @@ function strt_default_address_fields( $fields ) {
 	$middle_name = array(
 		'middle_name' => array(
 			'type'        => 'text',
-			'label'       => 'Middennaam',
-			'placeholder' => 'Middennaam',
+			'label'       => 'Tussenvoegsel',
+			'placeholder' => 'Tussenvoegsel',
 			'required'    => false,
 			'class'       => array( 'middle_name' ),
 		),
@@ -84,7 +117,6 @@ function strt_default_address_fields( $fields ) {
 
 	// Add $middle_name field to $fields array to position 2 in array.
 	$fields = array_merge( array_slice( $fields, 0, 2 ), $middle_name, array_slice( $fields, 2 ) );
-
 
 	// Add classes to first and last name fields for formatting.
 	$fields['first_name']['class'] = 'first_name';

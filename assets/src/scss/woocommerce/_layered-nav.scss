@@ -55,12 +55,14 @@
       background-color: $light;
       display: inline-block;
       margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
       padding: 0 0.5rem;
       border-radius: 0.325rem;
       border: 1px solid color.mix($primary, $white, 50%);
 
       a {
         text-decoration: none;
+        font-size: .875rem;
 
         &::before {
           font-family: WooCommerce, sans-serif;
