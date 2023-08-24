@@ -87,6 +87,9 @@ function strt_add_css_to_emails( $css, $email ) {
 		padding: 0;
 		font-style: normal;
 	}
+	a {
+		color: #32621F;
+	}
 	.socket-logos {
 		margin-top: 20px;
 		display: flex;
@@ -104,21 +107,3 @@ function strt_add_css_to_emails( $css, $email ) {
 	return $css;
 }
 add_filter( 'woocommerce_email_styles', 'strt_add_css_to_emails', 9999, 2 );
-
-/**
- * Add message to WooCommerce email if shipping method is local pickup.
- */
-// function add_order_email_instructions( $order, $sent_to_admin ) {
-// 	$shipping_method = @array_shift( $order->get_shipping_methods() );
-// 	$shipping_method_id = $shipping_method['method_id'];
-// 	if ( ! $sent_to_admin ) {
-// 		if ( 'local_pickup' == $shipping_method_id ) {
-// 			// local pickup option
-// 			echo '<p><strong>Afhalen:</strong> Neem contact op per <a href="mailto:info@iksieraden.nl">e-mail</a> voor een afspraak.</p>';
-// 		} else {
-// 			// other methods
-// 			echo '';
-// 		}
-// 	}
-// }
-// add_action( 'woocommerce_email_before_order_table', 'add_order_email_instructions', 10, 2 );
