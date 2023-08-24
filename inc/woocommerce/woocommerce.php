@@ -545,8 +545,8 @@ add_filter( 'term_link', 'strt_term_permalink', 10, 3 );
 /**
  * Auto Complete all WooCommerce orders.
  */
-add_action( 'woocommerce_thankyou', 'passionate_woocommerce_auto_complete_order' );
-function passionate_woocommerce_auto_complete_order( $order_id ) {
+add_action( 'woocommerce_thankyou', 'strt_woocommerce_auto_complete_order', 10, 1 );
+function strt_woocommerce_auto_complete_order( $order_id ) {
 	if ( ! $order_id ) {
 		return;
 	}
