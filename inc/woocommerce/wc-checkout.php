@@ -56,11 +56,11 @@ function strt_display_email_order_meta( $order, $sent_to_admin, $plain_text ) {
 		if ( $plain_text ) {
 			echo 'Inkoopordernummer: ' . $po_code;
 		} else {
-			echo '<p><strong>Inkoopordernummer: </strong>' . $po_code . '</p>';
+			echo '<h2><strong>Inkoopordernummer: </strong>' . $po_code . '</h2>';
 		}
 	}
 }
-add_action( 'woocommerce_email_customer_details', 'strt_display_email_order_meta', 30, 3 );
+add_action( 'woocommerce_email_before_order_table', 'strt_display_email_order_meta', 10, 4 );
 
 /**
  * Customize WooCommerce Address Checkout fields.
