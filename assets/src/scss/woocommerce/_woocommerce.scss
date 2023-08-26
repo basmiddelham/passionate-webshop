@@ -93,3 +93,13 @@ ul.shop_doelgroep {
     }
   }
 }
+
+address {
+  br:nth-last-of-type(2) {
+    content: " ";
+
+    &::before {
+      content: " ";
+    }
+  }
+}
