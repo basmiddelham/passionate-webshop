@@ -69,22 +69,27 @@ add_action( 'woocommerce_email_order_meta', 'strt_display_email_order_meta', 10,
  */
 function strt_default_address_fields( $fields ) {
 	// Remove fields.
-	unset( $fields['address_2'] );
+	// unset( $fields['address_2'] );
 
 	// Placeholders.
 	$fields['first_name']['placeholder'] = 'Voornaam*';
 	$fields['last_name']['placeholder']  = 'Achternaam*';
-	$fields['address_1']['placeholder']  = 'Straat en huisnummer*';
 	$fields['postcode']['placeholder']   = 'Postcode*';
 	$fields['city']['placeholder']       = 'Plaats*';
 	$fields['company']['placeholder']    = 'Schoolnaam (optioneel)';
 	$fields['company']['label']          = 'Schoolnaam';
 
+	$fields['address_1']['placeholder']  = 'Straatnaam*';
+	$fields['address_2']['placeholder']  = 'Huisnummer*';
+	$fields['address_1']['label']        = 'Straatnaam';
+	$fields['address_2']['label']        = 'Huisnummer';
+	$fields['address_2']['label_class']  = '';
+	$fields['address_1']['class'][0]     = 'form-row-first';
+	$fields['address_2']['class'][0]     = 'form-row-last';
+
 	// Change postcode and city layout.
-	if ( is_checkout() ) {
-		$fields['postcode']['class'][0] = 'form-row-first';
-		$fields['city']['class'][0]     = 'form-row-last';
-	}
+	$fields['postcode']['class'][0] = 'form-row-first';
+	$fields['city']['class'][0]     = 'form-row-last';
 
 	// Create salutation field.
 	$salutation = array(

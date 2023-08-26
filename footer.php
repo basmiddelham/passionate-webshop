@@ -30,14 +30,12 @@
 			<div class="socket-logos">
 				<div class="socket-logo"><a target="_blank" href="https://passionatebulkboek.nl" class="logo-pb"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-pb', 130 ) ); ?></a></div>
 				<div class="socket-logo"><a target="_blank" href="https://annablamanprijs.nl" class="logo-ab"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-ab', 55 ) ); ?></a></div>
-				<div class="socket-logo"><a target="_blank" href="https://dagvanhetliteratuuronderwijs.nl" class="logo-dlo"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-dlo', 55 ) ); ?></a></div>
-				<div class="socket-logo"><a target="_blank" href="https://writenow.nl" class="logo-wn"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-wn', 70 ) ); ?></a></div>
 				<div class="socket-logo"><a target="_blank" href="https://dagvandeliteratuur.nl" class="logo-dvdl"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-dvdl', 55 ) ); ?></a></div>
-				<div class="socket-logo"><a target="_blank" href="https://jongejury.nl" class="logo-jj"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-jj', 45 ) ); ?></a></div>
+				<div class="socket-logo"><a target="_blank" href="https://dagvanhetliteratuuronderwijs.nl" class="logo-dlo"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-dlo', 55 ) ); ?></a></div>
 				<div class="socket-logo"><a target="_blank" href="https://inktaap.nl" class="logo-ia"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-ia', 60 ) ); ?></a></div>
-				<div class="socket-logo"><a target="_blank" href="https://paboleest.nl" class="logo-pl"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-pl', 55 ) ); ?></a></div>
-				<div class="socket-logo"><a target="_blank" href="https://nationalemediatheektrofee.nl" class="logo-nmt"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-nmt', 70 ) ); ?></a></div>
 				<div class="socket-logo"><a target="_blank" href="https://erwaseens.nl" class="logo-ewe"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-ewe', 55 ) ); ?></a></div>
+				<div class="socket-logo"><a target="_blank" href="https://jongejury.nl" class="logo-jj"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-jj', 45 ) ); ?></a></div>
+				<div class="socket-logo"><a target="_blank" href="https://paboleest.nl" class="logo-pl"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-pl', 55 ) ); ?></a></div>
 			</div>
 			<div class="site-info text-muted text-center pb-2 small">
 				<?php echo esc_html( gmdate( 'Y' ) ); ?> &copy; 

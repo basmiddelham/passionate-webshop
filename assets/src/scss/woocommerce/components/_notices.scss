@@ -46,7 +46,7 @@
 
 /* Error */
 .woocommerce-error {
-  @extend .bg-warning;
+  @extend .alert-warning;
 
   .button {
     @extend .btn-warning;

@@ -43,8 +43,6 @@ ul.products {
   }
 
   img {
-    @extend .shadow-sm;
-
     width: 100%;
     height: auto;
     display: block;
