@@ -101,10 +101,6 @@ function strt_add_css_to_emails( $css, $email ) {
 	.svg-icon {
 		height: auto;
 	}
-	address.address br:nth-last-of-type(4),
-	address.address br:nth-last-of-type(4)::before {
-		content: " ";
-	}
 	';
 	return $css;
 }
