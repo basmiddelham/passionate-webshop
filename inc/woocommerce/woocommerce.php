@@ -535,12 +535,19 @@ add_filter( 'term_link', 'strt_term_permalink', 10, 3 );
 /**
  * Customize text
  */
-// add_filter( 'gettext', 'translate_text' );
-// add_filter( 'ngettext', 'translate_text' );
-// function translate_text( $translated ) {
-// 	$translated = str_ireplace( 'Je winkelwagen is momenteel leeg.', 'Uw winkelwagen is momenteel leeg.', $translated );
-// 	return $translated;
-// }
+add_filter( 'gettext', 'translate_text' );
+add_filter( 'ngettext', 'translate_text' );
+function translate_text( $translated ) {
+	$translated = str_ireplace( 'Je winkelwagen is momenteel leeg.', 'Uw winkelwagen is momenteel leeg.', $translated );
+	$translated = str_ireplace( 'is toegevoegd aan je winkelwagen', 'is toegevoegd aan uw winkelwagen', $translated );
+	$translated = str_ireplace( 'Je bestelling is ontvangen', 'Uw bestelling is ontvangen', $translated );
+	$translated = str_ireplace( 'Vanaf je account dashboard kun je', 'Vanaf je account dashboard kunt u', $translated );
+	$translated = str_ireplace( 'je recente bestellingen bekijken', 'uw recente bestellingen bekijken', $translated );
+	$translated = str_ireplace( 'je verzend- en factuuradressen beheren', 'uw verzend- en factuuradressen beheren', $translated );
+	$translated = str_ireplace( 'je wachtwoord en account details bewerken', 'uw wachtwoord en account details bewerken', $translated );
+	$translated = str_ireplace( 'Je naam wordt op deze manier weergegeven in', 'Uw naam wordt op deze manier weergegeven in', $translated );
+	return $translated;
+}
 
 /**
  * Auto Complete all WooCommerce orders.
@@ -565,4 +572,3 @@ function strt_template_single_excerpt() {
 }
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
 add_action( 'woocommerce_single_product_summary', 'strt_template_single_excerpt', 20 );
-
