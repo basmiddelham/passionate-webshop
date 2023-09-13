@@ -122,7 +122,7 @@
   -------------------------------------------------- */
   .woocommerce-form.login {
     @extend .alert;
-    @extend .alert-secondary;
+    @extend .alert-primary;
 
     .woocommerce-form__label span {
       display: inline-block;
