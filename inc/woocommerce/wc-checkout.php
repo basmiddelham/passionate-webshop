@@ -113,7 +113,7 @@ function strt_default_address_fields( $fields ) {
 	$middle_name = array(
 		'middle_name' => array(
 			'type'        => 'text',
-			'label'       => 'Tussenvoegsel',
+			'label'       => '',
 			'placeholder' => 'Tussenvoegsel',
 			'required'    => false,
 			'class'       => array( 'middle_name' ),

@@ -357,19 +357,6 @@ function strt_social_shortcode() {
 add_shortcode( 'social', 'strt_social_shortcode' );
 
 /**
- * Gravity Forms - Add privacy message below submit button
- *
- * @param string $form_string The form markup.
- */
-function strt_add_disclaimer( $form_string ) {
-	if ( ! is_admin() ) {
-		$form_string .= '<div class="form-disclaimer mt-1 small"><a class="icon-link" href="' . get_privacy_policy_url() . '" target="_blank" rel="noopener noreferrer">' . wp_kses_post( strt_get_icon_svg( 'ui', 'lock' ) ) . 'Je gegevens zijn veilig bij ons.</a></div>';
-	}
-	return $form_string;
-}
-add_filter( 'gform_get_form_filter_3', 'strt_add_disclaimer', 10, 2 );
-
-/**
  * Move Yoast to bottom.
  */
 function strt_move_yoast() {

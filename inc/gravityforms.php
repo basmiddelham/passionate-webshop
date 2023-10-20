@@ -394,3 +394,19 @@ if ( ! is_admin() ) {
 	}
 	add_action( 'wp_head', 'strt_custom_styles' );
 }
+
+/**
+ * Add privacy message below submit button
+ *
+ * @param string $form_string The form markup.
+ * @param object $form The form object.
+ */
+function strt_add_disclaimer( $form_string, $form ) {
+	if ( ! is_admin() ) {
+		if ( 'Nieuwsbrief' === $form['title'] || 'Contact' === $form['title'] ) :
+			$form_string .= '<div class="form-disclaimer small"><a class="icon-link" href="' . get_privacy_policy_url() . '" target="_blank" rel="noopener noreferrer">' . wp_kses_post( strt_get_icon_svg( 'ui', 'lock' ) ) . 'Je gegevens zijn veilig bij ons.</a></div>';
+		endif;
+	}
+	return $form_string;
+}
+add_filter( 'gform_get_form_filter', 'strt_add_disclaimer', 10, 2 );

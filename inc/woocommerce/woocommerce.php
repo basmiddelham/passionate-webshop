@@ -7,8 +7,8 @@
  * @package strt
  */
 
-require_once get_template_directory() . '/inc/woocommerce/wc-checkout.php';
 require_once get_template_directory() . '/inc/woocommerce/wc-emails.php';
+require_once get_template_directory() . '/inc/woocommerce/wc-checkout.php';
 
 /**
  * WooCommerce setup function.

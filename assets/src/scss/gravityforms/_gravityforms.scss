@@ -30,7 +30,7 @@ h4.gform_submission_error {
 }
 
 .gform_wrapper {
-  margin-bottom: $spacer * 2;
+  margin-bottom: $spacer;
 
   p.gform_description {
     margin-bottom: 0 !important;
@@ -93,4 +93,19 @@ h4.gform_submission_error {
 .gform_confirmation_wrapper {
   @extend .alert;
   @extend .alert-success;
+}
+
+/* Form disclaimer.
+-------------------------------------------------------------- */
+.form-disclaimer {
+  margin-top: .25rem;
+  margin-bottom: 1rem;
+
+  .site-footer & {
+    margin-bottom: 0;
+
+    a {
+      color: $light;
+    }
+  }
 }

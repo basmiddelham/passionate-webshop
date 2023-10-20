@@ -23,6 +23,36 @@
             "ui_off_text": "",
             "ui": 1,
             "style": ""
+        },
+        {
+            "key": "field_65292df1de1e9",
+            "label": "Project",
+            "name": "project",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "project",
+            "add_term": 0,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "object",
+            "field_type": "checkbox",
+            "min": "",
+            "max": "",
+            "acfe_bidirectional": {
+                "acfe_bidirectional_enabled": "0"
+            },
+            "bidirectional": 0,
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -50,5 +80,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1692187713
+    "modified": 1697197792
 }

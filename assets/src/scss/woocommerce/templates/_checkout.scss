@@ -1,19 +1,19 @@
 /* stylelint-disable selector-id-pattern */
 /* stylelint-disable no-descending-specificity */
 #customer_details {
-  select#billing_gender {
+  select#billing_salutation {
     @extend .form-select;
   }
 }
 
 /* Hide labels
 -------------------------------------------------- */
-.woocommerce-billing-fields__field-wrapper,
-.woocommerce-shipping-fields__field-wrapper {
-  label {
-    display: none
-  }
-}
+// .woocommerce-billing-fields__field-wrapper,
+// .woocommerce-shipping-fields__field-wrapper {
+//   label {
+//     display: none
+//   }
+// }
 
 /* Payment
 -------------------------------------------------- */
