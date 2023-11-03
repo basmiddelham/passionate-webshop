@@ -1,7 +1,7 @@
 .secondary-navigation {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 1rem;
 
   li.menu-item {
     // position: relative;
@@ -10,7 +10,7 @@
     font-size: 0.9375rem;
 
     a {
-      padding: .125rem .5rem;
+      padding: .25rem .5rem;
       font-weight: 700;
 
       .count {
@@ -44,5 +44,12 @@
   -------------------------------------------------- */
   @include media-breakpoint-up(lg) {
     min-width: 180px;
+    padding: 0;
+
+    li.menu-item {
+      a {
+        padding: .125rem .5rem;
+      }
+    }
   }
 }

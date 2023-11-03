@@ -9,7 +9,7 @@ const primaryNavigation = document.getElementById("primary-navigation");
 const hamburgerToggler = document.getElementById("hamburger-toggler");
 const togglePrimaryNavigation = () => {
   hamburgerToggler.classList.toggle("is-active"); // Animate Hamburger-menu.
-  document.body.classList.toggle("overflow-hidden"); // Fix background scrolling.
+  // document.body.classList.toggle("overflow-hidden"); // Fix background scrolling.
 };
 primaryNavigation.addEventListener("show.bs.collapse", togglePrimaryNavigation);
 primaryNavigation.addEventListener("hide.bs.collapse", togglePrimaryNavigation);
