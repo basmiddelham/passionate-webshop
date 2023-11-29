@@ -552,8 +552,8 @@ function translate_text( $translated ) {
 /**
  * Auto Complete all WooCommerce orders.
  */
-add_action( 'woocommerce_thankyou', 'strt_woocommerce_auto_complete_order', 10, 1 );
-function strt_woocommerce_auto_complete_order( $order_id ) {
+add_action( 'woocommerce_order_status_processing', 'custom_autocomplete_order' );
+function custom_autocomplete_order( $order_id ) {
 	if ( ! $order_id ) {
 		return;
 	}
