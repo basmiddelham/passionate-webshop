@@ -91,6 +91,9 @@ function strt_default_address_fields( $fields ) {
 	$fields['postcode']['class'][0] = 'form-row-first';
 	$fields['city']['class'][0]     = 'form-row-last';
 
+	// Make Housenumber field required.
+	$fields['address_2']['required']  = true;
+
 	// Create salutation field.
 	$salutation = array(
 		'salutation' => array(
@@ -126,6 +129,20 @@ function strt_default_address_fields( $fields ) {
 	// Add classes to first and last name fields for formatting.
 	$fields['first_name']['class'] = 'first_name';
 	$fields['last_name']['class']  = 'last_name';
+
+	// Create Department field.
+	// $department = array(
+	// 	'department' => array(
+	// 		'type'        => 'text',
+	// 		'label'       => 'Afdeling',
+	// 		'placeholder' => 'Afdeling',
+	// 		'required'    => false,
+	// 		'class'       => array( 'department' ),
+	// 	),
+	// );
+
+	// // Add $middle_name field to $fields array to position 2 in array.
+	// $fields = array_merge( array_slice( $fields, 0, 5 ), $department, array_slice( $fields, 2 ) );
 
 	return $fields;
 }

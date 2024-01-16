@@ -236,10 +236,10 @@ if ( class_exists( 'woocommerce' ) ) {
 function strt_custom_login_logo() {
 	echo '<style type="text/css">
 		#login h1 a {
-			background-image: url("' . esc_url( get_stylesheet_directory_uri() ) . '/assets/dist/images/logo-pb_shop.svg");
-			height: 72px;
-			width:320px;
-			background-size: 320px 72px;
+			background-image: url("' . esc_url( get_stylesheet_directory_uri() ) . '/assets/dist/images/logo-login.svg") !important;
+			height: 95px !important;
+			width:320px !important;
+			background-size: 320px 95px !important;
 		}
 	</style>';
 }
