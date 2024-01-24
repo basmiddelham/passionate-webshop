@@ -572,3 +572,32 @@ function strt_template_single_excerpt() {
 }
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
 add_action( 'woocommerce_single_product_summary', 'strt_template_single_excerpt', 20 );
+
+/**
+ * Send Mailing optin to Gravity Forms
+ */
+function strt_add_mailing_optin() {
+	if ( isset( $_POST['mailing'] ) ) {
+		// Gravity Forms form ID
+		$form_id = 3;
+
+		// Form data to be submitted
+		$form_data = array(
+			'input_1' => $_POST['billing_email'],
+			'input_2' => 'Webshop Passionate Bulkboek',
+		);
+
+		// Gravity Forms API endpoint
+		$api_url = get_site_url() . "/wp-json/gf/v2/forms/" . $form_id . "/submissions";
+
+		// Send the form data using wp_remote_post()
+		$response = wp_remote_post($api_url, array(
+			'method' => 'POST',
+			'headers' => array(
+				'Content-Type' => 'application/json',
+			),
+			'body' => json_encode($form_data),
+		));
+	}
+}
+add_action( 'woocommerce_checkout_create_order', 'strt_add_mailing_optin' );
