@@ -5,9 +5,6 @@
 	<a class="shopnav-item nav-dlo" href="<?php echo get_home_url(); ?>/dlo">
 		<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/nav-dlo.png" srcset="<?php echo get_template_directory_uri(); ?>/assets/dist/images/nav-dlo@2x.png 2x" width="94" height="70" alt="Passionate Bulkboek Shop">
 	</a>
-	<a class="shopnav-item nav-pl" href="<?php echo get_home_url(); ?>/pabo-leest">
-		<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/nav-pl.png" srcset="<?php echo get_template_directory_uri(); ?>/assets/dist/images/nav-pl@2x.png 2x" width="94" height="70" alt="Passionate Bulkboek Shop">
-	</a>
 	<a class="shopnav-item nav-ia" href="<?php echo get_home_url(); ?>/de-inktaap">
 		<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/nav-ia.png" srcset="<?php echo get_template_directory_uri(); ?>/assets/dist/images/nav-ia@2x.png 2x" width="94" height="70" alt="Passionate Bulkboek Shop">
 	</a>

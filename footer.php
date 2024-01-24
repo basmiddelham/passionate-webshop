@@ -48,6 +48,7 @@
 				if ( ! empty( get_the_privacy_policy_link() ) ) :
 					the_privacy_policy_link( '<span class="sep"> | </span>' );
 				endif;
+				echo '<span class="sep"> | </span><a href="' . get_permalink( wc_terms_and_conditions_page_id() ) . '">' . esc_html__( 'Annuleringsbeleid', 'strt' ) . '</a>';
 				?>
 			</div><!-- .site-info -->
 		</div>
