@@ -40,6 +40,14 @@ function strt_woocommerce_setup() {
 add_action( 'after_setup_theme', 'strt_woocommerce_setup' );
 
 /**
+ * Change Cross Sells columns.
+ */
+function change_cross_sells_columns( $columns ) {
+	return 4;
+}
+add_filter( 'woocommerce_cross_sells_columns', 'change_cross_sells_columns' );
+
+/**
  * Disable the default WooCommerce stylesheet.
  *
  * Removing the default WooCommerce stylesheet and enqueing your own will
