@@ -420,7 +420,7 @@ function strt_doelgroep_shortcode() {
 
 	$strt_doelgroep = get_terms(
 		array(
-			'taxonomy'   => 'pa_doelgroep',
+			'taxonomy'   => 'pa_schoolniveau',
 			'hide_empty' => false,
 		)
 	);
