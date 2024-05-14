@@ -420,12 +420,13 @@ function strt_doelgroep_shortcode() {
 
 	$strt_doelgroep = get_terms(
 		array(
-			'taxonomy'   => 'pa_schoolniveau',
+			'taxonomy'   => 'pa_doelgroep',
 			'hide_empty' => false,
 		)
 	);
+
 	if ( ! empty( $strt_doelgroep ) ) :
-		$strt_output = '<ul class="shop_doelgroep">';
+		$strt_output = '<ul class="shop_shortcode">';
 		foreach ( $strt_doelgroep as $strt_cat ) {
 			$strt_output .= '<li><a class="btn" href="' . get_term_link( $strt_cat->term_id ) . '">' . $strt_cat->name . '</a></li>';
 		}
@@ -438,6 +439,33 @@ function strt_doelgroep_shortcode() {
 	return $output;
 }
 add_shortcode( 'shop_doelgroep', 'strt_doelgroep_shortcode' );
+
+/**
+ * Schoolniveau shortcode
+ */
+function strt_schoolniveau_shortcode() {
+	ob_start();
+
+	$strt_doelgroep = get_terms(
+		array(
+			'taxonomy'   => 'pa_schoolniveau',
+			'hide_empty' => false,
+		)
+	);
+	if ( ! empty( $strt_doelgroep ) ) :
+		$strt_output = '<ul class="shop_shortcode">';
+		foreach ( $strt_doelgroep as $strt_cat ) {
+			$strt_output .= '<li><a class="btn" href="' . get_term_link( $strt_cat->term_id ) . '">' . $strt_cat->name . '</a></li>';
+		}
+		$strt_output .= '</ul>';
+		echo $strt_output;
+	endif;
+
+	$output = ob_get_contents();
+	ob_end_clean();
+	return $output;
+}
+add_shortcode( 'shop_schoolniveau', 'strt_schoolniveau_shortcode' );
 
 /**
  * Category shortcode
@@ -453,7 +481,7 @@ function strt_cat_shortcode() {
 		)
 	);
 	if ( ! empty( $strt_taxonomies ) ) :
-		$strt_output = '<ul class="shop_category">';
+		$strt_output = '<ul class="shop_shortcode">';
 		foreach ( $strt_taxonomies as $strt_cat ) {
 			$strt_output .= '<li><a class="btn" href="' . get_term_link( $strt_cat->term_id ) . '">' . $strt_cat->name . '</a></li>';
 		}
