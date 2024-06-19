@@ -30,7 +30,8 @@ import Tab from "bootstrap/js/dist/tab";
  * Hide 'Add to cart button when CKT is selected
  */
 const addToCartBtn = document.querySelector("form.cart");
-if (addToCartBtn) {
+const cktForm = document.getElementById("gform_wrapper_6");
+if (addToCartBtn && cktForm) {
   const paymentStandard = document.getElementById("choice_6_1_0");
   const paymentCkt = document.getElementById("choice_6_1_1");
   paymentStandard.addEventListener("change", myScript);
