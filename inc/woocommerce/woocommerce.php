@@ -180,6 +180,9 @@ function strt_template_loop_product_thumbnail() {
 	$terms = get_the_terms( $post->ID, 'project' );
 	if ( $terms && ! is_wp_error( $terms ) ) :
 		$project = $terms[0];
+	else :
+		$project = new stdClass();
+		$project->slug = '';
 	endif;
 	echo '<div class="product-thumb">';
 	echo woocommerce_get_product_thumbnail();
@@ -588,7 +591,7 @@ function translate_text( $translated ) {
 /**
  * Auto Complete all WooCommerce orders.
  */
-add_action( 'woocommerce_order_status_processing', 'custom_autocomplete_order' );
+add_action( 'woocommerce_thankyou', 'custom_autocomplete_order' );
 function custom_autocomplete_order( $order_id ) {
 	if ( ! $order_id ) {
 		return;
