@@ -36,3 +36,13 @@
 
 // WooCommerce
 @import "woocommerce/woocommerce";
+
+// Select2
+@import "node_modules/select2/src/scss/core";
+
+// Select2 Bootstrap 5 Theme is not compatible with Bootstrap 5.3.3. Quick Fix:
+// Change in node_modules/select2-bootstrap-5-theme/src/_variables.scss from
+// $s2bs5-clear-icon: str-replace($btn-close-bg, #{$btn-close-color}, #{shade-color($s2bs5-border-color, 50%)}) !default;
+// to:
+// $s2bs5-clear-icon: str-replace($btn-close-bg, #{$btn-close-color}, #{shade-color(red, 50%)}) !default;
+@import "node_modules/select2-bootstrap-5-theme/src/include-all";

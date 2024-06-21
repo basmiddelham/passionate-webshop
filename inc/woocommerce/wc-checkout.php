@@ -68,8 +68,6 @@ add_action( 'woocommerce_email_order_meta', 'strt_display_email_order_meta', 10,
  * @param array $fields WooCommerce DefaultAddress Checkout fields.
  */
 function strt_default_address_fields( $fields ) {
-	// Remove fields.
-	// unset( $fields['address_2'] );
 
 	// Placeholders.
 	$fields['first_name']['placeholder'] = 'Voornaam*';
@@ -126,23 +124,26 @@ function strt_default_address_fields( $fields ) {
 	// Add $middle_name field to $fields array to position 2 in array.
 	$fields = array_merge( array_slice( $fields, 0, 2 ), $middle_name, array_slice( $fields, 2 ) );
 
+	// Create School Select field and add school list from option page.
+	$schools = get_field('scholen', 'option'); // Get school list from option page.
+	$schoollist = ['' => '']; // Add empty value to list for placeholder.
+	foreach ($schools as $school) {
+		array_push($schoollist, $school['school']);
+	}
+	$schoolselect = array(
+		'school' => array(
+			'type'        => 'select',
+			'label'       => 'School',
+			'placeholder' => 'Kies uw School',
+			'required'    => true,
+			'options'     => $schoollist,
+		),
+	);
+	$fields = array_merge( array_slice( $fields, 0, 5 ), $schoolselect, array_slice( $fields, 5 ) );
+
 	// Add classes to first and last name fields for formatting.
 	$fields['first_name']['class'] = 'first_name';
 	$fields['last_name']['class']  = 'last_name';
-
-	// Create Department field.
-	// $department = array(
-	// 	'department' => array(
-	// 		'type'        => 'text',
-	// 		'label'       => 'Afdeling',
-	// 		'placeholder' => 'Afdeling',
-	// 		'required'    => false,
-	// 		'class'       => array( 'department' ),
-	// 	),
-	// );
-
-	// // Add $middle_name field to $fields array to position 2 in array.
-	// $fields = array_merge( array_slice( $fields, 0, 5 ), $department, array_slice( $fields, 2 ) );
 
 	return $fields;
 }

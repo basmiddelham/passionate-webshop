@@ -7,6 +7,7 @@ import "../scss/frontend.scss";
  * Components
  */
 import "./components/primary-navigation.js";
+import "./components/select2.js";
 
 /**
  * Bootstrap
@@ -45,3 +46,5 @@ function myScript() {
     addToCartBtn.style.display = "block";
   }
 }
+
+
