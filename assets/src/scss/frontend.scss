@@ -32,7 +32,8 @@
 @import "flexbuilder/partials/pageheader";
 
 // Gravity Forms
-@import "gravityforms/gravityforms";
+@import "thirdparty/gravityforms/gravityforms";
+@import "thirdparty/event-tickets";
 
 // WooCommerce
 @import "woocommerce/woocommerce";
