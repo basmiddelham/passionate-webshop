@@ -390,19 +390,39 @@ add_action( 'event_tickets_after_save_ticket', function( $post_id, $ticket ) {
  * Example for adding event data to WooCommerce checkout for Events Calendar tickets.
  * @link https://theeventscalendar.com/support/forums/topic/event-title-and-date-in-cart/
  */
-add_filter( 'woocommerce_cart_item_name', 'woocommerce_cart_item_name_event_title', 10, 3 );
+// add_filter( 'woocommerce_cart_item_name', 'woocommerce_cart_item_name_event_title', 10, 3 );
  
-function woocommerce_cart_item_name_event_title( $title, $values, $cart_item_key ) {
-    $ticket_meta = get_post_meta( $values['product_id'] );
+// function woocommerce_cart_item_name_event_title( $title, $values, $cart_item_key ) {
+//     $ticket_meta = get_post_meta( $values['product_id'] );
  
-    // Only do if ticket product
-    if ( array_key_exists( '_tribe_wooticket_for_event', $ticket_meta ) ) {
-        $event_id = absint( $ticket_meta[ '_tribe_wooticket_for_event' ][0] );
+//     // Only do if ticket product
+//     if ( array_key_exists( '_tribe_wooticket_for_event', $ticket_meta ) ) {
+//         $event_id = absint( $ticket_meta[ '_tribe_wooticket_for_event' ][0] );
  
-        if ( $event_id ) {
-            $title = sprintf( '%s for <a href="%s" target="_blank"><strong>%s</strong></a>', $title, get_permalink( $event_id ), get_the_title( $event_id ) );
-        }
+//         if ( $event_id ) {
+//             $title = sprintf( '%s for <a href="%s" target="_blank"><strong>%s</strong></a>', $title, get_permalink( $event_id ), get_the_title( $event_id ) );
+//         }
+//     }
+ 
+//     return $title;
+// }
+
+/*
+ * Description: Prevent hijacking WooCommerce product pages for tickets.
+ *
+ * Usage: Add the snippet to your functions.php file or with a plugin like Code Snippets.
+ *        Make sure to NOT have duplicate opening <?php tags.
+ *
+ * Plugins required: Event Tickets, Event Tickets Plus
+ * @link https://theeventscalendar.com/knowledgebase/selling-tickets-from-the-woocommerce-products-page/
+ */
+add_action('init', function() {
+    if (!class_exists('WooCommerce')) {
+        return;
     }
- 
-    return $title;
-}
+    if (!class_exists('Tribe__Tickets_Plus__Commerce__WooCommerce__Main')) {
+        return;
+    }
+    $woo_tickets = Tribe__Tickets_Plus__Commerce__WooCommerce__Main::get_instance();
+    remove_filter('post_type_link', [$woo_tickets, 'hijack_ticket_link'], 10, 4);
+});
