@@ -1,6 +1,6 @@
 <nav class="shopnav widget d-flex justify-content-center flex-wrap mb-3">
 	<a class="shopnav-item nav-jj" href="<?php echo get_home_url(); ?>/jongejury">
-		<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/nav-jj.png" srcset="<?php echo get_template_directory_uri(); ?>/assets/dist/images/nav-jj@2x.png 2x" width="94" height="70" alt="Passionate Bulkboek Shop">
+		<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/nav-jj.png" srcset="<?php echo get_template_directory_uri(); ?>/assets/dist/images/nav-jj@2x.png 2x" width="94" height="70" alt="Jonge Jury">
 	</a>
 	<a class="shopnav-item nav-dlo" href="<?php echo get_home_url(); ?>/dlo">
 		<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/nav-dlo.png" srcset="<?php echo get_template_directory_uri(); ?>/assets/dist/images/nav-dlo@2x.png 2x" width="94" height="70" alt="Passionate Bulkboek Shop">
