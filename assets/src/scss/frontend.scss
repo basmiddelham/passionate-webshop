@@ -39,6 +39,6 @@
 @import "woocommerce/woocommerce";
 
 // Temp hack to hide ticket products:
-.woocommerce .product.virtual {
+.woocommerce.woocommerce-shop:not(.logged-in) .product.virtual {
   display: none;
 }
