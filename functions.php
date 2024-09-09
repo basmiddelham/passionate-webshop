@@ -429,7 +429,7 @@ add_action('init', function() {
 
 function add_shop_manager_ticket_capabilities() {
     $role = get_role('shop_manager');
-    
+
     // Capabilities to manage events and tickets
     $role->add_cap('edit_event_tickets');
     $role->add_cap('edit_tribe_events');
@@ -447,7 +447,8 @@ function add_shop_manager_ticket_capabilities() {
     $role->add_cap('delete_tribe_tickets');
     $role->add_cap('delete_published_tribe_tickets');
     $role->add_cap('delete_others_tribe_tickets');
-    
+    $role->add_cap('tribe_manage_attendees');
+
     // Capabilities related to WooCommerce if needed
     $role->add_cap('edit_products');
     $role->add_cap('manage_woocommerce');
