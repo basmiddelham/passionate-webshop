@@ -454,3 +454,12 @@ function add_shop_manager_ticket_capabilities() {
     $role->add_cap('manage_woocommerce');
 }
 add_action('init', 'add_shop_manager_ticket_capabilities');
+
+/**
+ * Change font to prevent conflict with Event Tickert Plus plugin
+ */
+function change_invoice_font($styles) {
+	$styles['family'] = 'helvetica';
+	return $styles;
+}
+add_filter('woo_pdf_styles', 'change_invoice_font');
