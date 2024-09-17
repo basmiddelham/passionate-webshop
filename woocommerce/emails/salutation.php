@@ -5,9 +5,11 @@
  * @package strt
  */
 
-$strt_gender = get_post_meta( $order->get_id(), '_billing_salutation', true );
-$strt_name   = $order->get_billing_last_name();
-$strt_aanhef = ( 'male' === $strt_gender ) ? 'heer' : 'mevrouw';
+$strt_gender      = get_post_meta( $order->get_id(), '_billing_salutation', true );
+$strt_middle_name = get_post_meta( $order->get_id(), '_billing_middle_name', true );
+$strt_name        = $order->get_billing_last_name();
+$full_name        = ( $strt_middle_name ) ? $strt_middle_name . ' ' . $strt_name : $strt_name;
+$strt_aanhef      = ( 'male' === $strt_gender ) ? 'heer' : 'mevrouw';
 
 if ( ! empty( $strt_gender ) ) {
 	$strt_aanhef = ( 'male' === $strt_gender ) ? 'heer' : 'mevrouw';
@@ -15,7 +17,7 @@ if ( ! empty( $strt_gender ) ) {
 	$strt_aanhef = 'heer/mevrouw';
 }
 
-$strt_opening = 'Geachte ' . $strt_aanhef . ' ' . $strt_name . ',';
+$strt_opening = 'Geachte ' . $strt_aanhef . ' ' . $full_name . ',';
 
 ?>
 <p><?php echo esc_attr( $strt_opening ); ?></p>

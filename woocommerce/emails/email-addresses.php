@@ -15,6 +15,7 @@
  * @version 8.6.0
  * 
  * Edit: Change address fields to allow street and house number to be on one line
+ * Edit: Add billing_middle_name field
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
