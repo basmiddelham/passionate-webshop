@@ -29,17 +29,28 @@
 <?php do_action( 'wpo_wcpdf_before_document_label', $this->get_type(), $this->order ); ?>
 
 <?php if ( $this->has_header_logo() ) : ?>
-	<h1 class="document-type-label"><?php $this->title(); ?></h1>
+	<h1 class="document-type-label" style="padding-top: 3rem;"><?php $this->title(); ?></h1>
 <?php endif; ?>
-
 <?php do_action( 'wpo_wcpdf_after_document_label', $this->get_type(), $this->order ); ?>
 
 <table class="order-data-addresses">
 	<tr>
 		<td class="address billing-address">
-			<!-- <h3><?php _e( 'Billing Address:', 'woocommerce-pdf-invoices-packing-slips' ); ?></h3> -->
+			<h3><?php _e( 'Billing Address:', 'woocommerce-pdf-invoices-packing-slips' ); ?></h3>
 			<?php do_action( 'wpo_wcpdf_before_billing_address', $this->get_type(), $this->order ); ?>
-			<p><?php $this->billing_address(); ?></p>
+
+			<!-- Edit -->
+			<!-- <p><?php $this->billing_address(); ?></p> -->
+			<?php echo get_post_meta( $order->get_id(), '_billing_company', true ); ?><br>
+			<?php echo get_post_meta( $order->get_id(), '_billing_first_name', true ); ?>
+			<?php echo get_post_meta( $order->get_id(), '_billing_middle_name', true ); ?>
+			<?php echo get_post_meta( $order->get_id(), '_billing_last_name', true ); ?><br>
+			<?php echo get_post_meta( $order->get_id(), '_billing_address_1', true ); ?>
+			<?php echo get_post_meta( $order->get_id(), '_billing_address_2', true ); ?><br>
+			<?php echo get_post_meta( $order->get_id(), '_billing_postcode', true ); ?>
+			<?php echo get_post_meta( $order->get_id(), '_billing_city', true ); ?>
+			<!-- Edit -->
+
 			<?php do_action( 'wpo_wcpdf_after_billing_address', $this->get_type(), $this->order ); ?>
 			<?php if ( isset( $this->settings['display_email'] ) ) : ?>
 				<div class="billing-email"><?php $this->billing_email(); ?></div>
@@ -52,7 +63,19 @@
 			<?php if ( $this->show_shipping_address() ) : ?>
 				<h3><?php _e( 'Ship To:', 'woocommerce-pdf-invoices-packing-slips' ); ?></h3>
 				<?php do_action( 'wpo_wcpdf_before_shipping_address', $this->get_type(), $this->order ); ?>
-				<p><?php $this->shipping_address(); ?></p>
+
+				<!-- Edit -->
+				<!-- <p><?php $this->shipping_address(); ?></p> -->
+				<?php echo get_post_meta( $order->get_id(), '_shipping_company', true ); ?><br>
+				<?php echo get_post_meta( $order->get_id(), '_shipping_first_name', true ); ?>
+				<?php echo get_post_meta( $order->get_id(), '_shipping_middle_name', true ); ?>
+				<?php echo get_post_meta( $order->get_id(), '_shipping_last_name', true ); ?><br>
+				<?php echo get_post_meta( $order->get_id(), '_shipping_address_1', true ); ?>
+				<?php echo get_post_meta( $order->get_id(), '_shipping_address_2', true ); ?><br>
+				<?php echo get_post_meta( $order->get_id(), '_shipping_postcode', true ); ?>
+				<?php echo get_post_meta( $order->get_id(), '_shipping_city', true ); ?>
+				<!-- Edit -->
+
 				<?php do_action( 'wpo_wcpdf_after_shipping_address', $this->get_type(), $this->order ); ?>
 				<?php if ( isset( $this->settings['display_phone'] ) ) : ?>
 					<div class="shipping-phone"><?php $this->shipping_phone(); ?></div>
