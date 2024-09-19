@@ -43,7 +43,22 @@ add_filter( 'woocommerce_checkout_fields', 'strt_checkout_fields' );
  * Display custom field value on the order edit page
  */
 function strt_checkout_field_display_admin_order_meta( $order ) {
-	echo '<p><strong>Inkoopordernummer:</strong> ' . get_post_meta( $order->get_id(), '_billing_po_code', true ) . '</p>';
+	$order_nr = get_post_meta( $order->get_id(), '_billing_po_code', true );
+	$middle_name = get_post_meta( $order->get_id(), '_billing_middle_name', true );
+	$gender = get_post_meta( $order->get_id(), '_billing_salutation', true );
+
+	if ( ! empty( $order_nr ) ) {
+		echo '<div><strong>Inkoopordernummer:</strong> ' . get_post_meta( $order->get_id(), '_billing_po_code', true ) . '</div>';
+	}
+	if ( ! empty( $middle_name ) ) {
+		echo '<div><strong>Tussenvoegsel:</strong> ' . get_post_meta( $order->get_id(), '_billing_middle_name', true ) . '</div>';
+	}
+	if ( ! empty( $gender ) ) {
+		$salutation = ( 'male' === $gender ) ? 'heer' : 'mevrouw';
+	} else {
+		$salutation = 'heer/mevrouw';
+	}
+	echo '<div><strong>Aanhef:</strong> ' . $salutation . '</div>';
 }
 add_action( 'woocommerce_admin_order_data_after_shipping_address', 'strt_checkout_field_display_admin_order_meta', 10, 1 );
 
