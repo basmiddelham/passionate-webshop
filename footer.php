@@ -30,7 +30,6 @@
 			<div class="socket-logos">
 				<div class="socket-logo"><a target="_blank" href="https://passionatebulkboek.nl" class="logo-pb"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-pb', 130 ) ); ?></a></div>
 				<div class="socket-logo"><a target="_blank" href="https://annablamanprijs.nl" class="logo-ab"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-ab', 55 ) ); ?></a></div>
-				<div class="socket-logo"><a target="_blank" href="https://dagvandeliteratuur.nl" class="logo-dvdl"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-dvdl', 55 ) ); ?></a></div>
 				<div class="socket-logo"><a target="_blank" href="https://dagvanhetliteratuuronderwijs.nl" class="logo-dlo"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-dlo', 55 ) ); ?></a></div>
 				<div class="socket-logo"><a target="_blank" href="https://inktaap.nl" class="logo-ia"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-ia', 60 ) ); ?></a></div>
 				<div class="socket-logo"><a target="_blank" href="https://erwaseens.nu" class="logo-ewe"><?php echo wp_kses_post( strt_get_icon_svg( 'ui', 'logo-ewe', 55 ) ); ?></a></div>
